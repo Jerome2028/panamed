@@ -8,7 +8,7 @@
       </div>
       <div class="col-lg-6">
         <form action="" method="post">
-          <input type="email" name="email"><input type="submit" value="Subscribe">
+          <input type="email" name="email" placeholder="yourEmail@email.com"><input type="submit" value="Subscribe">
         </form>
       </div>
     </div>
@@ -58,7 +58,7 @@
         <h4>Connect with Us</h4>
         <p>
         Tel:  +63 2 8559 9558<br>
-        Fax:  +63 2 8820 9780<br>
+        <!-- Fax:  +63 2 8820 9780<br> -->
         info@panamed.com.ph<br>
         </p>
         <div class="social-links mt-3">

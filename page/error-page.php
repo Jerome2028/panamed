@@ -9,7 +9,9 @@ require_once 'component/navbar.php';
           <?php (require_once 'component/navbar.php'); ?>
           <section class="not-found">
             <div class ="container">
-          <center><h1>404 - Page not found</h1>
+          <center>
+            <img src ="<?=$BASE;?>assets/img/404.png" class="w-25 img-responsive">
+            <h1>404 - Page not found</h1>
         <p class="mt-2 text-center">Oh dear, this link isn’t working. Don't worry, you can find lots about us in our <a href="<?= $BASE; ?>"><span class="panamed-color">homepage.</span></a></p></center>
             </div>    
       </section>

@@ -75,7 +75,34 @@
   }
 
   $(window).on("load",function(){
-    $(".loader").fadeOut("slow");
+    $(".custom-loader").fadeOut("slow");
+});
+
+
+new Swiper('.testimonials-slider', {
+  speed: 600,
+  loop: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false
+  },
+  slidesPerView: 'auto',
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+
+    1200: {
+      slidesPerView: 3,
+      spaceBetween: 20
+    }
+  }
 });
 
   /**
@@ -164,10 +191,9 @@
     /**
    * Initiate portfolio lightbox 
    */
-    const portfolioLightbox = GLightbox({
-      selector: '.portfolio-lightbox'
-    });
-  
+    var myLightbox = GLightbox({
+      selector: '.awards-preview' 
+  });
     /**
      * Portfolio details slider
      */
@@ -210,7 +236,26 @@
    */
   new PureCounter();
 
-
-
+  $( document ).ready(function() {
+    $(".input-login").each(function() { 
+      if ($(this).val() != "") {
+        $(this).parent().addClass("animation");
+      }
+    });
+  });
+  
+  //Add animation when input is focused
+  $(".login-input").focus(function(){
+    $(this).parent().addClass("animation animation-color");
+  });
+  
+  //Remove animation(s) when input is no longer focused
+  $(".login-input").focusout(function(){
+    if($(this).val() === "")
+      $(this).parent().removeClass("animation");
+    $(this).parent().removeClass("animation-color");
+  })
 })()
+
+
 

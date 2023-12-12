@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
               <div class ="col-md-6">
-                <img src="<?=$BASE;?>assets/img/iso_cert/iso_cert.jpg" class="w-75 p-3">
+              <a href="<?=$BASE;?>assets/img/iso_cert/iso_cert.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/iso_cert.jpg" class="w-75 p-3"></a>
               </div>
 
               <div class="col-md-6">
@@ -28,19 +28,19 @@
               </div>
               <div class="row">
               <div class="col-lg-4 mb-4 mb-lg-0 p-1">
-                <img src="<?=$BASE;?>assets/img/iso_cert/certificate6.jpg" class="w-100 img-fluid">
-                <img src="<?=$BASE;?>assets/img/iso_cert/certificate4.jpg" class="w-100 img-fluid">
-                <img src="<?=$BASE;?>assets/img/iso_cert/certificate7.jpg" class="w-100 img-fluid">
+                <a href="<?=$BASE;?>assets/img/iso_cert/certificate6.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/certificate6.jpg" class="w-100 img-fluid"></a>
+                <a href="<?=$BASE;?>assets/img/iso_cert/certificate4.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/certificate4.jpg" class="w-100 img-fluid"></a>
+                <a href="<?=$BASE;?>assets/img/iso_cert/certificate7.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/certificate7.jpg" class="w-100 img-fluid"></a>
             </div>
             <div class="col-lg-4 mb-4 mb-lg-0 p-1">
-                <img src="<?=$BASE;?>assets/img/iso_cert/certificate8.jpg" class="w-100 img-fluid">
-                <img src="<?=$BASE;?>assets/img/iso_cert/certificate3.jpg" class="w-100 img-fluid">
-                <img src="<?=$BASE;?>assets/img/iso_cert/certificate9.jpg" class="w-100 img-fluid">
-                <img src="<?=$BASE;?>assets/img/iso_cert/certificate_1.jpg" class="w-100 img-fluid">
+                <a href="<?=$BASE;?>assets/img/iso_cert/certificate8.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/certificate8.jpg" class="w-100 img-fluid"></a>
+                <a href="<?=$BASE;?>assets/img/iso_cert/certificate3.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/certificate3.jpg" class="w-100 img-fluid"></a>
+                <a href="<?=$BASE;?>assets/img/iso_cert/certificate9.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/certificate9.jpg" class="w-100 img-fluid"></a>
+                <a href="<?=$BASE;?>assets/img/iso_cert/certificate_1.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/certificate_1.jpg" class="w-100 img-fluid"></a>
             </div>
             <div class="col-lg-4 mb-4 mb-lg-0 p-1">
-                <img src="<?=$BASE;?>assets/img/iso_cert/certificate2.jpg" class="w-100 img-fluid">
-                <img src="<?=$BASE;?>assets/img/iso_cert/certificate5.jpg" class="w-100 img-fluid">
+                <a href="<?=$BASE;?>assets/img/iso_cert/certificate2.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/certificate2.jpg" class="w-100 img-fluid"></a>
+                <a href="<?=$BASE;?>assets/img/iso_cert/certificate5.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/certificate5.jpg" class="w-100 img-fluid"></a>
             </div>
               </div>
             </div>
