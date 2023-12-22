@@ -4,13 +4,23 @@
     <div class="row">
       <div class="col-lg-6">
         <h4>Our Newsletter</h4>
-        <p>Subscribe Our Newsletter & Join US.</p>
+        <p class="text-white">Subscribe Our Newsletter & Join US.</p>
       </div>
       <div class="col-lg-6">
-        <form action="" method="post">
-          <input type="email" name="email" placeholder="yourEmail@email.com"><input type="submit" value="Subscribe">
+        <form action="controller/controller.form.php?mode=email" method ="POST" class="email">
+          <input type="email" name="femail" placeholder="yourEmail@email.com">
+          <input type="submit" value="Subscribe" data-action='Subscribe' onclick='subscribe()'>
+          <!-- <script>
+            function subscribe(token) {
+                $(".email").trigger('submit');
+            }
+          </script> -->
+           <script src="assets/js/footer-mail.js"></script>
         </form>
+       
+  
       </div>
+ 
     </div>
   </div>
 </div>
@@ -83,8 +93,8 @@
 <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
+<!-- <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script> -->
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>

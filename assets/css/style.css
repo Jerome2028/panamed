@@ -227,16 +227,12 @@ h6,
   content: '';
   display: block;
   position: absolute;
-  /* bottom: 0px;
-  left: 5px;
-  height: 2px;
-  width: 100%; */
   bottom: 0px;
   left: 10px;
   height: 2px;
   width: 85%;
   background-color: #4fa6d5;
-  transform-origin: right top;
+  transform-origin: left top;
   transform: scale(0, 1);
   transition: color 0.3s,transform 0.4s ease-out;
 }
@@ -246,6 +242,11 @@ h6,
 .navbar a:hover::before,.navbar a:focus::before {
   transform-origin: left top;
   transform: scale(1, 1);
+  overflow: hidden!important;
+}
+.navbar .btn-get-started:hover::before,.navbar .btn-get-started:focus::before {
+  transform-origin: none!important;
+  transform: scale(0, 0)!important;
 }
 
 .navbar a i,
@@ -266,7 +267,7 @@ h6,
 .navbar .active{
   font-weight: 700;
   border-bottom: 2px solid #4fa6d5;
-  width: 85%;
+  width: 100%;
 
   /* padding: 10px 15px; */
 }
@@ -283,6 +284,8 @@ h6,
   background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
+  width: 100%;
+  overflow: hidden!important;
 }
 
 .navbar .dropdown ul li {
@@ -303,7 +306,7 @@ h6,
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #000000;
+  color: #68a4c4;
 }
 
 .navbar .dropdown:hover>ul {
@@ -748,11 +751,9 @@ section {
 .breadcrumbs img{
   display: block;
   width: 100%;
+  /* width: 2000px; */
   height: auto;
 }
-/* .spacer{
-  margin-top: 5rem;
-} */
 
 .breadcrumbs h2 {
   font-size: 3rem;
@@ -1521,12 +1522,6 @@ section {
 /*--------------------------------------------------------------
 # Trusted-by-healtcare
 --------------------------------------------------------------*/
-.trusted {
-
-  /* background-color: #ffffff;
-  padding:30px 0px 0px 0px!important;
-  box-shadow: 0 5px 26px 0 rgba(68, 88, 144, 0.14); */
-}
 
 .trusted {
   /* padding: 15px 0; */
@@ -1550,6 +1545,39 @@ section {
   .trusted img {
     max-width: 40%;
   }
+}
+/*--------------------------------------------------------------
+# Careers
+--------------------------------------------------------------*/
+.accordion-button,.accordion-body {
+  color: #808080!important;
+  font-size: 14px;
+}
+.accordion-button {
+  background-color: transparent!important;
+}
+.accordion-button:focus {
+  border-color:transparent!important;
+  box-shadow: none!important;
+}
+.accordion-button:not(.collapsed) {
+  background-color: transparent!important;
+}
+.title{
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.btn-get-started{
+  background-color: #68A4C4;
+  padding: 10px 20px;
+  border-radius: 0px!important;
+  margin: 0px!important;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  transition: 0.4s;
+  color: #ffffff;
+  font-weight: 700;
 }
 /*--------------------------------------------------------------
 # News-Events
@@ -1797,7 +1825,6 @@ section {
   margin: 0px!important;
   -webkit-animation-delay: 0.8s;
   animation-delay: 0.8s;
-
   transition: 0.4s;
   color: #ffffff;
   font-weight: 700;
@@ -1881,6 +1908,12 @@ section {
     padding:8px 15px!important;
     font-size: 14px;
     margin: 0px;
+  }
+    .lh-office {
+      line-height: 1.8 !important;
+  }
+  hr.dashed {
+    border-top: 2px dashed #808080;
   }
 /*--------------------------------------------------------------
 # Footer

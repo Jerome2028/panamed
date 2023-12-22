@@ -51,7 +51,7 @@ require_once 'component/banner.php';
       <div class="container">
         <div class="row">
           <div class="col-md-6">        
-            <img src ="<?=$BASE;?>assets/img/Panamed_Map.jpg" class="w-75 test">
+            <img src ="<?=$BASE;?>assets/img/Panamed_Map.jpg" class="w-75">
          </div>
 
          <div class="col-md-6">
@@ -108,12 +108,3 @@ require_once 'component/banner.php';
     <?php include_once 'component/footer.php';?>
   </main>
   <script>
-    $(document).ready(function() {
-    function zoom(){
-    $('.test').click(function() {
-      $('#container').css({'width': '100px', 'height': 'auto'});
-    });
-
-  }
-});
-  </script>

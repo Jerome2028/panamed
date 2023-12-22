@@ -21,8 +21,9 @@ $mail->SMTPOptions = array(
     )
 );
 $mail->IsHTML(true);
-$mail->Username = "didingbeauty@gmail.com";
+$mail->Username = ("didingbeauty@gmail.com");
+$mail->FromName = 'No Reply';
 $mail->Password = "hfqsnnwxntcowsnb";
-$mail->SetFrom("didingbeauty@gmail.com", "");
+$mail->SetFrom("didingbeauty@gmail.com", "no-reply");
 
 $mail->isHTML(true);

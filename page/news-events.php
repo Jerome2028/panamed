@@ -15,7 +15,7 @@
   <section class="news-events section-bg">
     <div class="container">
     <?php require_once 'page/news-card.php';?>
-      <div class="row mb-5" style="display:<?= (isset($_GET["conventions"])) || (isset($_GET["gastroenterology"])) || (isset($_GET["operating-Room"]))  ? "block!important" : ""?>">
+      <div class="row mb-5" style="display:<?= (isset($_GET["conventions"])) || (isset($_GET["gastroenterology"])) || (isset($_GET["operating-Room"]))  ? "none!important" : ""?>">
         <div class="col-md-6 d-flex align-items-stretch" >
           <div class="card p-5 m-3">
             <h5 class="panamed-color">This year, Panamed Philippines will be joining the following conventions:</h5>
@@ -48,7 +48,7 @@
                 <span class="badge bg-lighter ms-2">2023-06-30</span>
               </div>
               <p>Operating Room Nurses Association of the Philippines, Annual Convention</p>
-              <a href="http://localhost/panamed/news-events/?operating-Room" class="btn-get-started  w-25" name="<?$eventTwo;?>">Read More &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="http://localhost/panamed/news-events/?operating-Room" class="btn-get-started w-25" name="<?$eventTwo;?>">Read More &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -58,11 +58,12 @@
         </div>
     </div>
   </section>
-  <section class="trusted" data-aos="fade-up" data-aos-delay="100" data-aos-delay="fade-up">
+  
+  <section class="trusted d-block" data-aos="fade-up" data-aos-delay="100" data-aos-delay="fade-up">
     <div class="container">
     <p class ="text-center title">Trusted by healthcare professionals since 1995</p>
 
-    <div class="row d-flex justify-content-center">
+    <div class="row justify-content-center">
 
       <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
         <img src="assets/img/hospitals/east.png" class="img-fluid" alt="">

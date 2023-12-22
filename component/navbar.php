@@ -21,8 +21,9 @@
           <li><a class="nav-link <?= $page==4 ? "active" : ""?>" href="<?=$BASE;?>products">Products</a></li>
           <li><a class="nav-link <?= $page==5 ? "active" : ""?>" href="<?=$BASE;?>brochures">Brochures</a></li>
           <li><a class="nav-link <?= $page==6 ? "active" : ""?>" href="<?=$BASE;?>contact-us">Contact Us</a></li>
-          <a href="https://panamed.com.ph/shop/" class="btn-get-started cart-header"><i class="bx bx-cart"></i></box-icon> Shop Now</a>
+          
         </ul>
+        <a href="https://panamed.com.ph/shop/" class="btn-get-started"><i class="bx bx-cart me-1"></i></box-icon> Shop Now</a>
 
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

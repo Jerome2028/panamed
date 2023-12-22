@@ -27,10 +27,11 @@ if ($name == ""){
     echo "Name required";
     die();
 }
-require "template/appointment.php";
+require "template/contact.php";
 
 $mail->Subject = 'Contact Form';
 $mail->AddAddress("didingbeauty@gmail.com");
+// $mail->FromName = 'No Reply';
 $mail->Body = $htmlMessage;
 
 if(!$mail->Send()) {
@@ -39,6 +40,42 @@ if(!$mail->Send()) {
 }
 
 echo "Action Complete";
+die();
+
+break;
+
+case 'email':
+    $news = array('femail');
+    foreach ( $news as $newsfield ) {
+        if(!isset($_POST[$newsfield]) || empty(trim($_POST[$newsfield]))) {
+            echo 'Please fill Email';
+            die();
+}
+
+${$newsfield} = htmlentities($_POST[$newsfield]);
+}
+
+if ($femail == "") {
+echo "Email required!";
+die();
+}
+
+
+require "template/newsletter.php";
+
+$mail->Subject = 'Newsletter';
+
+$mail->AddAddress("didingbeauty@gmail.com");
+$mail->AddAddress("jeromerivera1128@gmail.com");
+$mail->AddAddress($femail);
+$mail->Body = $htmlMessage;
+
+if(!$mail->Send()) {
+echo "Mailer Error: " . $mail->ErrorInfo;
+die();
+}
+
+echo "Email Sent";
 die();
 
 break;

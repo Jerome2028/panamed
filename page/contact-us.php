@@ -72,132 +72,107 @@
               <p>type <span class="captcha"><?php echo $captcha; ?></span> on the field below inorder to prove us that you are human</p>
               <input required type="hidden" name="ppi_captcha" value="<?php echo $captcha; ?>">
               <input required type="text" class="form-control mb-4 mt-3" name="input_captcha" id="" placeholder="<?php echo $captcha; ?>">
-              <a class="btn-get-started" type="button" data-action='submit' onclick='contactus()'>Submit</a>
+              <a class="btn-get-started" type="button" data-action='submit' onclick='onSubmit()'>Submit</a>
             </div>
           </div>
           <script>
-            function contactus(token) {
-                $("#contact-us").trigger('submit');
+            function onSubmit(token) {
+                $(".contact").trigger('submit');
             }
           </script>
         </div>
               <script src="assets/js/form.js"></script>
         </form>
         </div>
-      </div>    
-  </section>
-  <script>
-    $(function() {
-    $(".contact").on("submit", function(e) {
+          </section>
+          <section>
+            <div class="container">
+              <p class ="fw-bold">Main Office:</p>
+              <p class="lh-office">488 G. Araneta Avenue,<br>
+              corner Del Monte Avenue<br>
+              Brgy. Sienna, Quezon City 1114<br>
+              Philippines<br>
+              (Beside the BPI bank) </p>
+              <p class="lh-office">
+              <b>Telephone:</b> +63 2 8559 9558<br>
+              <b>Mobile:</b> +63 917 8066683<br>
+              <b>Fax:</b> +63 2 8820 9780<br>
+              <b>Email:</b> <a class="panamed-font fw-bold" href="mailto:info@panamed.com.ph">info@panamed.com.ph</a>
+              </p>
+              <hr class="dashed">
 
-        e.preventDefault();
+              <p class ="fw-bold">Pampanga:</p>
+              <p class="lh-office">Unit 1 , 2nd Floor RGM Building , B. Mendoza St., Brgy Sto Rosario , San Fernando , Pampanga<br> </p>
+              <p class="lh-office">
+              <b>Telephone:</b>(45) 963-7985<br>
+              <b>Fax:</b>(45) 435-1194<br>
+              </p>
+              <hr class="dashed">
 
-        var error = false; var message = '';
-     
-        var ppi_captcha = $(this).find("input[name='ppi_captcha']").val();
-        var input_captcha = $(this).find("input[name='input_captcha']").val();
-        var name = $(this).find("input[name=name]").val();
-        var cp = $(this).find("input[name=cp]").val();
-        var message = $(this).find("input[name=message]").val();
-        var email = $(this).find("input[name=email]").val();
-        
-        if (ppi_captcha != input_captcha) {
-            error = true;
-            message = 'Please Retype the captcha correctly';
-        }
-        if (name== "" )||cp== "" || message == ""{
-          error = true;
-          message = 'Please enter Required value';
-        }
-        if (email == "") {
-            error = true;
-            message = 'Email Required';
-        }
+              <p class ="fw-bold">Laguna:</p>
+              <p class="lh-office">Room 403 Dan Hedan Bldg., Brgy. 1 Crossing, Calamba Laguna<br> </p>
+              <p class="lh-office">
+              <b>Telephone:</b>(49) 545-4249<br>
+              <b>Fax:</b>(49) 545-4250</p>
+              <hr class="dashed">
 
-        if (error) {
-          const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          }
-        });
-        Toast.fire({
-          icon: "error",
-          title: message
-        });
-            return
-        }
+              <p class ="fw-bold">Iloilo:</p>
+              <p class="lh-office">3rd Floor Golden Commercial Center Iznart St., Iloilo City<br> </p>
+              <p class="lh-office">
+              <b>Telephone:</b>(33) 338-2522<br>
+              <b>Fax:</b>(33) 335-0825<br>
+              </p>
+              <hr class="dashed">
 
-        $(".contact, body").css({
-            opacity: "0.5",
-            cursor: "wait"
-        });
+              <p class ="fw-bold">Bacolod:</p>
+              <p class="lh-office">Room 203 2nd Floor JL Bldg., Burgos St. Brgy 19, Bacolod City<br> </p>
+              <p class="lh-office">
+              <b>Telephone:</b>(34) 458-3139<br>
+              <b>Fax:</b>(34) 458-31395<br>
+              </p>
+              <hr class="dashed">
 
-        var $inputs = $(this).find("input, select, button, textarea");
-        var action = $(this).attr("action");
-        var type = $(this).attr("method");
-        var formData = new FormData(this);
+              <p class ="fw-bold">Cebu:</p>
+              <p class="lh-office">A-2 J. King and Son's Warehouse, Complex Holy Name St., Mabolo, Cebu City<br> </p>
+              <p class="lh-office">
+              <b>Telephone:</b> (32) 231-5175<br>
+              <b>Fax:</b>(32) 238-3878<br>
+              </p>
+              <hr class="dashed">
 
-        $inputs.prop("disabled", true);
-        window.onbeforeunload = function() {
-            return "Are you sure you want to navigate away from this page?";
-        };
-    
-        $.ajax({
-            url: action,
-            type: type,
-            data: formData,
-            success: function(data) {
-            var responseVal = jQuery.parseJSON(data);
-                
-                window.onbeforeunload = null;
+              <p class ="fw-bold">Cagayan De Oro:</p>
+              <p class="lh-office">Unit 8, 2nd Floor Montblanc Bldg., No. 848 Burgos-Chaves St., Cagayan de Oro<br> </p>
+              <p class="lh-office">
+              <b>Telephone:</b>(8822) 721-011<br>
+              <b>Fax:</b>(88) 856-4983<br>
+              </p>
+              <hr class="dashed">
 
-                $(".contact, body").css({
-                    opacity: "1",
-                    cursor: "auto"
-                });
+              <p class ="fw-bold">Davao:</p>
+              <p class="lh-office">Unit 8, 2nd Floor Montblanc Bldg., No. 848 Burgos-Chaves St., Cagayan de Oro<br> </p>
+              <p class="lh-office">
+              <b>Telephone:</b>(82) 295-6118<br>
+              <b>Fax:</b>(82) 295-3924<br>
+              </p>
+              <hr class="dashed">
 
-                $inputs.prop("disabled", false);
-                $(":submit").val("submit");
+              <p class ="fw-bold">Zamboanga:</p>
+              <p class="lh-office">Unit 3, 2nd Floor Jazmin Tower, Mayor Jaldon St. Zamboanga City<br> </p>
+              <p class="lh-office">
+              <b>Telephone:</b>(62) 955-8767<br>
+              <b>Fax:</b>(62) 955-8767<br>
+              </p>
+              <hr class="dashed">
 
-                const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.onmouseenter = Swal.stopTimer;
-                  toast.onmouseleave = Swal.resumeTimer;
-                }
-              });
-              Toast.fire({
-                icon: "success",
-                title: "Signed in successfully"
-              });
-                
-                $inputs.val("");
+              <p class ="fw-bold">La Union:</p>
+              <p class="lh-office">No. 15 South Quezon Avenue, National Highway, Catbangen, San Fernando, La Union<br> </p>
 
-                if(data.toLowerCase().trim() == "action complete") {
-                    console.log('success');
-                    window.location.href = "thank_you.php";
-                    return
-                }
+              
 
-            },
-            cache: false,
-            contentType: false,
-            processData: false
-        });
-    
-});
-});
-  </script>
+
+
+            </div>
+          </section>    
     <?php include_once 'component/footer.php';?>
 
   </main>

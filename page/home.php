@@ -519,6 +519,21 @@ require_once 'component/navbar.php';
         el: ".swiper-pagination",
         clickable: true
       },
+      breakpoints: {  
+    '320': {
+      slidesPerView: 1,
+      spaceBetween: 20,},
+    '420': {
+    slidesPerView: 2,
+    spaceBetween: 20,},
+    '640': {
+      slidesPerView: 3,
+      spaceBetween: 30, },
+    '960': {
+    slidesPerView: 4,
+    spaceBetween: 20, },
+  },
+  
       navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",

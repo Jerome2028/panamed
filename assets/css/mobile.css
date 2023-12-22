@@ -1,0 +1,193 @@
+@media (max-width: 960px) {
+    .mobile-nav-toggle {
+        padding-left: 20px;
+    }
+}
+@media (max-width: 1024px) {
+    section {
+        padding: 40px 0;
+    }
+    .navbar .active {
+        width: 90%;
+    }
+    .why-us .video-box img {
+        padding: 60px 15px 60px 15px;
+    }
+    .why-us .icon-box .icon,.core-values .icon  {
+        width: 65px;
+        height: 65px;    
+    }
+    .why-us .icon-box .title {
+        margin-top: 2rem;
+    }
+    .why-us .icon-box .mt-4 {
+        margin-top: 4rem!important;
+    }
+    .why-us .icon-box+.icon-box {
+        margin-top: 30px;
+    }
+    .core-values .icon i {
+        font-size: 30px;
+    }
+    .core-values .icon-box {
+        padding: 16px;
+        height: 35vh;
+    }
+    .news-events .card  .w-25{
+        width: 50%!important;
+    }
+    .breadcrumbs .overlay-txt {
+        padding: 10px 85px;
+    }
+}
+@media (max-width: 768px) {
+    section {
+        padding: 20px 0;
+    }
+    .mobile-nav-toggle {
+        padding-left: 20px;
+    }
+    .btn-get-started {
+        transition: 0.0s!important;
+
+    }
+    .portfolio .portfolio-wrap .portfolio-info h4 {
+        font-size: 16px;
+    }    
+    .news-events .card .w-25 {
+        width: 75%!important;
+    }
+    .breadcrumbs li a, .breadcrumbs li  {
+        font-size: 14px;
+    }
+    .breadcrumbs h2 {
+        font-size: 1.5rem;
+    }
+    .navbar a, .navbar a:focus {
+        color: #808080;
+    }
+    .navbar-mobile a:hover::before,.navbar-mobile:focus::before {
+        transform-origin: none!important;
+        transform: scale(0, 0)!important;
+    }
+    .navbar .active {
+        border-bottom: 0px solid #4fa6d5!important;
+    }
+    #hero p {
+        width: 80%;
+    }
+    .about h3 {
+        font-size: 20px;
+    }
+    .about .font-blue, .facts .font-blue, .awards .font-blue {
+        color: #4fa6d5;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .awards .w-100{
+            width: 75% !important;
+    }
+    .why-us .video-box img {
+        padding: 80px 25px 80px 25px;
+    }
+    .title {
+        font-size: 1.1rem;
+    }
+    .btn-get-started {   
+        padding: 10px 15px;
+    }
+    .trusted img {
+        max-width: 30%;
+    }
+    .core-values .icon-box {
+        padding: 16px;
+        height: 33vh;
+    }
+}
+    @media (max-width: 425px) {
+    .why-us .video-box img {
+        padding: 80px 25px 30px 25px;
+    }
+    .services .btn-get-started, #navbar .btn-get-started, .contact-us .btn-get-started {
+        padding: 10px 10px!important;
+        font-size: 12px;
+    }
+    .core-values .title, .trusted .title, .portfolio .title {
+        font-size: 1rem;
+    }
+    .portfolio .btn-get-started, .news-events .btn-get-started {
+        padding: 10px 15px;
+    }
+    .breadcrumbs {
+        padding: 80px  0px 0px 0px;
+    }
+    .breadcrumbs h2 {
+        font-size: 2.5rem;
+    }
+    .breadcrumbs img {
+        filter: blur(8px);
+        -webkit-filter: blur(25px);
+        height: 20vh;
+    }
+    .breadcrumbs .overlay-txt {
+        padding: 100px;
+        text-align: center;
+    }
+    .breadcrumbs h2 {
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
+    }
+    .toastify {
+        padding: 12px 12px!important;
+    }
+    .other-features .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+        bottom: 0px!important;
+    }
+    #footer .footer-newsletter {
+        padding: 40px 15px;
+    }
+    #footer .footer-newsletter form {
+        border-radius: 10px;
+    }
+    #footer .footer-newsletter form input[type=submit] {
+        border-radius: 10px;
+        margin-top: 5px;
+        padding: 3px 10px;
+        top: 1px;
+    }
+    #footer .footer-top {
+        padding: 60px 20px 15px 15px;
+    }
+}
+@media (max-width: 375px) {
+    .mobile-nav-toggle {
+        padding-left: 7px;
+    }
+    #header .logo img {
+        max-height: 25px;
+    }
+    .services .btn-get-started, #navbar .btn-get-started, .contact-us .btn-get-started {
+        padding: 8px 8px!important;
+    }
+    .toastify-left, .toastify-right {
+        left: 190px!important;
+        white-space: nowrap;
+    }
+    .breadcrumbs h2 {
+        font-size: 1.8rem;
+    }    
+
+}
+@media (max-width: 320px) {
+    .breadcrumbs .overlay-txt {
+        padding: 20px 80px;
+    }
+    .breadcrumbs h2 {
+    font-size: 1.6rem;
+    }
+    .toastify-left, .toastify-right {
+        left: 160px!important;
+        white-space: nowrap
+    }
+}

@@ -4,7 +4,7 @@ class Utility {
 
     public static function getBase(){
          return 'http://localhost/panamed/';
-         return "https://panamed.com.ph/dev/panamed/";
+        //  return "https://panamed.com.ph/dev/panamed/";
     }
    public static function generateRandomString($length = 5) {
         $characters = '0123456789abcdefghkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -15,6 +15,4 @@ class Utility {
         }
         return $randomString;
     }
- 
-
 }

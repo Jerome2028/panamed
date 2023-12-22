@@ -130,7 +130,7 @@ $htmlMessage = '
                 <table width="100%" cellpadding="0" cellspacing="0" style="min-width:100%;">
                     <tr>
                         <td style="background-color:#FFFFFF;color:#000000;padding:30px;">
-                            <img alt="Inmed Corporation" src="https://panamed.com.ph/dev/panamed/assets/img/logo.png" width="190" style="display: block; margin: auto" />
+                            <img alt="Panamed Philippines Inc." src="https://panamed.com.ph/dev/panamed/assets/img/logo.png" width="190" style="display: block; margin: auto" />
                         </td>
                     </tr>
                 </table>
@@ -146,22 +146,13 @@ $htmlMessage = '
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">Name:</td>
-                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">'. $name .'</td>
-                                    </tr>
+                         
                                     <tr>
                                         <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">Email:</td>
-                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">'. $email . '</td>
+                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">'. $femail . '</td>
                                     </tr>
-                                    <tr>
-                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">Contact No.</td>
-                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">'. $cp .'</td>
-                                    </tr>
-                                    <tr>
-                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">Messages</td>
-                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">'. $message .'</td>
-                                    </tr>
+                            
+                           
                                     </tbody>
                                 </table>
     

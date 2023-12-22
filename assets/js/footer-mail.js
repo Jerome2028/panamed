@@ -1,31 +1,16 @@
 $(function() {
-    $(".contact").on("submit", function(e) {
+    $(".email").on("submit", function(e) {
 
         e.preventDefault();
 
         var error = false; var message = '';
-
-        var ppi_captcha = $(this).find("input[name='ppi_captcha']").val();
-        var input_captcha = $(this).find("input[name='input_captcha']").val();
-        var name = $(this).find("input[name=name]").val();
-        var cp = $(this).find("input[name=cp]").val();
-        var message = $(this).find("input[name=message]").val();
-        var email = $(this).find("input[name=email]").val();
+        var email = $(this).find("input[name=femail]").val();
         
-        if (ppi_captcha != input_captcha) {
-            error = true;
-            message = 'Please Retype the captcha correctly';
-        }
-        if (name== "" ||cp== "" || message == ""){
-          error = true;
-          message = 'Please fill up required field!';
-        }
         if (email == "") {
             error = true;
             message = 'Email Required';
         }
     
-
         if (error) {
             Toastify({
                 text: message,
@@ -40,7 +25,7 @@ $(function() {
         }
             
             
-        $(".contact, body").css({
+        $(".email, body").css({
             opacity: "0.3",
             cursor: "wait"
         });
@@ -55,15 +40,13 @@ $(function() {
             return "Are you sure you want to navigate away from this page?";
         };
           
-
-    
         $.ajax({
             url: action,
             type: type,
             data: formData,
             
             beforeSend: function() {
-            $(".contact, body").css({
+            $("body").css({
                 opacity: "0.5",
                 cursor: "wait"
             });
@@ -81,7 +64,7 @@ $(function() {
                 $inputs.prop("disabled", false);
                 $(":submit").val("submit");
                 
-                if (data.toLowerCase().trim() == "action complete") {
+                if (data.toLowerCase().trim() == "email sent") {
                     const Toast = Swal.mixin({
                         toast: true,
                         position: "top-end",
@@ -90,7 +73,8 @@ $(function() {
                         timerProgressBar: true,
                         didOpen: (toast) => {
                           toast.onmouseenter = Swal.stopTimer;
-                          toast.onmouseleave = Swal.resumeTimer; 
+                          toast.onmouseleave = Swal.resumeTimer;
+                          window.location.href="thank-you";
                         }
                       });
                       Toast.fire({
@@ -99,7 +83,7 @@ $(function() {
                       });
                       setTimeout(function() {
                         window.location.href="thank-you";
-                      },3000);
+                      },5000);
                       }
             },
             cache: false,
