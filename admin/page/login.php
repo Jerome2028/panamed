@@ -1,12 +1,12 @@
 
 <?php
-  $adtitle = "Inmed - Admin"; 
+  $title = "Panamed - Admin"; 
   require_once 'component/import.php';
   require_once 'component/header.php';
-  require_once 'controller/controller.session.php';
+//   require_once 'controller/controller.session.php';
   
-  $session = (new Session) ->getSession("auth");
-  $session->redirect("auth", false, "dashboard/");
+//   $session = (new Session) ->getSession("auth");
+//   $session->redirect("auth", false, "dashboard/");
 ?>
 <style>
     body{
@@ -43,13 +43,13 @@
                     <img src ="<?= $BASE; ?>assets/img/logo.png" class="w-50 d-block mx-auto mb-3">
 
                     <form action ="controller/controller.login.php?mode=login" id="login" method ="POST" class="login-form">
-                    <input type="hidden" id="action" value="login">
                         
                     <label for="cname" class="form-label">Username</label>
-                    <input required type="text" id="ic_user" name ="ic_user" class="form-control" placeholder="Enter user name here">
+                    <input required type="text" id="user_email" name ='user_email' class="form-control" placeholder="Enter user name here">
                     <label for="cname" class="form-label mt-3">Password</label>
-                <input required type="text" id="ic_pass"  name = "ic_pass" class="form-control" placeholder="Enter password here ">
-                <button class="mt-3 btn btn-dark w-100" type="button" onclick = 'submitdata();' data-action='submit'><span>Submit</span></button>
+                <input required type="text" id="user_password"  name = 'user_password' class="form-control" placeholder="Enter password here ">
+                <button class="mt-3 btn btn-dark w-100" type="button" onclick = 'submitdata()' data-action='submit'><span>Submit</span></button>
+        
                     </form>
                     <script type="text/javascript" src="<?= $BASE; ?>assets/js/login.js">
                 </script>

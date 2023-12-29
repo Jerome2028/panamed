@@ -159,6 +159,15 @@
     #footer .footer-top {
         padding: 60px 20px 15px 15px;
     }
+    .contact-us .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    .contact-us .px-5 {
+        padding-right: 2rem !important;
+        padding-left: 2rem !important;    
+    }
+    
 }
 @media (max-width: 375px) {
     .mobile-nav-toggle {
@@ -166,6 +175,9 @@
     }
     #header .logo img {
         max-height: 25px;
+    }
+    #hero {
+        height: 80vh;
     }
     .services .btn-get-started, #navbar .btn-get-started, .contact-us .btn-get-started {
         padding: 8px 8px!important;
@@ -176,7 +188,29 @@
     }
     .breadcrumbs h2 {
         font-size: 1.8rem;
+    }
+    .why-us .icon-box .description {
+        margin-left: 80px;
+    }
+    .why-us .icon-box .icon, .core-values .icon {
+        width: 60px;
+        height: 60px;
     }    
+    .why-us .icon-box .icon i {
+        font-size: 25px;
+    }
+    .core-values .icon-box {
+        height: 30vh;
+    }
+    .core-values .title{
+        margin-bottom: 4px;
+    } 
+    .core-values .icon i {
+        font-size: 21px;
+    }
+    .core-values .icon {
+        margin: 0 auto 13px auto;
+    }
 
 }
 @media (max-width: 320px) {
@@ -187,7 +221,10 @@
     font-size: 1.6rem;
     }
     .toastify-left, .toastify-right {
-        left: 160px!important;
+        left: 135px!important;
         white-space: nowrap
+    }
+    .why-us .icon-box .title {
+        margin-left: 70px;
     }
 }

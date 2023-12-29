@@ -4,12 +4,16 @@ $(function() {
         e.preventDefault();
 
         var error = false; var message = '';
-        var email = $(this).find("input[name=femail]").val();
+        var email = $(this).find("input[name=footemail]").val();
         
         if (email == "") {
             error = true;
             message = 'Email Required';
         }
+        // if (email != "@") {
+        //     error = true;
+        //     message = "Please include an '@' in the email address";
+        // }
     
         if (error) {
             Toastify({

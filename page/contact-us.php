@@ -87,7 +87,7 @@
           </section>
           <section>
             <div class="container">
-              <p class ="fw-bold">Main Office:</p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> Main Office:</p>
               <p class="lh-office">488 G. Araneta Avenue,<br>
               corner Del Monte Avenue<br>
               Brgy. Sienna, Quezon City 1114<br>
@@ -101,22 +101,22 @@
               </p>
               <hr class="dashed">
 
-              <p class ="fw-bold">Pampanga:</p>
-              <p class="lh-office">Unit 1 , 2nd Floor RGM Building , B. Mendoza St., Brgy Sto Rosario , San Fernando , Pampanga<br> </p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> Pampanga:</p>
+              <p class="lh-office">Unit 1 , 2nd Floor RGM Building , B. Mendoza St., Brgy Sto Rosario , San Fernando , Pampanga</p>
               <p class="lh-office">
               <b>Telephone:</b>(45) 963-7985<br>
               <b>Fax:</b>(45) 435-1194<br>
               </p>
               <hr class="dashed">
 
-              <p class ="fw-bold">Laguna:</p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> Laguna:</p>
               <p class="lh-office">Room 403 Dan Hedan Bldg., Brgy. 1 Crossing, Calamba Laguna<br> </p>
               <p class="lh-office">
               <b>Telephone:</b>(49) 545-4249<br>
               <b>Fax:</b>(49) 545-4250</p>
               <hr class="dashed">
 
-              <p class ="fw-bold">Iloilo:</p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> Iloilo:</p>
               <p class="lh-office">3rd Floor Golden Commercial Center Iznart St., Iloilo City<br> </p>
               <p class="lh-office">
               <b>Telephone:</b>(33) 338-2522<br>
@@ -124,7 +124,7 @@
               </p>
               <hr class="dashed">
 
-              <p class ="fw-bold">Bacolod:</p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> Bacolod:</p>
               <p class="lh-office">Room 203 2nd Floor JL Bldg., Burgos St. Brgy 19, Bacolod City<br> </p>
               <p class="lh-office">
               <b>Telephone:</b>(34) 458-3139<br>
@@ -132,7 +132,7 @@
               </p>
               <hr class="dashed">
 
-              <p class ="fw-bold">Cebu:</p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> Cebu:</p>
               <p class="lh-office">A-2 J. King and Son's Warehouse, Complex Holy Name St., Mabolo, Cebu City<br> </p>
               <p class="lh-office">
               <b>Telephone:</b> (32) 231-5175<br>
@@ -140,7 +140,7 @@
               </p>
               <hr class="dashed">
 
-              <p class ="fw-bold">Cagayan De Oro:</p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> Cagayan De Oro:</p>
               <p class="lh-office">Unit 8, 2nd Floor Montblanc Bldg., No. 848 Burgos-Chaves St., Cagayan de Oro<br> </p>
               <p class="lh-office">
               <b>Telephone:</b>(8822) 721-011<br>
@@ -148,15 +148,15 @@
               </p>
               <hr class="dashed">
 
-              <p class ="fw-bold">Davao:</p>
-              <p class="lh-office">Unit 8, 2nd Floor Montblanc Bldg., No. 848 Burgos-Chaves St., Cagayan de Oro<br> </p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> Davao:</p>
+              <p class="lh-office">Unit A-19, J. King & Son's Warehouse Complex, Purok 13, Bugac, Maa, Davao City<br> </p>
               <p class="lh-office">
               <b>Telephone:</b>(82) 295-6118<br>
               <b>Fax:</b>(82) 295-3924<br>
               </p>
               <hr class="dashed">
 
-              <p class ="fw-bold">Zamboanga:</p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> Zamboanga:</p>
               <p class="lh-office">Unit 3, 2nd Floor Jazmin Tower, Mayor Jaldon St. Zamboanga City<br> </p>
               <p class="lh-office">
               <b>Telephone:</b>(62) 955-8767<br>
@@ -164,13 +164,9 @@
               </p>
               <hr class="dashed">
 
-              <p class ="fw-bold">La Union:</p>
+              <p class ="fw-bold"><i class="fa-solid fa-location-dot"></i> La Union:</p>
               <p class="lh-office">No. 15 South Quezon Avenue, National Highway, Catbangen, San Fernando, La Union<br> </p>
-
-              
-
-
-
+              <hr class="dashed">
             </div>
           </section>    
     <?php include_once 'component/footer.php';?>

@@ -22,20 +22,20 @@
       <div class="col-lg-3 col-md-6 footer-links">
         <h4>About Us</h4>
         <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Awards</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Careers</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Brochures</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>">Home</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>about-us">About us</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>awards">Awards</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>careers">Careers</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>brochures">Brochures</a></li>
         </ul>
       </div>
 
       <div class="col-lg-3 col-md-6 footer-links">
         <h4>Useful Links</h4>
         <ul>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Products</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">News and Events</a></li>
-          <li><i class="bx bx-chevron-right"></i> <a href="#">Contact Us</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>products">Products</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>news-events">News and Events</a></li>
+          <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>contact-us">Contact Us</a></li>
           <li><i class="bx bx-chevron-right"></i> <a href="#">Shop</a></li>
           <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
         </ul>
