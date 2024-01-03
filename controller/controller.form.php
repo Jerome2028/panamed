@@ -6,7 +6,7 @@ if (isset($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : isset($_SER
 $mode = isset($_GET['mode']) ? $_GET['mode'] : 'none';
 switch ($mode) {
     case 'contact':
-        $fields = array('ppi_captcha','input_captcha','email','name','country','cp','zip','message','company');
+        $fields = array('ppi_captcha','input_captcha','email','name','country','cp','zip','messages','company');
         foreach ( $fields as $field ) {
             if(!isset($_POST[$field]) || empty(trim($_POST[$field]))) {
                 echo 'Please fill up all required field';
@@ -45,7 +45,7 @@ die();
 break;
 
 case 'email':
-    $news = array('femail');
+    $news = array('footemail');
     foreach ( $news as $newsfield ) {
         if(!isset($_POST[$newsfield]) || empty(trim($_POST[$newsfield]))) {
             echo 'Please fill Email';
@@ -55,7 +55,7 @@ case 'email':
 ${$newsfield} = htmlentities($_POST[$newsfield]);
 }
 
-if ($femail == "") {
+if ($footemail == "") {
 echo "Email required!";
 die();
 }
@@ -66,8 +66,7 @@ require "template/newsletter.php";
 $mail->Subject = 'Newsletter';
 
 $mail->AddAddress("didingbeauty@gmail.com");
-$mail->AddAddress("jeromerivera1128@gmail.com");
-$mail->AddAddress($femail);
+$mail->AddAddress($footemail);
 $mail->Body = $htmlMessage;
 
 if(!$mail->Send()) {

@@ -1,7 +1,6 @@
-$(document).ready(function () {
-  $(#login).on("submit", function (e) {
-      e.preventDefault();
-// function submitdata() { 
+$(function() {
+  $(".login").on("submit", function(e) {
+    e.preventDefault()
   var error = false; var message = '';
   var user_email = $('#user_email').val();
   var user_password = $('#user_password').val();
@@ -36,17 +35,41 @@ $(document).ready(function () {
       type:'POST',
       url:'controller/controller.login.php?mode=login',
       data:{
-        submitdata:"submitdata",
+        // submitdata:"submitdata",
         user_email:user_email,
         user_password:user_password,
       },
       cache: false,
-      success:function(data) {
-
-        alert(data);
+      success:function(response) {
+        var resValue = jQuery.parseJSON(response);
+        if(resValue['message'] == "Success Found") {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer; 
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: response,
+          });
+          setTimeout(function() {
+            // window.location.href="thank-you";
+            location.reload();
+          },3000);;
+        }
+        else {
+          alert("failed");
+          location.reload();
+        }
       } 
-      }
-      )};
+      });
+    }
       });
     });
 

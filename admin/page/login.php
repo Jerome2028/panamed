@@ -42,14 +42,18 @@
                 <div class ="container">
                     <img src ="<?= $BASE; ?>assets/img/logo.png" class="w-50 d-block mx-auto mb-3">
 
-                    <form action ="controller/controller.login.php?mode=login" id="login" method ="POST" class="login-form">
+                    <form action ="controller/controller.login.php?mode=login" id="login" method ="POST" class="login">
                         
                     <label for="cname" class="form-label">Username</label>
-                    <input required type="text" id="user_email" name ='user_email' class="form-control" placeholder="Enter user name here">
+                    <input  type="text" id="user_email" name ='user_email' class="form-control" placeholder="Enter user name here">
                     <label for="cname" class="form-label mt-3">Password</label>
-                <input required type="text" id="user_password"  name = 'user_password' class="form-control" placeholder="Enter password here ">
-                <button class="mt-3 btn btn-dark w-100" type="button" onclick = 'submitdata()' data-action='submit'><span>Submit</span></button>
-        
+                    <input  type="password" id="user_password"  name = 'user_password' class="form-control" placeholder="Enter password here ">
+                    <button class="mt-3 btn btn-dark w-100" type="button" onclick = 'submitdata()' data-action='submit'><span>Submit</span></button>
+                <script>
+                function submitdata() {
+                    $(".login").trigger('submit');
+                }
+                </script>
                     </form>
                     <script type="text/javascript" src="<?= $BASE; ?>assets/js/login.js">
                 </script>

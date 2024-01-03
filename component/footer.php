@@ -47,7 +47,6 @@
           <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>news-events">News and Events</a></li>
           <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>contact-us">Contact Us</a></li>
           <li><i class="bx bx-chevron-right"></i> <a href="#">Shop</a></li>
-          <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
         </ul>
       </div>
 

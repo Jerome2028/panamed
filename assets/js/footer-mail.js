@@ -78,7 +78,7 @@ $(function() {
                         didOpen: (toast) => {
                           toast.onmouseenter = Swal.stopTimer;
                           toast.onmouseleave = Swal.resumeTimer;
-                          window.location.href="thank-you";
+                        //   window.location.href="thank-you";
                         }
                       });
                       Toast.fire({
@@ -86,8 +86,8 @@ $(function() {
                         title: data,
                       });
                       setTimeout(function() {
-                        window.location.href="thank-you";
-                      },5000);
+                        location.reload();
+                      },2000);
                       }
             },
             cache: false,

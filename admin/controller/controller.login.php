@@ -15,13 +15,13 @@ switch($mode){
       $user_accounts = $user->login($user_email, $user_password);
 
       if ($user_accounts <= 0){
-             echo "not found";
+          $response = array("message" => "Invalid");
       }
       else {
-     echo "success";
+      $response = array("message" => "Success Found");
       }
     break;
     default:
     header("Location:../page/error.php");
-      echo json_encode($user_accounts);
   }
+  echo json_encode($response);

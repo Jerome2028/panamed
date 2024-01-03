@@ -9,14 +9,14 @@ $(function() {
         var input_captcha = $(this).find("input[name='input_captcha']").val();
         var name = $(this).find("input[name=name]").val();
         var cp = $(this).find("input[name=cp]").val();
-        var message = $(this).find("input[name=message]").val();
+        var messages = $(this).find("input[name=messages]").val();
         var email = $(this).find("input[name=email]").val();
         
         if (ppi_captcha != input_captcha) {
             error = true;
             message = 'Please Retype the captcha correctly';
         }
-        if (name== "" ||cp== "" || message == ""){
+        if (name== "" ||cp== "" || messages == ""){
           error = true;
           message = 'Please fill up required field!';
         }
@@ -34,14 +34,15 @@ $(function() {
                 close: true,
                 gravity: "top",
                 positionRight: true,
-                backgroundColor: "#c46868"
+                backgroundColor: "#c46868",
+                opacity:"0!important"
               }).showToast();
             return
         }
             
             
         $(".contact, body").css({
-            opacity: "0.3",
+            opacity: "0.5",
             cursor: "wait"
         });
 
@@ -54,9 +55,6 @@ $(function() {
         window.onbeforeunload = function() {
             return "Are you sure you want to navigate away from this page?";
         };
-          
-
-    
         $.ajax({
             url: action,
             type: type,
@@ -100,6 +98,27 @@ $(function() {
                       setTimeout(function() {
                         window.location.href="thank-you";
                       },3000);
+                      }
+                      else {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                              toast.onmouseenter = Swal.stopTimer;
+                              toast.onmouseleave = Swal.resumeTimer; 
+                            }
+                          });
+                          Toast.fire({
+                            icon: "error",
+                            title: data,
+                          });
+                          
+                          setTimeout(function() {
+                            location.reload();
+                          },1500);
                       }
             },
             cache: false,

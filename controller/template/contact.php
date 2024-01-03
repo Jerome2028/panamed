@@ -160,7 +160,7 @@ $htmlMessage = '
                                     </tr>
                                     <tr>
                                         <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">Messages</td>
-                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">'. $message .'</td>
+                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">'. $messages .'</td>
                                     </tr>
                                     </tbody>
                                 </table>

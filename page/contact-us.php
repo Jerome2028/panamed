@@ -63,7 +63,7 @@
 
           <div class="col-sm-6">
           <p class="input-container">
-              <input type="text" name="message" class="login-input">
+              <input type="text" name="messages" class="login-input">
               <label for="" unselectable="on">Type your Message here...</label>
             </p>
           </div>

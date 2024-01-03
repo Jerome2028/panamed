@@ -149,7 +149,7 @@ $htmlMessage = '
                          
                                     <tr>
                                         <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">Email:</td>
-                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">'. $femail . '</td>
+                                        <td valign="top" style="padding:5px; font-family: Arial,sans-serif; font-size: 16px; line-height:20px;">'. $footemail . '</td>
                                     </tr>
                             
                            
