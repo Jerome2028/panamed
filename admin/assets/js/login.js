@@ -25,12 +25,13 @@ $(function() {
   return
   }
 
-  $(".login-form, body").css({
-    opacity: "0.5",
-    cursor: "wait"
-});
+//   $(".login, body").css({
+//     opacity: "0.5",
+//     cursor: "wait"
+// });
 
     function submit(user_email, user_password) {
+      window.onbeforeunload = null;
       $.ajax ({
       type:'POST',
       url:'controller/controller.login.php?mode=login',
@@ -39,8 +40,19 @@ $(function() {
         user_email:user_email,
         user_password:user_password,
       },
+      beforeSend: function() {
+        $("body").css({
+            opacity: "0.5",
+            cursor: "wait"
+        });
+    },
       cache: false,
       success:function(response) {
+        window.onbeforeunload = null;
+      //   $(".login body").css({
+      //     opacity: "1",
+      //     cursor: "auto"
+      // });
         var resValue = jQuery.parseJSON(response);
         if(resValue['message'] == "Success Found") {
           const Toast = Swal.mixin({
@@ -49,6 +61,7 @@ $(function() {
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
+              opacity: "1!important",
             didOpen: (toast) => {
               toast.onmouseenter = Swal.stopTimer;
               toast.onmouseleave = Swal.resumeTimer; 
@@ -56,16 +69,32 @@ $(function() {
           });
           Toast.fire({
             icon: "success",
-            title: response,
+            title: "Succesfully Login",
           });
-          setTimeout(function() {
-            // window.location.href="thank-you";
-            location.reload();
-          },3000);;
+          setTimeout( function() {
+            window.location.href="dashboard";
+          },3000);
         }
         else {
-          alert("failed");
-          location.reload();
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+              opacity: "1!important",
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer; 
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: "Authentication Failed",
+          });
+          setTimeout(function() {
+            location.reload();
+          },1500);
         }
       } 
       });

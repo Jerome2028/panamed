@@ -1,14 +1,11 @@
 <?php
-date_default_timezone_set("Asia/Manila");
-$title = "Admin - Dashboard"; 
+$title =  "Admin - Featured";
+require_once 'component/import.php';
+require_once 'component/header.php';
 
-  require_once 'component/import.php';
-  require_once 'component/header.php';
-  require_once 'controller/controller.session.php'; 
-    $user = $session->getSession("name");
 ?>
 <body>
-    <section class="dashboard">
+<section class="dashboard">
         <div class="container-fluid">
             <div class="row flex-nowrap h-100">
                 <div class="col-auto col-md-3 col-xl-2  px-0 bg-secondary  d-inline-block">
@@ -21,6 +18,8 @@ $title = "Admin - Dashboard";
 
                 </div>
                 <div class="col py-3">
+
+                <p class="fw-bold">this is feautered test</p>
                     
 
                 </div>

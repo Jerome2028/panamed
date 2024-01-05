@@ -1,10 +1,12 @@
 <?php 
 require_once "controller.db.php";
-// require_once "controller.session.php";
+require_once "controller.session.php";
 require_once "../model/model.user.php";
 
 $user = new User(); 
-// $session = new Session();                                                                                                                                                                                                                    
+$session = new Session();  
+$user_name = $session->getSession("name");
+
 
 $mode = isset($_GET['mode']) ? $_GET['mode'] : 'none';
 switch($mode){
@@ -18,8 +20,15 @@ switch($mode){
           $response = array("message" => "Invalid");
       }
       else {
+      
+      $session->setSession("auth", true);
+      // $session->setSession("role", $user_accounts[6]);
+       $session->setSession("name", $user_accounts[1]);
+      $session->setSession("id", $user_accounts[0]);
       $response = array("message" => "Success Found");
       }
+
+
     break;
     default:
     header("Location:../page/error.php");

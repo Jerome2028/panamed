@@ -115,6 +115,12 @@
     .core-values .title, .trusted .title, .portfolio .title {
         font-size: 1rem;
     }
+    .core-values .row {
+        padding: 30px;
+    }
+    .core-values .icon-box {
+        height: 36vh;
+    }
     .portfolio .btn-get-started, .news-events .btn-get-started {
         padding: 10px 15px;
     }
@@ -166,6 +172,11 @@
     .contact-us .px-5 {
         padding-right: 2rem !important;
         padding-left: 2rem !important;    
+    }
+    .trusted img {
+        max-width: 100%;
+        padding-left: 3px;
+        padding-right: 3px;
     }
     
 }

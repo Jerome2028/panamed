@@ -198,23 +198,23 @@ require_once 'component/navbar.php';
 
       <div class="row justify-content-center">
 
-        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
           <img src="assets/img/hospitals/east.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
           <img src="assets/img/hospitals/heart_center.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
           <img src="assets/img/hospitals/kidney.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
           <img src="assets/img/hospitals/lungs.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
           <img src="assets/img/hospitals/pgh.png" class="img-fluid" alt="">
         </div>
 
@@ -525,7 +525,7 @@ require_once 'component/navbar.php';
       spaceBetween: 20,},
     '420': {
     slidesPerView: 2,
-    spaceBetween: 20,},
+    spaceBetween: 15,},
     '640': {
       slidesPerView: 3,
       spaceBetween: 30, },

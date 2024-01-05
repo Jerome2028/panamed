@@ -8,6 +8,7 @@ class Utility {
         }
 
         return 'http://localhost/panamed/admin/'; 
+        
     }
     
 }

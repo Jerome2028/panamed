@@ -30,7 +30,7 @@
     <script src ="<?= $BASE; ?>assets/vendor/lib/div-aos/js/script.js"></script>
     <!-- <script src="<?= $BASE; ?>assets/vendor/lib/font-awesome/js/all.js"></script> -->
     <script src="<?= $BASE; ?>assets/vendor/lib/sweetalert/alert.js"></script>
-    <script src="assets/vendor/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= $BASE; ?>assets/vendor/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- <script src="<?=$BASE; ?>assets/js/form.js"></script> -->
     <script src="https://kit.fontawesome.com/3096b4ed49.js" crossorigin="anonymous"></script>
 <script>
