@@ -13,11 +13,11 @@
       <section class="awards">
         <div class="container">
             <div class="row">
-              <div class ="col-md-6">
+              <div class ="col-md-6" data-aos="fade-right" date-aos-delay="200">
               <a href="<?=$BASE;?>assets/img/iso_cert/iso_cert.jpg" class="awards-preview" data-width="600px"><img src="<?=$BASE;?>assets/img/iso_cert/iso_cert.jpg" class="w-75 p-3"></a>
               </div>
 
-              <div class="col-md-6">
+              <div class="col-md-6" data-aos="fade-left" date-aos-delay="200">
               <div class=" p-3">
                 <h3 class= "font-blue">Awards</h3>
                 <p>Our awards and certification only shows that the company is sincere with its aim of providing a good product of choice in the medical industry. We will continue to work hard to be able for us to sustain the needs of the people for better healthcare and quality innovative services that we can give.</p>

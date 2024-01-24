@@ -186,7 +186,96 @@ h6,
 #main {
   margin-top: 80px;
 }
+#header .offcanvas, .offcanvas-xxl, .offcanvas-xl, .offcanvas-lg, .offcanvas-md, .offcanvas-sm {
+    --bs-offcanvas-width: 250px!important;
+    --bs-offcanvas-padding-x: 0rem!important;
+    --bs-offcanvas-padding-y: 1rem!important;
+    
+}
+/*--------------------------------------------------------------
+# Waves Effect
+--------------------------------------------------------------*/
 
+
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.waves-effect .waves-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
+  -ms-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  transition-property: transform, opacity;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.waves-effect.waves-light .waves-ripple {
+  background-color: rgba(174, 174, 174, 0.519);
+}
+
+.waves-effect.waves-red .waves-ripple {
+  background-color: rgba(244, 67, 54, 0.7);
+}
+
+.waves-effect.waves-yellow .waves-ripple {
+  background-color: rgba(255, 235, 59, 0.7);
+}
+
+.waves-effect.waves-orange .waves-ripple {
+  background-color: rgba(255, 152, 0, 0.7);
+}
+
+.waves-effect.waves-purple .waves-ripple {
+  background-color: rgba(156, 39, 176, 0.7);
+}
+
+.waves-effect.waves-green .waves-ripple {
+  background-color: rgba(76, 175, 80, 0.7);
+}
+
+.waves-effect.waves-teal .waves-ripple {
+  background-color: #68A4C4;
+
+}
+
+/* Firefox Bug: link not triggered */
+a.waves-effect .waves-ripple {
+  z-index: -1;
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -360,9 +449,38 @@ h6,
   .navbar ul {
     display: none;
   }
+  .nav-bar a{
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #808080!important;
+    transition: 0.3s;
+  }
+  .nav-bar .dropdown ul a:hover, .nav-bar .dropdown ul .active:hover, .nav-bar .dropdown ul li:hover>a {
+    background-color: #ddd!important;
+  }
+  .nav-bar .dropdown-menu{
+    border-color: transparent!important;
+    transform:translate3d(0px, 0px, 0px)!important;
+
+  }
+  .nav-bar hr{
+    border-top: 1px solid #808080;
+  }
+  .nav-bar a:hover,
+  .nav-bar .active,
+  .nav-bar li:hover>a {
+    color: #68A4C4;
+    background-color: #f1f1f1!important;
+  }
+  .nav-bar .active{
+    font-weight: 700;
+  }
 }
 
-.navbar-mobile {
+
+
+
+/* .navbar-mobile {
   position: fixed;
   overflow: hidden;
   top: 0;
@@ -442,9 +560,10 @@ h6,
 
 .navbar-mobile .dropdown>.dropdown-active {
   display: block;
-}
+} */
 .btn-get-started:hover {
 background: #468db3!important;
+color: #ffffff;
 }
 /*--------------------------------------------------------------
 # Hero Section
@@ -742,7 +861,7 @@ section {
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
-  padding: 80px 0;
+  padding: 80px 0px 0px 0px;
   /* background-color: #f3f8fa; */
   min-height: 40px;
 }
@@ -753,7 +872,7 @@ section {
   height: auto;
 }
 
-.breadcrumbs h2 {
+.breadcrumbs h1 {
   font-size: 3rem;
   font-weight: 300;
   text-shadow: 1px 5px 5px rgba(0, 0, 0, 0.2);
@@ -787,7 +906,7 @@ section {
   top: 50%; 
   left: 50%; 
   transform: translate(-50%, -50%);
-  padding: 10px 20px;
+  padding: 10px 0px;
 }
 
 @media (max-width: 768px) {
@@ -1386,10 +1505,11 @@ section {
 /*--------------------------------------------------------------
 # Core Values
 --------------------------------------------------------------*/
-.core-values .title,.trusted .title ,.portfolio .title{
+
+.core-values .title{
   font-weight: 700;
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 .core-values .description {
   font-size: 14px;
@@ -1401,13 +1521,13 @@ section {
   padding: 30px;
   position: relative;
   overflow: hidden;
-  margin: 0 0 40px 0;
+  margin: 0 0 24px 0;
   background: #fff;
   box-shadow: 0 5px 26px 0 rgba(68, 88, 144, 0.14);
   transition: all 0.3s ease-in-out;
   text-align: center;
   border: 1px solid #fff;
-  height: 36vh;
+  height: 32vh;
   border-radius: 25px;
 }
 .core-values .icon i {
@@ -1415,7 +1535,7 @@ section {
   line-height: 1;
 }
 .core-values .icon {
-  margin: 0 auto 20px auto;
+  margin: 0 auto 15px auto;
   padding-top: 20px;
   display: inline-block;
   text-align: center;
@@ -1478,6 +1598,7 @@ section {
 }
 .about p{
   font-size: 14px;
+  line-height: 25px;
 }
 .about ul i {
   font-size: 20px;
@@ -1538,12 +1659,12 @@ section {
   filter: none;
   transform: scale(1.15);
 }
-
-@media (max-width: 768px) {
-  .trusted img {
-    max-width: 40%;
-  }
+.trusted .title ,.portfolio .title{
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
+
 /*--------------------------------------------------------------
 # Careers
 --------------------------------------------------------------*/

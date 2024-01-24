@@ -59,7 +59,7 @@
           Philippines<br>
           (Beside the BPI bank)<br>
         </p><br>
-        <a href="" class="btn-get-started animate__animated animate__fadeInUp">Shop Now</a>
+        <a href="" class="btn-get-started animate__animated animate__fadeInUp waves-effect waves-light">Shop Now</a>
 
       </div>
 

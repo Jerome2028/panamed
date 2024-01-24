@@ -19,7 +19,7 @@ require_once 'component/navbar.php';
           <h2 class="animate__animated animate__fadeInDown">You Have A Better Choice</h2>
           <p class="animate__animated animate__fadeInUp">We are pleased to announce
             the successful ISO 9001:2015 certification of Panamed Philippines, Inc. Is valid from October 2022 until November 2025.</p>
-          <a href="https://panamed.com.ph/shop/" class="btn-get-started animate__animated animate__fadeInUp">Shop Now</a>
+          <a href="https://panamed.com.ph/shop/" class="btn-get-started animate__animated animate__fadeInUp waves-effect waves-light">Shop Now</a>
         </div>
       </div>
 
@@ -28,7 +28,7 @@ require_once 'component/navbar.php';
         <div class="carousel-container">
           <h2 class="animate__animated animate__fadeInDown">Panamed Philippines Incorporated</h2>
           <p class="animate__animated animate__fadeInUp">Panamed Philippines, Inc. is a professional organization engaged in the importation, marketing and distribution of quality medical devices that has...</p>
-          <a href="about-us" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+          <a href="about-us" class="btn-get-started animate__animated animate__fadeInUp waves-effect waves-light">Read More</a>
         </div>
       </div>
 
@@ -58,7 +58,7 @@ require_once 'component/navbar.php';
                   <div class="overlay-text overlay">
                   <div>
                     <h4 class="title"><a href="">Unimex N95 Respirator</a></h4>
-                    <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+                    <a href="" class="btn-get-started animate__animated animate__fadeInUp waves-effect waves-light">Read More</a>
                   </div>
                 </div>
               </div>
@@ -157,9 +157,9 @@ require_once 'component/navbar.php';
             </div>
           </div>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination "></div>
         <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-prev "></div>
       </div>
     </div>
   </section>
@@ -169,19 +169,19 @@ require_once 'component/navbar.php';
     <div class="container">
 
       <div class="row">
-        <div class="col-lg-6 video-box">
+        <div class="col-lg-6 video-box" data-aos="fade-right" date-aos-delay="200">
           <img src="<?=$BASE; ?>assets/img/building.jpg" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-left" date-aos-delay="200">
           <div class="icon-box">
-            <div class="icon mt-4"><i class="bx bxs-megaphone"></i></div>
+            <div class="icon mt-4 waves-effect waves-light"><i class="bx bxs-megaphone"></i></div>
             <h4 class="title">Welcome to <span class="panamed-color">Panamed</span></h4>
             <p class="description"><span class="panamed-color">Panamed Philippines, Inc.</span> is a professional organization engaged in the importation, marketing and distribution of quality medical  devices  that has significantly marked its presence in the medical healthcare industry for more than 20 years of delivering exceptional service to Filipinos. Guided by our Vision and Mission, our goal is to give our clients the best choice of product.</p>
           </div>
 
           <div class="icon-box">
-            <div class="icon"><i class="fa-regular fa-handshake"></i></div>
+            <div class="icon waves-effect waves-light"><i class="fa-regular fa-handshake"></i></div>
             <!-- <h4 class="title"><a href="">Nemo Enim</a></h4> -->
             <p class="description"> In such we align our partnership with various hospitals such as The Medical City, St. Luke’s Medical Center, Cardinal Santos Medical  Center, Makati Medical Center, Philippine Heart Center, Philippine General Hospital, among others.We market and distribute high quality products at an affordable price that are trusted by healthcare professionals.</p>
           </div>
@@ -192,29 +192,29 @@ require_once 'component/navbar.php';
   </section>
 
       <!-- ======= Trusted by Healthcare ======= -->
-  <section class="trusted" data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
+  <section class="trusted">
     <div class="container">
       <p class ="text-center title">Trusted by healthcare professionals since 1995</p>
 
       <div class="row justify-content-center">
 
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <img src="assets/img/hospitals/east.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="300">
           <img src="assets/img/hospitals/heart_center.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="400">
           <img src="assets/img/hospitals/kidney.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="500">
           <img src="assets/img/hospitals/lungs.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
+        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="600">
           <img src="assets/img/hospitals/pgh.png" class="img-fluid" alt="">
         </div>
 
@@ -227,7 +227,7 @@ require_once 'component/navbar.php';
       <h5 class="title">Our<span class="panamed-color"> Core Values</span></h5>
       <div class="row">
         <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up">
-          <div class="icon-box icon-box-pink">
+          <div class="icon-box icon-box-pink waves-effect waves-light">
             <div class="icon"><i class="fa-regular fa-handshake"></i></div>
             <h4 class="title"><a href="">Commitment</a></h4>
             <p class="description">We are committed on what we do and we promise to deliver on time outcome.</p>
@@ -235,7 +235,7 @@ require_once 'component/navbar.php';
         </div>
 
         <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="icon-box icon-box-cyan">
+          <div class="icon-box icon-box-cyan waves-effect waves-light">
             <div class="icon"><i class="fa-solid fa-scale-balanced"></i></div>
             <h4 class="title"><a href="">Honesty</a></h4>
             <p class="description">We are honest on dealing with our suppliers, customers, stake holders, employees and through the rest of our business transactions.</p>
@@ -243,7 +243,7 @@ require_once 'component/navbar.php';
         </div>
 
         <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon-box icon-box-green">
+          <div class="icon-box icon-box-green waves-effect waves-light">
             <div class="icon"><i class="fa-regular fa-sun"></i></div>
             <h4 class="title"><a href="">Optimism</a></h4>
             
@@ -251,27 +251,29 @@ require_once 'component/navbar.php';
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon-box icon-box-blue">
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon-box icon-box-blue waves-effect waves-light">
             <div class="icon"><i class="fa-regular fa-lightbulb"></i></div>
             <h4 class="title"><a href="">Innovative</a></h4>
             <p class="description">We are always innovative on our products, solution and work flow.</p>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon-box icon-box-red">
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+          <div class="icon-box icon-box-red waves-effect waves-light">
             <div class="icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
             <h4 class="title"><a href="">Care</a></h4>
             <p class="description">We are highly competent, dedicated, technically skilled and actively responsive in caring for the needs of our customers, their families and we care for the people who are affected by calamities and disasters.</p>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-          <div class="icon-box icon-box-yellow">
-            <div class="icon"><i class="fa-regular fa-star"></i></div>
-            <h4 class="title"><a href="">Excellence</a></h4>
-            <p class="description">We do things to achieve excellent and not just mediocre results.</p>
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
+          <div class="content">
+            <div class="icon-box icon-box-yellow waves-effect waves-light">
+              <div class="icon"><i class="fa-regular fa-star"></i></div>
+              <h4 class="title"><a href="">Excellence</a></h4>
+              <p class="description">We do things to achieve excellent and not just mediocre results.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -280,14 +282,14 @@ require_once 'component/navbar.php';
 
   <section id="portfolio" class="portfolio" data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
       <div class="container">
-<p class="text-center title">Quality products at <span class="panamed-color">Great Prices!</span></p>
+          <p class="text-center title">Quality products at <span class="panamed-color">Great Prices!</span></p>
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Personal Protective Equipment</li>
-              <li data-filter=".filter-card">Digestive</li>
-              <li data-filter=".filter-web">Sterilization Supplies</li>
+              <li data-filter="*" class="filter-active waves-effect waves-light">All</li>
+              <li data-filter=".filter-app" class="waves-effect waves-light">Personal Protective Equipment</li>
+              <li data-filter=".filter-card" class="waves-effect waves-light">Digestive</li>
+              <li data-filter=".filter-web" class="waves-effect waves-light">Sterilization Supplies</li>
             </ul>
           </div>
         </div>
@@ -299,7 +301,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/1.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>MC Enteral Feeding Bag1500ml FOR MC Enteral Feeding Pump EP-60C</h4>
-                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=655&search=Panamed+Powered+Air+Purifying+Respirator" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=655&search=Panamed+Powered+Air+Purifying+Respirator" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
               </div>
             </div>
           </div>
@@ -309,7 +311,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/7.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Panamed Anti-Skid Shoe Cover 100's</h4>
-                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=80&search=shoe+cover" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=80&search=shoe+cover" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
               </div>
             </div>
           </div>
@@ -319,7 +321,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/2.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Panamed N95 Particulate Respirator</h4>
-                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=640&search=panamed" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=640&search=panamed" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
               </div>
             </div>
           </div>
@@ -329,7 +331,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/6.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Avanos MIC-key Low Profile Feeding Tube</h4>
-                <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=25&product_id=67" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=25&product_id=67" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
               </div>
             </div>
           </div>
@@ -339,7 +341,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/11.png" class="img-fluid" alt="">
               <div class="portfolio-info">
               <h4>Steripak Self-Sealing Sterilization Pouch</h4>
-              <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=62&product_id=646" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+              <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=62&product_id=646" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
               </div>
             </div>
           </div>
@@ -349,7 +351,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/5.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>MC Enteral Feeding Pump EP-60C</h4>
-                <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=25&product_id=771" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=25&product_id=771" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
               </div>
             </div>
           </div>
@@ -359,7 +361,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/4.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Unimex N95 Face Mask, 20's</h4>
-                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=637&search=n95&description=true" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=637&search=n95&description=true" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
               </div>
             </div>
           </div>
@@ -369,7 +371,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/12.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Steripak SMS Wrap Blue 120cmx120cm (200s)</h4>
-                <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=62&product_id=753" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=62&product_id=753" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
               </div>
             </div>
           </div>
@@ -379,7 +381,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/8.png" class="img-fluid" alt="">
               <div class="portfolio-info text-center">
                 <h4>Panamed Basic Coverall, PPE (Sold per piece)</h4>
-                <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=142&product_id=633" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&path=142&product_id=633" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
                 </div>
               </div>
             </div>
@@ -390,7 +392,7 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/9.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Panamed Safety Goggles</h4>
-                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=635&search=safety+goggle" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=635&search=safety+goggle" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
                 </div>
               </div>
             </div>
@@ -400,14 +402,15 @@ require_once 'component/navbar.php';
               <img src="assets/img/products/10.png" class="img-fluid" alt="">
               <div class="portfolio-info">
               <h4>Steripak Sterilization Flat Reel</h4>
-              <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=82&search" class="btn-get-started animate__animated animate__fadeInUp scrollto">Buy Now</a>
+                <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=635&search=safety+goggle" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
+              <a href="https://panamed.com.ph/shop/index.php?route=product/product&product_id=82&search" class="btn-get-started animate__animated animate__fadeInUp scrollto waves-effect waves-light">Buy Now</a>
               </div>
             </div>
           </div>
         </div>
           <p class="text-center title">Want More? <a class="panamed-color" href="https://panamed.com.ph/shop/">Shop with us!</a> and get the products you want!</p>
           <div class="d-flex justify-content-center mt-4">
-          <a href="https://panamed.com.ph/shop/" class="btn-get-started animate__animated animate__fadeInUp ">Shop Now</a>
+          <a href="https://panamed.com.ph/shop/" class="btn-get-started animate__animated animate__fadeInUp waves-effect waves-light">Shop Now</a>
         </div>
       </div>
     </section>

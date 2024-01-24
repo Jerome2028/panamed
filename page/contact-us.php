@@ -72,7 +72,7 @@
               <p>type <span class="captcha"><?php echo $captcha; ?></span> on the field below inorder to prove us that you are human</p>
               <input required type="hidden" name="ppi_captcha" value="<?php echo $captcha; ?>">
               <input required type="text" class="form-control mb-4 mt-3" name="input_captcha" id="" placeholder="<?php echo $captcha; ?>">
-              <a class="btn-get-started" type="button" data-action='submit' onclick='onSubmit()'>Submit</a>
+              <a class="btn-get-started waves-effect waves-light" type="button" data-action='submit' onclick='onSubmit()'>Submit</a>
             </div>
           </div>
           <script>

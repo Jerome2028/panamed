@@ -49,7 +49,7 @@
             <h1 style="font-size: 50px">Thank You !</h1>
             <p>Your message was sent successfully</p>
             </ul>
-            <a href="home" class="btn-get-started" type="button" >Back to Home</a>
+            <a href="home" class="btn-get-started waves-effect waves-light" type="button" >Back to Home</a>
         </div>
     </div>
     </div>

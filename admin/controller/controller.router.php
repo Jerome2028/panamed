@@ -18,31 +18,35 @@ class Router {
             case '':
             case '/':
             case 'login':
-                require_once 'page/login.php';
+                require_once 'pages/login.php';
             break;
             
             case 'career':
-                require_once 'page/career.php';
+                require_once 'pages/career.php';
                 break;
 
             case 'dashboard':
-                require_once 'page/dashboard.php';
+                require_once 'pages/dashboard.php';
                 break;
             
             case 'featured':
-                require_once 'page/featured.php';
+                require_once 'pages/featured.php';
                 break;
         
             case 'logout':
                 require_once 'component/logout.php';
                 break;
 
-            case 'newss-events':
-                require_once 'page/newss-events.php';
+            case 'news-events':
+                require_once 'pages/news-events.php';
+                break;
+
+            case 'products':
+                require_once 'pages/products.php';
                 break;
 
             default:
-            require_once 'page/error-page.php';
+            require_once 'pages/error-page.php';
             break;
             }
         }

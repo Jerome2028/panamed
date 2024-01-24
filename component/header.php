@@ -25,7 +25,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="<?= $BASE; ?>assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="<?= $BASE; ?>assets/js/main.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/BASE;/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src ="<?= $BASE; ?>assets/vendor/lib/div-aos/js/script.js"></script>
     <!-- <script src="<?= $BASE; ?>assets/vendor/lib/font-awesome/js/all.js"></script> -->

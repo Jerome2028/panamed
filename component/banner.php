@@ -4,7 +4,7 @@
       <div class="container overlay-txt">
 
         <div class=" align-items-center">
-          <h2><?=$bannerTitle;?></h2>
+          <h1><?=$bannerTitle;?></h1>
           <ol>
             <li><a href="<?=$BASE;?>">Home</a></li>
             <li><?=$bannerTitle;?></li>

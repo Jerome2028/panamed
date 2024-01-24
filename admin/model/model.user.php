@@ -13,5 +13,13 @@ class User extends db_conn_mysql {
 
         return ($response) ?: false;
     }
+
+    public function getManualsLive($input) {
+        $query = $this->conn->prepare("SELECT ppi_product_name, ppi_product_image FROM ppi_products WHERE ppi_product_name LIKE '%$input%' LIMIT 6");
+        $query->execute(['name' => '%' . $input . '%']);
+        $response = $query->fetchAll();
+
+        return $response;
+    }
     
 }

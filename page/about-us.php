@@ -50,11 +50,11 @@ require_once 'component/banner.php';
     <section class="facts section-bg" data-aos="fade-up">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">        
+          <div class="col-md-6" data-aos="fade-right" date-aos-delay="200">        
             <img src ="<?=$BASE;?>assets/img/Panamed_Map.jpg" class="w-75">
          </div>
 
-         <div class="col-md-6">
+         <div class="col-md-6" data-aos="fade-left" date-aos-delay="200">
             <div class="card p-5">        
               <h5 class="font-blue">Core Values</h5><br>
               <p><b>Commitment</b> - We are committed on what we do and we promise to deliver on time outcome.<br><br>
