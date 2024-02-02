@@ -27,5 +27,6 @@ class db_conn_mysql {
 
     return $conn;
   }
+  
 }
 ?>

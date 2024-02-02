@@ -13,10 +13,26 @@ body {
   display: block;
   font-family: 'Poppins', sans-serif!important;
   color: #808080;
+  font-size: 13px!important;
 }
 body p {
   font-size: 14px;
 }
+
+.body-bg {
+  background-image: url('../img/body-bg.jpg');
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  width: 100%;
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  body .btn{
+  font-size: 13px;
+}
+
 
 a {
   color: #4fa6d5;
@@ -39,10 +55,15 @@ h5,
 h6,
 a,
 li,
+::placeholder,
 .font-primary {
   /* font-family: "Roboto", sans-serif!important; */
   font-family: 'Poppins', sans-serif!important;
   color:#808080!important;
+}
+
+::placeholder{
+  font-size: 12px;  
 }
 
 .loader-wrapper{
@@ -102,6 +123,91 @@ li,
 .panamed-color{
   color:#4fa6d5;
   font-weight: bold;
+}
+
+/*--------------------------------------------------------------
+# Waves Effect
+--------------------------------------------------------------*/
+
+
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.waves-effect .waves-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
+  -ms-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
+  -webkit-transition-property: -webkit-transform, opacity;
+  -moz-transition-property: -moz-transform, opacity;
+  -o-transition-property: -o-transform, opacity;
+  transition-property: transform, opacity;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.waves-effect.waves-light .waves-ripple {
+  background-color: rgba(174, 174, 174, 0.519);
+}
+
+.waves-effect.waves-red .waves-ripple {
+  background-color: rgba(244, 67, 54, 0.7);
+}
+
+.waves-effect.waves-yellow .waves-ripple {
+  background-color: rgba(255, 235, 59, 0.7);
+}
+
+.waves-effect.waves-orange .waves-ripple {
+  background-color: rgba(255, 152, 0, 0.7);
+}
+
+.waves-effect.waves-purple .waves-ripple {
+  background-color: rgba(156, 39, 176, 0.7);
+}
+
+.waves-effect.waves-green .waves-ripple {
+  background-color: rgba(76, 175, 80, 0.7);
+}
+
+.waves-effect.waves-teal .waves-ripple {
+  background-color: #68A4C4;
+
+}
+
+/* Firefox Bug: link not triggered */
+a.waves-effect .waves-ripple {
+  z-index: -1;
 }
 /*--------------------------------------------------------------
 # Back to top button
@@ -462,13 +568,13 @@ li,
 /*--------------------------------------------------------------
 # Dashboard
 --------------------------------------------------------------*/
-.dashboard .nav-item a {
+.dashboard .nav-item a , .dropdown-menu a{
  display: block!important;
  transition: 0.6s;
  text-decoration: none;
  padding: 20px 30px !important;
   }
-.dashboard .nav-item a:hover{
+.dashboard .nav-item a:hover , .dropdown-menu a:hover{
   background-color: #ddd;
   /* padding: 12px 16px !important; */
   padding: 20px 30px !important;
@@ -486,7 +592,67 @@ li,
 .dashboard .card-header {
   border-bottom: solid 1px transparent!important;
 }
+.dashboard .form-control{
+  color:#808080!important;
+}
+.dashboard .icons i {
+  height: auto;
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  font-size: 200px;
+  opacity: 0.3;
+  rotate: -28deg;
+  color: white!important;
+}
+.login-dashboard .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+ .cover{
+  position: relative;
+  color: white;
+  background-image: url('../img/bgbg.jpg');
+  background-size: cover;
+  padding:4rem;
+  width: 100%;
+  height: 100%; 
+}
+.overlay {
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+}
+.overlay, .cover-img{
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 100%;
+  z-index: 1;
+}
+.cover > .user-nav {
+    max-width: 90%;
+    margin: auto;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+}
 
+/*--------------------------------------------------------------
+# login
+--------------------------------------------------------------*/
+.login-dashboard button span {
+  font-size: 14px;
+}
+.login-dashboard .btn {
+  border-radius: 0px!important;
+  }
+  .login-dashboard .btn-dark {
+    background-color: #042c63!important;
+  }
 
 /*--------------------------------------------------------------
 # Form input type

@@ -22,7 +22,7 @@ class NewsEvents extends db_conn_mysql {
         return $response;
     }
 
-    public function addCourse($title, $content, $sort_by, $status){
+    public function addEvents($title, $content, $sort_by, $status){
         $query = $this->conn->prepare("INSERT INTO news_events (title, content, sort, status) VALUES (?, ?, ?, ?)");
         $query->execute([$title, $content, $sort_by, $status]);
     }
@@ -31,8 +31,15 @@ class NewsEvents extends db_conn_mysql {
         $query = $this->conn->prepare("UPDATE news_events SET title = ?, content = ?, status = ? WHERE id = ?");
         $query->execute([$title, $content, $status, $id]);
     }
+    
 
-    public function deleteCourse($id) {
+    public function countAllEvents() {
+        $query = $this->conn->query("SELECT * FROM news_events");
+        $results = $query->rowCount();
+        echo $results;
+    }
+
+    public function deleteNews($id) {
         $query = $this->conn->prepare("DELETE FROM news_events WHERE id = ?");
         $query->execute([$id]);
     }

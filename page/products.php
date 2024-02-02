@@ -32,7 +32,7 @@
           if($status == 1) {
             ?>
              <div class="col-sm-3 d-flex align-items-stretch">
-                <div class="p-3 shadow mb-4 border-0 manuals-card">
+                <div class="p-3 shadow mb-4 border-0 manuals-card" data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
 
                     <div class="py-3">
                     <img src ="admin/assets/products/<?= $image ?>" class="w-100 mb-3"><br>

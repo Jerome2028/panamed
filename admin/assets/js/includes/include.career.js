@@ -1,5 +1,5 @@
 $(function() {
-    $('#news-content').summernote({
+    $('#careers-content').summernote({
         height: 300,
         placeholder: 'Type Here...',
         disableDragAndDrop: true,
@@ -32,12 +32,12 @@ $(function() {
     });
 
    $('#btn-save').on('click', function() {
-      var id = $('#id').val();
-      var title = $('#title').val();
-      var content = $('#news-content').val();
+      var id = $('#careers-id').val();
+      var title = $('#careers-title').val();
+      var content = $('#careers-content').val();
       var status = $('#status').val();
 
-      if(title == "" || $('#news-content').summernote('isEmpty')){
+      if(title == "" || $('#careers-content').summernote('isEmpty')){
            errorAlert();
       } else {
        submit(id, title,content, status);
@@ -49,15 +49,15 @@ $(function() {
        $('#modalTitle').html('<i class="fas fa-plus"></i> Add New Content');
 
       //  $('#news-id"').val('');
-       $('#news-title').val('');
-       $('#news-content').val('');
+       $('#careers-title').val('');
+       $('#careers-content').val('');
        $('#sort_by').val(0);
        $("select option:checked").val();
 
        $('.submit-btn').on('click', function() {
          // var id = $('#news-id').val();
-          var title = $('#news-title').val();
-          var content = $('#news-content').val();
+          var title = $('#careers-title').val();
+          var content = $('#careers-content').val();
           var sort_by = $('#sort_by').val();
           var status = $('#status').val();
 
@@ -75,7 +75,7 @@ $(function() {
                 opacity:"0!important"
               }).showToast();
           } else {
-            addEvents(title, content, sort_by, status);
+            addCareers(title, content, sort_by, status);
           }
        })
 
@@ -103,7 +103,7 @@ $(function() {
 
 function submit(id, title,content, status) {
    $.ajax({
-       url: '../controller/controller.news-events.php?mode=updateContent',
+       url: '../controller/controller.careers.php?mode=updateCareers',
        method: 'POST',
        data: {
            id:id, 
@@ -114,14 +114,14 @@ function submit(id, title,content, status) {
        success:function() {
            $('#preloader').show();
            window.localStorage.setItem("stat", "success");
-          //  window.location.href="";
+        //    window.location.href="";
        }
    });
 }
 
-function addEvents(title, content, sort_by, status){
+function addCareers(title, content, sort_by, status){
    $.ajax({
-       url: '../controller/controller.news-events.php?mode=addEvents',
+       url: '../controller/controller.careers.php?mode=addCareers',
        method: 'POST',
        data: {
          //   id:id,
@@ -137,7 +137,7 @@ function addEvents(title, content, sort_by, status){
        }
    });
 }
-function deleteNews(id) {
+function deleteCareers(id) {
 Swal.fire({
   title: "Please confirm to Delete",
   icon: 'warning',
@@ -146,7 +146,7 @@ Swal.fire({
 }).then((result) => {
   if (result.isConfirmed) {
     $.ajax({
-        url: '../controller/controller.news-events.php?mode=deleteNews',
+        url: '../controller/controller.careers.php?mode=deleteCareers',
         method: 'POST',
         data: {
             id:id

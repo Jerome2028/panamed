@@ -26,10 +26,37 @@
 
   <section class="news-events section-bg">
     <div class="container">
-    <?php require_once 'page/news-card.php';?>
+
+              <?php
+                if(isset($_GET["news"])) {
+                $id = $_GET["news"];
+                $newsEventsWhere = $newsEvents->getContentWhere($id);
+              ?>
+                <div class="card border-0 mb-5 p-5">
+
+                    <div class="py-3">
+                        <div class="d-sm-flex align-items-center justify-content-between">
+                            <h5 class="m-0 font-weight-bold panamed-color"><?= $newsEventsWhere['title'] ?></h5>
+                        </div>
+                        <span class="badge bg-lighter mt-2"><?= $newsEventsWhere['date_added'] ?></span>
+                    </div>
+                
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-sm-9">
+                                <p name="news-content" id="news-content" class=""  rows="9" required><?= $newsEventsWhere['content'] ?></p>
+                            </div>
+                        </div>
+                        <a class="btn btn-get-started waves-effect waves-light text-white" href="<?=$BASE;?>news-events/"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Back to News Event</a>
+                    </div>
+                </div>
+                <?php
+                } else {
+                ?>
       <div class="row mb-5 d-flex align-items-stretch">
-        
-      <?php foreach($newsEventsContent as $v) {
+      <?php 
+      if(!empty($newsEventsContent)) {
+      foreach($newsEventsContent as $v) {
         $id = $v["id"];
         $titlee = $v["title"];
         $content = $v["content"];
@@ -46,9 +73,9 @@
                 <span class="badge bg-lighter">News & Event</span>
                 <span class="badge bg-lighter ms-2"><?=$date;?></span>
               </div>
-              <p class ="texting"><?=$content;?></p>
+              <p><?=$content;?></p>
               <div class="position-absolute top-100 start-50 translate-middle w-100 text-center">
-              <a href="http://localhost/panamed/news-events?news=<?=$id;?>/" class="btn-get-started btn w-25 mt-auto waves-effect waves-light">Read More &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="?news=<?= $id ?>/" class="btn-get-started btn w-25 mt-auto waves-effect waves-light">Read More &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
           </div>
           </div>
             </div>
@@ -57,9 +84,15 @@
         <?php 
       }
     }
+  }
     ?>
       
       </div>
+      
+      <?php 
+      
+    }
+    ?>
       <p class="text-center title">Want More? <a class="panamed-color" href="https://panamed.com.ph/shop/">Shop with us!</a> and get the products you want!</p>
         <div class="d-flex justify-content-center mt-4">
           <a href="https://panamed.com.ph/shop/" class="btn-get-started animate__animated animate__fadeInUp waves-effect waves-light">Shop Now</a>
@@ -69,7 +102,7 @@
 
   
        <!-- ======= Trusted by Healthcare ======= -->
-  <section class="trusted" data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
+  <section class="trusted">
     <div class="container">
       <p class ="text-center title">Trusted by healthcare professionals since 1995</p>
 
@@ -99,6 +132,14 @@
     </div>
   </section>
   
-  <?php include_once 'component/footer.php';?>
+
 </main>
+<?php include_once 'component/footer.php';?>
 </body>
+<script>
+  var name = document.getElementById('texting').text();
+if (name.length > 10) {
+    var shortname = name.substring.forEach(0, 40) + " ...";
+    $('texting').replaceWith(shortname);
+}
+</script>

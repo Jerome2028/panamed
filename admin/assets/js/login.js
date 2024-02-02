@@ -1,7 +1,9 @@
 $(function() {
   $(".login").on("submit", function(e) {
-    e.preventDefault()
-  var error = false; var message = '';
+    e.preventDefault();
+    
+  var error = false;
+  var message = '';
   var user_email = $('#user_email').val();
   var user_password = $('#user_password').val();
   
@@ -11,6 +13,7 @@ $(function() {
   }
   else {
     submit(user_email, user_password)
+
 }
   if (error) {
     Toastify({
@@ -22,37 +25,34 @@ $(function() {
       positionRight: true,
       backgroundColor: "#c46868"
     }).showToast();
-  return
+  return;
   }
-
-//   $(".login, body").css({
-//     opacity: "0.5",
-//     cursor: "wait"
-// });
-
+    $(".login-dashboard").css({
+    opacity: "0.5",
+    cursor: "wait"
+});
+    var $inputs = $(this).find("input, select, button, textarea");
+    $inputs.prop("disabled", true);
     function submit(user_email, user_password) {
-      window.onbeforeunload = null;
       $.ajax ({
       type:'POST',
       url:'controller/controller.login.php?mode=login',
       data:{
-        // submitdata:"submitdata",
         user_email:user_email,
         user_password:user_password,
       },
       beforeSend: function() {
-        $("body").css({
-            opacity: "0.5",
+        $("input").prop("disabled", true);
+        $(".login-dashboard").css({
+            transition: "opacity 0.5s",
             cursor: "wait"
         });
     },
       cache: false,
       success:function(response) {
+      $inputs.val("");
+      $inputs.prop("disabled", false);
         window.onbeforeunload = null;
-      //   $(".login body").css({
-      //     opacity: "1",
-      //     cursor: "auto"
-      // });
         var resValue = jQuery.parseJSON(response);
         if(resValue['message'] == "Success Found") {
           const Toast = Swal.mixin({
@@ -61,7 +61,7 @@ $(function() {
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
-              opacity: "1!important",
+              opacity: "1",
             didOpen: (toast) => {
               toast.onmouseenter = Swal.stopTimer;
               toast.onmouseleave = Swal.resumeTimer; 
@@ -73,14 +73,15 @@ $(function() {
           });
           setTimeout( function() {
             window.location.href="dashboard";
-          },3000);
+          },2000);
+          $inputs.prop("disabled", false);
         }
         else {
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
             showConfirmButton: false,
-            timer: 3000,
+            timer: 2000,
             timerProgressBar: true,
               opacity: "1!important",
             didOpen: (toast) => {
@@ -93,12 +94,15 @@ $(function() {
             title: "Authentication Failed",
           });
           setTimeout(function() {
-            location.reload();
-          },1500);
+            // location.reload();
+            $(".login-dashboard").css({
+              opacity: "1",
+              cursor: "default"
+          });
+          },2000);
         }
       } 
       });
     }
-      });
-    });
-
+  });
+});

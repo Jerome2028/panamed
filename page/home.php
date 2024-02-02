@@ -202,19 +202,19 @@ require_once 'component/navbar.php';
           <img src="assets/img/hospitals/east.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="300">
+        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="350">
           <img src="assets/img/hospitals/heart_center.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="400">
+        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="500">
           <img src="assets/img/hospitals/kidney.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="500">
+        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="650">
           <img src="assets/img/hospitals/lungs.png" class="img-fluid" alt="">
         </div>
 
-        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="600">
+        <div class="col-lg-2 col-md-2 col-2 d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="800">
           <img src="assets/img/hospitals/pgh.png" class="img-fluid" alt="">
         </div>
 

@@ -2,39 +2,39 @@
 
 require_once "controller.db.php";
 require_once "controller.session.php";
-require_once "../model/model.news-events.php";
+require_once "../model/model.careers.php";
 
-$newsEvents = new NewsEvents();
+$careers = new Careers();
 
 
 $mode = isset($_GET["mode"]) ? $_GET["mode"] : NULL;
 
 switch($mode) { 
 
-    case "updateContent";
+    case "updateCareers";
         $id = $_POST["id"];
         $title = $_POST["title"];
         $content = $_POST["content"];
         $status = $_POST["status"];
-        $newsEvents = $newsEvents->updateContent($id, $title, $content, $status);
+        $careers = $careers->updateCareers($id, $title, $content, $status);
 
         $response = array("message" => "Update Success");
         break;
 
-    case "addEvents";
+    case "addCareers";
         // $id = $_POST["id"];
         $title = $_POST["title"];
         $content = $_POST["content"];
         $sort_by = $_POST["sort_by"];
         $status = $_POST["status"];
-        $newsEvents = $newsEvents->addEvents($title, $content, $sort_by, $status);
+        $careers = $careers->addCareers($title, $content, $sort_by, $status);
 
         $response = array("message" => "Success Insert");
         break;
 
-    case "deleteNews";
+    case "deleteCareers";
         $id = $_POST["id"];
-        $newsEvents = $newsEvents->deleteNews($id);
+        $careers = $careers->deleteCareers($id);
 
         $response = array("message" => "Delete Success");
         break;

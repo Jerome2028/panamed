@@ -476,10 +476,6 @@ a.waves-effect .waves-ripple {
     font-weight: 700;
   }
 }
-
-
-
-
 /* .navbar-mobile {
   position: fixed;
   overflow: hidden;
@@ -582,7 +578,7 @@ color: #ffffff;
   top: 0;
   width: 110%;
   height: 98%;
-  background: linear-gradient(to right, rgb(41 69 84 / 80%), rgba(30, 67, 86, 0.6)), url(../img/bannermain.jpg) center top no-repeat;
+  background: linear-gradient(to right, rgb(41 69 84 / 80%), rgba(30, 67, 86, 0.6)), url(../img/ppi-banners2.jpg) center top no-repeat;
   z-index: 0;
   border-radius: 0 0 120% 100%;
   transform: translateX(-50%) rotate(0deg);

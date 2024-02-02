@@ -2,62 +2,137 @@ $(function() {
    $('#btn-save').on('click', function() {
       var id = $('#id').val();
       var title = $('#title').val();
-      var content = $('#news-content').val();
+      var image = $('#ppi-img').val();
+      var content = $('#products-content').val();
       var status = $('#status').val();
 
       if(title == "" || content == ""){
-           errorAlert();
+        Toastify({
+            text: "input Field Required!",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            positionRight: true,
+            backgroundColor: "#c46868",
+            opacity:"0!important"
+          }).showToast();
       } else {
-       submit(id, title, content, status);
+       submit(id, title, image, content, status);
       }
    })
 
+   
+    // $(function(){
+    //     Test = {
+    //         UpdatePreview: function(obj){
+    //           // if IE < 10 doesn't support FileReader
+    //           if(!window.FileReader){
+    //              // don't know how to proceed to assign src to image tag
+    //           } else {
+    //              var reader = new FileReader();
+    //              var target = null;
+                 
+    //              reader.onload = function(e) {
+    //               target =  e.target || e.srcElement;
+    //                $("img").prop("src", target.result);
+    //              };
+    //               reader.readAsDataURL(obj.files[0]);
+    //           }
+    //         }
+    //     };
+    // });
+
    $('#addPosition').on('click', function() {
        $('#staticBackdrop').addClass('addPositionModal').modal('show');
-       $('#modalTitle').html('<i class="fas fa-plus"></i> Add New Position');
+       $('#modalTitle').html('<i class="fas fa-plus"></i> Add New Product');
 
       //  $('#news-id"').val('');
-       $('#news-title').val('');
-       $('#news-content').val('');
-       $('#sort_by').val(0);
+       $('#products-title').val('');
+       $('#products-content').val('');
+    //    $('#productsImg').val('');
+
+    //    $('#sort_by').val(0);
        $("select option:checked").val();
 
        $('.submit-btn').on('click', function() {
-         // var id = $('#news-id').val();
-          var title = $('#news-title').val();
-          var content = $('#news-content').val();
-          var sort_by = $('#sort_by').val();
+
+         var id = $('#news-id').val();
+          var title = $('#products-title').val();
+          var content = $('#products-content').val();
+        //   var image = $('#productsImg').val();
+        //   var sort_by = $('#sort_by').val();
           var status = $('#status').val();
 
-          if(title == "" || content == null) {
-            //    errorAlert();
-            alert("walang laman!");
+          if(title == "" || content == "") {
+            Toastify({
+                text: "input Field Required!",
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                positionRight: true,
+                backgroundColor: "#c46868",
+                opacity:"0!important"
+              }).showToast();
           } else {
-               addCourse(title, content, sort_by, status);
+               addProduct(title, content, image, status);
           }
        })
 
        $('.closeBtn').on('click', function() {
-           window.location.href="";
+            window.location.reload();
        });
    })
 
    var status_module = window.localStorage.getItem("stat");
    if (status_module == "success") {
-    //    sucessAlert();
-    alert ("tagumpay!!");
+    Toastify({
+        text: "Content Update",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        positionRight: true,
+        backgroundColor: "#198754",
+        opacity:"0!important"
+      }).showToast();
        localStorage.clear();
    }
 
-})
+// })
 
-function submit(id, title, content, status) {
+// $('#myform').on('submit', function(e){
+//     e.preventDefault();
+//         var formData = new FormData(this);
+
+//         // var img = img.substring(img.lastIndexOf("\\") + 1, img.length);
+//         $.ajax({
+//             type: "POST",
+//             url: 'controller/controller.communication_arts.php?mode=updateContent',
+//             data: formData,
+//             cache: false,
+//             contentType: false,
+//             processData: false,
+//             success:function(data){
+//                 $('#preloader').show();
+//                 window.localStorage.setItem("stat", "success");
+//                 window.location.href="communication_arts.php";
+          
+//                 findImage(data);
+           
+//             }
+//         });
+//     });
+})
+function  submit(id, title, image, content, status) {
    $.ajax({
-       url: '../controller/controller.news-events.php?mode=updateContent',
+       url: '../controller/controller.products.php?mode=updateProducts',
        method: 'POST',
        data: {
            id:id, 
            title:title, 
+           image:image,
            content:content, 
            status:status
        },
@@ -96,21 +171,26 @@ function submit(id, title, content, status) {
 //    });
 // }
 
-function addCourse(title, content, sort_by, status){
+function  addProduct(title, content, image, status){
    $.ajax({
-       url: '../controller/controller.news-events.php?mode=addCourse',
+       url: '../controller/controller.products.php?mode=addProduct',
        method: 'POST',
        data: {
          //   id:id,
            title:title,
            content:content,
-           sort_by:sort_by,
-           status:status
+           image:image,
+        //    sort_by:sort_by,
+           status:status,
        },
+       cache: false,
+       contentType: false,
+       processData: false,
+
        success:function() {
         //    $('#preloader').show();
            window.localStorage.setItem("stat", "success");
-        //    window.location.href="communication_arts.php";
+        //    window.location.href="";
        }
    });
 }
@@ -142,7 +222,7 @@ Swal.fire({
 }).then((result) => {
   if (result.isConfirmed) {
     $.ajax({
-        url: '../controller/controller.news-events.php?mode=deleteCourse',
+        url: '../controller/controller.products.php?mode=deleteProduct',
         method: 'POST',
         data: {
             id:id
@@ -152,7 +232,6 @@ Swal.fire({
 
             if(resValue['message'] == "Delete Success") {
             var resValue = jQuery.parseJSON(response);
-                alert (resValue);
                 Swal.fire("Saved!", "", "success");
                 Swal.fire(
                     'Deleted Successfully!',

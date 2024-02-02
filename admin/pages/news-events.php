@@ -16,7 +16,8 @@ $newsEventsContent = $newsEvents->getContent();
 
         </div>
 
-        <div class="col py-3 overflow-auto">
+        <div class="col p-0 overflow-auto">
+        <?php  require_once 'component/search.php';?>
             <div class="container-fluid mt-5">
                 <?php
                     if(isset($_GET["update"])) {
@@ -28,17 +29,17 @@ $newsEventsContent = $newsEvents->getContent();
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
                             <h3 class="m-0 font-weight-bold font-primary"><i class="fas fa-sm fa-edit"></i>
-                                <span class="badge rounded-pill bg-secondary font-primary">News-Events</span>
+                                <span class="badge rounded-pill bg-secondary font-primary"><?= $newsEventsWhere['title'] ?></span>
                             </h3>
                             <div class="d-sm-flex align-items-center justify-content-between">
                                 <a href="<?=$BASE?>news-events/" class="btn btn-sm btn-secondary btn-icon-split">
                                     <span class="icon text-white"><i class="fas fa-arrow-left"></i> </span>
                                     <span class="text text-white">Back</span>
                                 </a>
-                                <button id="btn-save" class="btn btn-sm btn-primary btn-icon-split m-1">
+                                <a id="btn-save" class="btn btn-sm btn-primary btn-icon-split m-1 text-white" href="<?=$BASE;?>news-events/">
                                     <span class="icon"><i class="fas fa-save"></i></span>
                                     <span class="text">Save</span>
-                                </button>
+                                </a>
                             </div>              
                         </div>
                     </div>
@@ -56,9 +57,20 @@ $newsEventsContent = $newsEvents->getContent();
                         </div>
 
                         <div class="row mb-4">
+                            <label for="info_title" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Image upload:</label>
+                            <div class="col-sm-9">
+                                <input type="file" name="images[]"multiple>
+                                <button type="submit" class ="btn btn-get-started p-2" name="upload">Upload</button>
+                                <div id="uploadStatus"></div>
+                                <div class="gallery" id="imagesPreview"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
                             <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Content:</label>
                             <div class="col-sm-9">
-                                <textarea name="news-content" id="news-content" class="form-control"  rows="3" required><?= $newsEventsWhere['content'] ?></textarea>
+                                <textarea name="news-content" id="news-content" class="form-control h-auto"  rows="9" required><?= $newsEventsWhere['content'] ?></textarea>
                             </div>
                         </div>
 
@@ -82,10 +94,10 @@ $newsEventsContent = $newsEvents->getContent();
                 <div class="card border-0">
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="fw-bold mt-3"><i class="bi bi-megaphone"></i> News Events</span></h3>
+                            <h3 class="fw-bold mt-3"><i class="bi bi-megaphone"></i> News Events</h3>
 
                             <button type="button" id="addPosition" class="btn btn-sm btn-primary btn-icon-split">
-                                <span class="icon"><i class="fas fa-plus-square"></i> </span>
+                                <span class="icon"><i class="fas fa-plus-square"></i></span>
                                 <span class="text">Add New</span>
                             </button>
                         </div>
@@ -101,11 +113,11 @@ $newsEventsContent = $newsEvents->getContent();
                 $date_update = $v["date_update"];
                 ?>
                 <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card rounded-0 p-3 shadow mb-4 border-0 w-100">
+                    <div class="card rounded-0 p-3 shadow-sm mb-4 border-0 w-100">
                         <div class="card-header py-3">
                             <div class="row">
                                 <div class="col-sm-8">
-                                    <p class="fw-bold px-2"><?= $title ?></p>
+                                    <p class="fw-bold px-2 fs-6"><?= $title ?></p>
                                     <div class="d-flex">
                                         <span class="badge bg-primary me-3 p-2" style="color: white;">Last update: <?= $date_update ?></span>
                                         <p><?php if($status== 1) {
@@ -117,14 +129,14 @@ $newsEventsContent = $newsEvents->getContent();
                                     </div>
                                 </div>
                                 <div class="col-sm-4 text-nowrap">
-                                    <a href="#" class="btn btn-sm btn-danger btn-icon-split text-white mb-0" onclick="deleteLink(<?=$id;?>)"><i class="fa-solid fa-trash"></i>&nbsp; Delete &nbsp;</a>
+                                    <a href="#delete=<?= $id ?>" class="btn btn-sm btn-danger btn-icon-split text-white mb-0" onclick="deleteNews(<?=$id;?>)"><i class="fa-solid fa-trash"></i>&nbsp; Delete &nbsp;</a>
                                     <a href="?update=<?= $id ?>/" class="btn btn-sm btn-success btn-icon-split text-white"><i class="fas fa-pen"></i>&nbsp;Update</a>
                                 </div>
                             </div>
                         </div>
                             
                         <div class="card-body py-3">
-                            <div class="mt-3"><p><?= $content ?></p></div>
+                            <div class="mt-3"><p><?= $content; ?></p></div>
                         </div>
                     </div>
                 </div>
@@ -133,11 +145,11 @@ $newsEventsContent = $newsEvents->getContent();
                         }
                     }
                 ?>
-                </div>
+            </div>
                 <?php    
                     }
                 ?>
-                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" aria-labelledby="staticBackdropLabel">
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
                             <div class="modal-dialog">
                                 <div class="modal-content">
 
@@ -152,12 +164,12 @@ $newsEventsContent = $newsEvents->getContent();
 
                                         <div class="mb-3">
                                             <label class="form-label">Title: <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="news-title" id="news-title" placeholder="Type Here...">
+                                            <input type="text" class="form-control" name="news-title" id="news-title" placeholder="Type Here..." required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label">Content: <span class="required">*</span></label>
-                                            <textarea type="text" class="form-control" name="news-content" id="news-content" rows="6"  placeholder="Type Here..."></textarea>
+                                            <textarea class="form-control w-50" name="news-content" id="news-content"></textarea>
                                         </div>
 
                                         <div class="mb-3">
@@ -175,7 +187,7 @@ $newsEventsContent = $newsEvents->getContent();
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="close" class="btn btn-sm btn-secondary btn-icon-split closeBtn" data-dismiss="modal">
+                                        <button type="close" class="btn btn-sm btn-secondary btn-icon-split closeBtn" data-bs-dismiss="modal">
                                             <span class="icon"><i class="fas fa-window-close"></i></span>
                                             <span class="text">Close</span>
                                         </button>
@@ -198,3 +210,8 @@ $newsEventsContent = $newsEvents->getContent();
 </body>
 <script src ="<?=$BASE;?>assets/js/includes/include.news-events.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+

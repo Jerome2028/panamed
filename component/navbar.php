@@ -17,7 +17,7 @@
               <li class="waves-effect waves-light"><a  class="nav-link <?= $page==8 ? "active" : ""?>" href="<?=$BASE;?>careers">Careers</a></li>
             </ul>
           </li>
-          <li class="waves-effect waves-light"><a class="nav-link <?= $page==3 ? "active" : ""?>" href="<?=$BASE;?>news-events">News and Events</a></li>
+          <li class="waves-effect waves-light"><a class="nav-link <?= $page==3 ? "active" : ""?>" href="<?=$BASE;?>news-events/">News and Events</a></li>
           <li class="waves-effect waves-light"><a class="nav-link <?= $page==4 ? "active" : ""?>" href="<?=$BASE;?>products">Products</a></li>
           <li class="waves-effect waves-light"><a class="nav-link <?= $page==5 ? "active" : ""?>" href="<?=$BASE;?>brochures">Brochures</a></li>
           <li class="waves-effect waves-light"><a class="nav-link <?= $page==6 ? "active" : ""?>" href="<?=$BASE;?>contact-us">Contact Us</a></li>

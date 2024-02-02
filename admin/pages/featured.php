@@ -2,7 +2,7 @@
 $title =  "Admin - Featured";
 require_once 'component/import.php';
 require_once 'component/header.php';
-
+$page =6;
 ?>
 <body>
 <section class="dashboard">

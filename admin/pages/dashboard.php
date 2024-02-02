@@ -14,18 +14,61 @@ $page =1;
             <div class="row flex-nowrap h-100">
                 <div class="col-auto col-md-3 col-xl-2  px-0 bg-light  d-inline-block">
 
-
-               
                 <?php require_once 'component/sidenav.php';?>
-            
-            
 
                 </div>
-                <div class="col py-3 overflow-auto">
+                <div class="col overflow-auto p-0">
+                <?php  require_once 'component/search.php';?>
+                    <div class="mt-5 container-fluid">
+                        <h4 class="fw-bold">Welcome Back!<span class="ms-1"><?php echo $user?></span></h4>
+                    </div>
                     
+                    <div class="container overflow-hidden mt-5 icons">
+                        <div class="row gy-5">
+                            <div class="col-sm-4 position-relative">
+                                <a class="card bg-success text-white p-5 text-center border-0" href="<?=$BASE;?>news-events/"><span class="fw-bold fs-1 value" count="<?= $newsEvents->countAllEvents(); ?>">0</span><br><p class="text-white fw-bold">News Events Content</p>
+                                <div class=""><i class="bi bi-megaphone-fill"></i></div>
+                            </a>
+                            </div>
 
+                            <div class="col-sm-4 position-relative">
+                                <a class="card bg-info text-white p-5 text-center border-0" href="<?=$BASE;?>products/"><span class="fw-bold fs-1 value" count="<?= $products->countAllProducts(); ?>">0</span><br><p class="text-white fw-bold">Products</p></a>
+                                <div class=""><i class="bi bi-cart-fill"></i></div>
+                            </div>
+
+                            <div class="col-sm-4 position-relative">
+                                <a class="card bg-warning text-white p-5 text-center border-0" href="<?=$BASE;?>career/"><span class="fw-bold fs-1 value" count="<?= $careers->countAllCareers(); ?>">0</span><br><p class="text-white fw-bold">Careers Post</p></a>
+                                <div class=""><i class="bi bi-handbag-fill"></i></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 </section>
 </body>
+<script> 
+const counters = document.querySelectorAll('.value');
+const speed = 1000;
+
+counters.forEach( counter => {
+   const animate = () => {
+      const value = +counter.getAttribute('count');
+      const data = +counter.innerText;
+     
+      const time = value / speed;
+     if(data < value) {
+          counter.innerText = Math.ceil(data + time);
+          setTimeout(animate, 1);
+        }else{
+          counter.innerText = value;
+        }
+     
+   }
+   
+   animate();
+});
+
+</script>
+<!-- <link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-car.css" /> -->
+<!-- <script src="http://github.hubspot.com/odometer/odometer.js"></script> -->
