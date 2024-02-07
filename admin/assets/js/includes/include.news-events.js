@@ -38,7 +38,7 @@ $(function() {
       var status = $('#status').val();
 
       if(title == "" || $('#news-content').summernote('isEmpty')){
-           errorAlert();
+        alert("Emplty Fsield");
       } else {
        submit(id, title,content, status);
       }

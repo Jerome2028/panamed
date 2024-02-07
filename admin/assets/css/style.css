@@ -640,6 +640,9 @@ a.waves-effect .waves-ripple {
     text-align: center;
     display: flex;
 }
+.profileForm .rounded {
+  border-radius: 8rem!important;
+}
 
 /*--------------------------------------------------------------
 # login

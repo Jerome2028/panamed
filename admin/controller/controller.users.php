@@ -1,33 +1,41 @@
 <?php
-$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt'); // valid extensions
-$path = 'uploads/'; // upload directory
-if(!empty($_POST['name']) || !empty($_POST['email']) || $_FILES['image'])
-{
-$img = $_FILES['image']['name'];
-$tmp = $_FILES['image']['tmp_name'];
-// get uploaded file's extension
-$ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
-// can upload same image using rand function
-$final_image = rand(1000,1000000).$img;
-// check's valid format
-if(in_array($ext, $valid_extensions)) 
-{ 
-$path = $path.strtolower($final_image); 
-if(move_uploaded_file($tmp,$path)) 
-{
-echo "<img src='$path' />";
-$name = $_POST['name'];
-$email = $_POST['email'];
-//include database configuration file
-include_once 'db.php';
-//insert form data in the database
-$insert = $db->query("INSERT uploading (name,email,file_name) VALUES ('".$name."','".$email."','".$path."')");
-//echo $insert?'ok':'err';
+require_once "controller.db.php";
+require_once "../model/model.user.php";
+
+$user = new User();
+$mode = isset($_GET["mode"]) ? $_GET["mode"] : NULL;
+
+switch($mode){
+
+    case "updateProfile";
+
+    $id = $_POST["profile-id"];
+    $fname = $_POST["fname"];
+    $lname = $_POST["lname"];
+
+    // if($_FILES['imgInput']['name']) {
+        $target_dir = "../assets/products/userProfile/";
+        $file = $_FILES['imgInput']['name'];
+        $path = pathinfo($file);
+        $ext = $path['extension'];
+        $temp_name = $_FILES['imgInput']['tmp_name'];
+        $path_filename_ext = $target_dir.$file;
+        move_uploaded_file($temp_name,$path_filename_ext);
+    // }
+
+
+        // echo $fname .' - '. $lname .' - '. $file .' - '. $id;
+        
+        if (empty($file)){
+            $user->updateProfileInfo($fname, $lname, $id);
+        }
+        else {
+            $user->updateProfileWithImg($fname, $lname, $file, $id); 
+        }
+        // $user->updateProfile($fname, $lname, $file, $id);
+        $response = array("message" => "Success");
+ 
+    break;
 }
-} 
-else 
-{
-echo 'invalid';
-}
-}
+echo json_encode($response);
 ?>

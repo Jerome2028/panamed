@@ -6,7 +6,7 @@ $page =1;
   require_once 'component/import.php';
   require_once 'component/header.php';
   require_once 'controller/controller.session.php'; 
-    $user = $session->getSession("name");
+  $userole = $session->getSession("role");
 ?>
 <body>
     <section class="dashboard">
@@ -20,7 +20,7 @@ $page =1;
                 <div class="col overflow-auto p-0">
                 <?php  require_once 'component/search.php';?>
                     <div class="mt-5 container-fluid">
-                        <h4 class="fw-bold">Welcome Back!<span class="ms-1"><?php echo $user?></span></h4>
+                        <h4 class="fw-bold">Welcome Back!<span class="ms-1"><?php echo $userole?></span></h4>
                     </div>
                     
                     <div class="container overflow-hidden mt-5 icons">

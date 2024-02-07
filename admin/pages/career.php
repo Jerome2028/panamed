@@ -95,7 +95,7 @@ $careersContent = $careers->getContent();
 
             <div class ="container-fluid card bg-light shadow-sm border-0 p-4">
                 <div class="card border-0">
-                    <div class="card-header py-3">
+                    <div class="card-header py-3  align-items-stretch">
                         <div class="d-sm-flex align-items-center justify-content-between">
                             <h3 class="fw-bold mt-3"><i class="bi bi-chat-left-text"></i> Careers</h3>
 
