@@ -11,7 +11,7 @@ $title = "Admin - Dashboard";
     <div class="d-flex flex-column align-items-center align-items-sm-start pt-2">
         <img src ="<?=$BASE;?>assets/img/logo.png" class="w-50 d-block m-auto mt-3 mb-3">
         <div class="cover d-flex text-center mt-4 mb-4">
-            <img src="<?=$BASE;?>assets/img/bgbg.jpg" class="">
+            <!-- <img src="<?=$BASE;?>assets/img/bgbg.jpg" class="position-relative p-5 w-25" style="background-size:cover;"> -->
             <div class="overlay"></div>
             <div class="user-nav">
 
@@ -103,7 +103,7 @@ $title = "Admin - Dashboard";
                         </div>
                             <label for="cname" class="col-sm-4 col-form-label text-right">Upload Profile:<span class="required">*</span> </label>
                             <div class="col-sm-8">
-                                <input class="form-control" id="imgInput" type="file" accept="image/*" name="imgInput" value="<?=$user_account['img'];?>"/>
+                                <input class="form-control" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
                             </div>
                         </div>
 

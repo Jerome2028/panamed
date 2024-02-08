@@ -13,7 +13,7 @@ switch($mode){
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
 
-    // if($_FILES['imgInput']['name']) {
+    if(isset($_POST['imgInput']['name'])) {
         $target_dir = "../assets/products/userProfile/";
         $file = $_FILES['imgInput']['name'];
         $path = pathinfo($file);
@@ -21,8 +21,7 @@ switch($mode){
         $temp_name = $_FILES['imgInput']['tmp_name'];
         $path_filename_ext = $target_dir.$file;
         move_uploaded_file($temp_name,$path_filename_ext);
-    // }
-
+    }
 
         // echo $fname .' - '. $lname .' - '. $file .' - '. $id;
         

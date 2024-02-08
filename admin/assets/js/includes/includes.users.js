@@ -1,4 +1,5 @@
 $(function() {
+    
 var status_module = window.localStorage.getItem("stat");
 localStorage.clear();
 if (status_module == "success") {
@@ -49,6 +50,7 @@ if (status_module == "success") {
         // };
 
             // var img = img.substring(img.lastIndexOf("\\") + 1, img.length);
+            
 			$.ajax({
 				type: type,
                 url: action,
@@ -57,6 +59,8 @@ if (status_module == "success") {
 				contentType: false,
 				processData: false,
 				success:function(data){
+                    // var res = $.parseJSON(data);
+                    // alert(res.data);
                     console.log(data);
                     $('#preloader').show();
                     window.localStorage.setItem("stat", "success");
