@@ -643,6 +643,17 @@ a.waves-effect .waves-ripple {
 .profileForm .rounded {
   border-radius: 8rem!important;
 }
+.side-nav .rounded-circle {
+  border-radius: 50% !important;
+  border: solid 1px;
+  width: 75px!important;
+  height: 75px!important;
+}
+.side-nav form .rounded-circle {
+  width: 175px!important;
+  height: 175px!important;
+  border: solid 2px #c1c1c1;
+}
 
 /*--------------------------------------------------------------
 # login

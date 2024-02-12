@@ -23,8 +23,10 @@ switch($mode){
       else {
       // var_dump($user_accounts);
       $session->setSession("auth", true);
+      $session->setSession("First_name", $user_accounts[1]);
+      $session->setSession("id", $user_accounts[0]);
       $session->setSession("role", $user_accounts[3]);
-      $session->setSession("fname", $user_accounts[1]);
+      
       //  $session->setSession("lname", $user_accounts[2]);
       //  $session->setSession("img", $user_accounts[4]);
 

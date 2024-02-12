@@ -13,7 +13,8 @@ switch($mode){
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
 
-    if(isset($_POST['imgInput']['name'])) {
+    
+     if($_FILES['imgInput']['name']) {
         $target_dir = "../assets/products/userProfile/";
         $file = $_FILES['imgInput']['name'];
         $path = pathinfo($file);

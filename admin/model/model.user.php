@@ -21,7 +21,7 @@ class User extends db_conn_mysql {
         return ($response) ?: false;
     }
     public function getContentWhere($email) {
-        $query = $this->conn->prepare("SELECT * FROM user WHERE First_Name = ?");
+        $query = $this->conn->prepare("SELECT * FROM user WHERE id = ?");
         $query->execute([$email]);
         $response = $query->fetch();
 

@@ -1,11 +1,24 @@
 $(function() {
+    $("#imgInput").change(function() {
+        if (this.files && this.files[0]) {
+    
+            var reader = new FileReader();
+    
+            reader.onload = function (e) {
+                $('#imgPreview').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(this.files[0]);
+        }
+    })
+
     
 var status_module = window.localStorage.getItem("stat");
 localStorage.clear();
 if (status_module == "success") {
  Toastify({
     //  text: "Content Update",
-    text:'User Settings Applied!'
+    text:'User Settings Applied!',
      duration: 3000,
      newWindow: true,
      close: true,
@@ -59,26 +72,15 @@ if (status_module == "success") {
 				contentType: false,
 				processData: false,
 				success:function(data){
-                    // var res = $.parseJSON(data);
-                    // alert(res.data);
-                    console.log(data);
-                    $('#preloader').show();
+                var resValue = jQuery.parseJSON(data);
+                    if((resValue['message'] == "Success") || (resValue['message'] == "Success without Img")) {
+
                     window.localStorage.setItem("stat", "success");
                     window.location.reload();
 				}
+            }
 			});
 		});
   
- $("#imgInput").change(function() {
-    if (this.files && this.files[0]) {
 
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#imgPreview').attr('src', e.target.result);
-        }
-
-        reader.readAsDataURL(this.files[0]);
-    }
-});
 });

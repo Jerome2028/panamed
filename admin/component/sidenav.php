@@ -4,10 +4,9 @@ $title = "Admin - Dashboard";
 
   require_once 'component/import.php';
   require_once 'component/header.php';
-  $user_account = $userr->getContentWhere($session->getSession("fname"));
-//   var_dump($userr->getContentWhere($session->getSession("fname")));
+  $user_account = $userr->getContentWhere($userid);
   ?>
-
+<section class="side-nav">
     <div class="d-flex flex-column align-items-center align-items-sm-start pt-2">
         <img src ="<?=$BASE;?>assets/img/logo.png" class="w-50 d-block m-auto mt-3 mb-3">
         <div class="cover d-flex text-center mt-4 mb-4">
@@ -15,7 +14,7 @@ $title = "Admin - Dashboard";
             <div class="overlay"></div>
             <div class="user-nav">
 
-                <img src="<?=$BASE;?>assets/products/userProfile/<?=$user_account['img'];?>" class="w-50 rounded-circle" value="">
+                <img src="<?=$BASE;?>assets/products/userProfile/<?=$user_account['img'];?>" class="w-50 rounded-circle" value="/<?=$user_account['img'];?>">
             
                 <h5 class="p-0 fw-bold d-block m-auto text-white"><?php echo $userole; ?></h5>
             </div>
@@ -99,7 +98,7 @@ $title = "Admin - Dashboard";
                     <div class="modal-body">
                         <div class="row mb-4">
                         <div class="mb-4" id="">
-                            <img src="<?=$BASE;?>assets/products/userProfile/<?=$user_account['img'];?>" class="w-25 rounded mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>"/>
+                            <img src="<?=$BASE;?>assets/products/userProfile/<?=$user_account['img'];?>" class="w-25 rounded-circle mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>"/>
                         </div>
                             <label for="cname" class="col-sm-4 col-form-label text-right">Upload Profile:<span class="required">*</span> </label>
                             <div class="col-sm-8">
@@ -131,6 +130,7 @@ $title = "Admin - Dashboard";
         </div>
     </div>
 </form>
+</section>
 <script>
     function profile(token) {
         $("#profileForms").trigger('submit');

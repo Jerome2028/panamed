@@ -9,15 +9,14 @@ require "model/model.careers.php";
 require "model/model.user.php";
 
 $session = new Session();
-$newsEvents = new NewsEvents();
 $products = new ProductsContent();
+$newsEvents = new NewsEvents();
 $careers = new Careers();
 $userr = new User();
-// $userid = $session->getSession("id");
- $fname = $session->getSession("fname");
-// $lname = $session->getSession("lname");
+
+$fname = $session->getSession("First_name");
 $userole = $session->getSession("role");
-$userimg = $session->getSession("img");
+$userid = $session->getSession("id");
 
 
 $BASE = Utility::getBase();
