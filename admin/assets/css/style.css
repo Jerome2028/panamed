@@ -150,7 +150,7 @@ li,
   transition: all 0.3s ease-out;
 }
 
-.waves-effect .waves-ripple {
+.waves-effect .waves-ripple, .waves-effect.active {
   position: absolute;
   border-radius: 50%;
   width: 20px;
@@ -649,10 +649,39 @@ a.waves-effect .waves-ripple {
   width: 75px!important;
   height: 75px!important;
 }
-.side-nav form .rounded-circle {
+.side-nav form .img-board {
   width: 175px!important;
   height: 175px!important;
-  border: solid 2px #c1c1c1;
+  border: dashed 2px #c1c1c1;
+  border-radius: 0% !important;
+  cursor: pointer;
+}
+.img-div{
+  position:relative;
+}
+.img-div:hover:after{
+    content:'';
+    position:absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background: url('../img/camera-fill.svg') center no-repeat;
+    background-size: 50px;
+}
+
+.img-div:hover img{
+  opacity: 0.5;
+  transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -webkit-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
+.img-div > input{
+  height: 100%;
+  width: 100;
+  opacity: 0;
+  cursor: pointer;
 }
 
 /*--------------------------------------------------------------
@@ -1895,6 +1924,31 @@ section {
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
+.brochures .input-group input{
+  pointer-events: none!important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.brochures .card-body .btn{
+  font-size: 12px;
+}
+.brochures .img-board {
+  width: 250px!important;
+  height: 250px!important;
+  border: dashed 2px #c1c1c1;
+  border-radius: 0% !important;
+  margin-bottom: 1rem;
+  position:relative; display: inline-block;
+} 
+/* .brochures .img-board:hover {
+  background-color:#000000;
+  transition: opacity 0.5s;
+  z-index: 2;
+} */
 /*--------------------------------------------------------------
 # Map
 --------------------------------------------------------------*/
@@ -1907,6 +1961,8 @@ section {
   width: 100%;
   height: 380px;
 }
+
+
 
 /*--------------------------------------------------------------
 # Contact-us

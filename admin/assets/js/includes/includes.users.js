@@ -58,12 +58,7 @@ if (status_module == "success") {
         var formData = new FormData(this);
 
         $inputs.prop("disabled", true);
-        // window.onbeforeunload = function() {
-        //     return "Are you sure you want to navigate away from this page?";
-        // };
-
-            // var img = img.substring(img.lastIndexOf("\\") + 1, img.length);
-            
+    
 			$.ajax({
 				type: type,
                 url: action,

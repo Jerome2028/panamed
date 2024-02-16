@@ -159,7 +159,7 @@ h6,
 
 #header.header-scrolled {
   background: rgb(246 246 246);
-  height: 60px;
+  height: 70px;
 }
 #header .logo h1 {
   font-size: 28px;
@@ -1969,6 +1969,7 @@ section {
 }
 .brochures .card {
   border:none;
+  /* border-radius: 10px 80px 10px 10px; */
 }
 .brochures .title{
   font-weight: 700;

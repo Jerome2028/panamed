@@ -8,34 +8,35 @@
  require_once 'component/banner.php';
  $productsContent = $productsContent->getContent();
  ?>
-      <body>  
-          <main>
-          <?php (require_once 'component/navbar.php'); ?>
-          <section class="manuals">
-            <div class ="container">
+<body>  
+    <main>
+    <?php (require_once 'component/navbar.php'); ?>
+    <section class="manuals">
+        <div class ="container">
             <div class = "d-flex justify-content-center">
                 <input type="text" class="form-control w-50 border-3 mb-5" id ="live_search" autocomplete="off" placeholder="Search Products here..." >
             </div>
-            <div id ="searchresult"></div>
-            <div class="row mb-5">
-        
-        <?php foreach($productsContent as $v) {
+        <div id ="searchresult"></div>
 
-          $titlee = $v["ppi_product_name"];
-          $image = $v["ppi_product_image"];
-          // $id = $v["id"];
-          // $titlee = $v["title"];
-          // $content = $v["content"];
-          $status = $v["ppi_product_status"];
-          // $date = $v["date_update"];
-  
-          if($status == 1) {
+        <div class="row mb-5">
+    
+    <?php foreach($productsContent as $v) {
+
+    $titlee = $v["ppi_product_name"];
+    $image = $v["ppi_product_image"];
+    // $id = $v["id"];
+    // $titlee = $v["title"];
+    // $content = $v["content"];
+    $status = $v["ppi_product_status"];
+    // $date = $v["date_update"];
+
+        if($status == 1) {
             ?>
-             <div class="col-sm-3 d-flex align-items-stretch">
+            <div class="col-sm-3 d-flex align-items-stretch">
                 <div class="p-3 shadow mb-4 border-0 manuals-card" data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
 
                     <div class="py-3">
-                    <img src ="admin/assets/products/<?= $image ?>" class="w-100 mb-3"><br>
+                    <img src ="admin/assets/img/products/<?= $image ?>" class="w-100 mb-3"><br>
                         <div class="d-sm-flex align-items-center justify-content-between">
                             <h6 class="m-0 fw-bold">
                                 <?= $titlee ?>
@@ -51,19 +52,17 @@
                     </div>
                 </div>
             </div>
-  
-          <?php 
+        <?php 
+            }
         }
-      }
-      ?>
-        
+        ?>   
         </div>
-            </div>    
-      </section>
-          <?php include_once 'component/footer.php';?>
-        </main>
-      </body>
-      <script type ="text/javascript">
+    </div>    
+</section>
+    <?php include_once 'component/footer.php';?>
+    </main>
+</body>
+<script type ="text/javascript">
 $(document).ready(function(){
 
 $("#live_search").keyup(function(){ 

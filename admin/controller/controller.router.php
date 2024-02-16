@@ -20,6 +20,10 @@ class Router {
             case 'login':
                 require_once 'pages/login.php';
             break;
+
+            case 'brochures':
+                require_once 'pages/brochures.php';
+                break;
             
             case 'career':
                 require_once 'pages/career.php';

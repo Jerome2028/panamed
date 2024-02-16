@@ -14,9 +14,9 @@ $title = "Admin - Dashboard";
             <div class="overlay"></div>
             <div class="user-nav">
 
-                <img src="<?=$BASE;?>assets/products/userProfile/<?=$user_account['img'];?>" class="w-50 rounded-circle" value="/<?=$user_account['img'];?>">
+                <img src="<?=$BASE;?>assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-50 rounded-circle" value="/<?=$user_account['img'];?>">
             
-                <h5 class="p-0 fw-bold d-block m-auto text-white"><?php echo $userole; ?></h5>
+                <h5 class="p-0 fw-bold d-block m-auto text-white ms-1"><?php echo $userole; ?></h5>
             </div>
         </div>
 
@@ -27,38 +27,38 @@ $title = "Admin - Dashboard";
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item waves-effect waves-light">
                 <a href="<?=$BASE;?>products/" class="nav-link align-middle px-0 <?= $page==2 ? "active" : ""?>">
                 <i class="bi bi bi-tags fs-5"></i> <span class="ms-2 d-none d-sm-inline">Products</span>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item waves-effect waves-light">
                 <a href="" class="nav-link align-middle px-0 <?= $page==3 ? "active" : ""?>">
                     <i class="bi bi-list fs-5"></i> <span class="ms-2 d-none d-sm-inline">Categories</span>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item waves-effect waves-light">
                 <a href="<?=$BASE;?>career/" class="nav-link align-middle px-0 <?= $page==4 ? "active" : ""?>">
                 <i class="bi bi-chat-left-text fs-5"></i><span class="ms-2 d-none d-sm-inline">Careers</span>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item waves-effect waves-light">
                 <a href="<?=$BASE;?>news-events/" class="nav-link align-middle px-0 <?= $page==5 ? "active" : ""?>">
                     <i class="bi bi-megaphone fs-5"></i><span class="ms-2 d-none d-sm-inline">News and Events</span>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item waves-effect waves-light">
                 <a href="<?=$BASE;?>featured/" class="nav-link align-middle px-0 <?= $page==6 ? "active" : ""?>">
                     <i class="bi bi-bookmark-star fs-5"></i><span class="ms-2 d-none d-sm-inline">Featured</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="<?=$BASE;?>featured/" class="nav-link align-middle px-0 <?= $page==7 ? "active" : ""?>">
-                <i class="bi bi-newspaper fs-5"></i><span class="ms-2 d-none d-sm-inline">Brochure</span>
+            <li class="nav-item waves-effect waves-light">
+                <a href="<?=$BASE;?>brochures/" class="nav-link align-middle px-0 <?= $page==7 ? "active" : ""?>">
+                <i class="bi bi-newspaper fs-5"></i><span class="ms-2 d-none d-sm-inline">Brochures</span>
                 </a>
             </li>
 
@@ -69,13 +69,13 @@ $title = "Admin - Dashboard";
                 <span class="d-none d-sm-inline mx-1">Settings</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-light text-small shadow border border-0" aria-labelledby="dropdownUser1">
-                <li>
+                <li class="waves-effect waves-light">
                     <a class="dropdown-item font-primary" type="button"  data-bs-toggle="modal" data-bs-target="#userProfile" href="#"><i class="bi bi-person fs-5"></i> Profile</a>
                 </li>
-                <li>
+                <li class="waves-effect waves-light">
                     <a class="dropdown-item font-primary" href="<?= $BASE;?>logout" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-box-arrow-right fs-5"></i> Sign out</a>
                 </li>
-                <li>
+                <li class="waves-effect waves-light">
                     <a class="dropdown-item font-primary" href="<?= $BASE;?>" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-person-add fs-5"></i> Add User</a>
                 </li>
             </ul>
@@ -95,30 +95,38 @@ $title = "Admin - Dashboard";
                         <input type="hidden" id="profile-id" name="profile-id" value="<?=$user_account['id'];?>" class="form-control" readonly>
                     </div>
 
-                    <div class="modal-body">
-                        <div class="row mb-4">
+                    <div class="modal-body row gx-5">
+                        <div class="col-sm-4">
                         <div class="mb-4" id="">
-                            <img src="<?=$BASE;?>assets/products/userProfile/<?=$user_account['img'];?>" class="w-25 rounded-circle mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>"/>
+                        <label for="imgInput" class="col-form-label text-right">
+                                <img src="<?=$BASE;?>assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-25 img-board mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
+                        </label>
+                            </div>
                         </div>
-                            <label for="cname" class="col-sm-4 col-form-label text-right">Upload Profile:<span class="required">*</span> </label>
-                            <div class="col-sm-8">
-                                <input class="form-control" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
+                        <div class="col-sm-8">
+                        <div class="row mb-4">
+                            <!-- Upload Profile:<span class="required">*</span>  -->
+                            <div class="col-sm-9">
+                            <label for="imgInput" class="col-form-label text-right pe-auto">
+                                <input class="form-control d-none" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
+                                </label>
                             </div>
                         </div>
 
                         <div class="row mb-4">
-                            <label for="firstName" class="col-sm-4 col-form-label text-right">First Name:<span class="required">*</span> </label>
-                            <div class="col-sm-8">
+                            <label for="firstName" class="col-sm-3 col-form-label text-right">First Name:<span class="required">*</span> </label>
+                            <div class="col-sm-9">
                                 <input type="text" class="form-control" name="fname" id="fname" value="<?=$user_account['First_Name'];?>" placeholder="">
                             </div>
                         </div>
 
                         <div class="row mb-4">
-                            <label for="lastName" class="col-sm-4 col-form-label text-right">Last  Name:<span class="required">*</span></label>
-                            <div class="col-sm-8">
+                            <label for="lastName" class="col-sm-3 col-form-label text-right">Last  Name:<span class="required">*</span></label>
+                            <div class="col-sm-9">
                                 <input type="text" class="form-control" name="lname" id="lname" value="<?=$user_account['Last_Name'];?>" placeholder="">
                             </div>
                         </div>
+                    </div>
                     </div>
 
                     <div class="modal-footer">

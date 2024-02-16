@@ -2,11 +2,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+    <link href="<?=$BASE;?>assets/img/favicon.png" rel="icon" type="image/icon type">
     <link rel="stylesheet" href="<?= $BASE; ?>assets/vendor/lib/font/google-fonts.css">
     <link rel ="stylesheet" href="<?= $BASE; ?>assets/vendor/lib/div-aos/css/style.css">
     <link rel="stylesheet" href="<?= $BASE; ?>assets/vendor/lib/bootstrap/css/bootstrap.css">
-    <link href="<?=$BASE;;?>assets/img/favicon.png" rel="icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.css">
   <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet"> -->
 

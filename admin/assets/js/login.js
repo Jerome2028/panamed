@@ -31,8 +31,7 @@ $(function() {
     opacity: "0.5",
     cursor: "wait"
 });
-    var $inputs = $(this).find("input, select, button, textarea");
-    $inputs.prop("disabled", true);
+
     function submit(user_email, user_password) {
       $.ajax ({
       type:'POST',
@@ -42,7 +41,7 @@ $(function() {
         user_password:user_password,
       },
       beforeSend: function() {
-        $("input").prop("disabled", true);
+        $("input , button").prop("disabled", true);
         $(".login-dashboard").css({
             transition: "opacity 0.5s",
             cursor: "wait"
@@ -50,11 +49,11 @@ $(function() {
     },
       cache: false,
       success:function(response) {
-      $inputs.val("");
-      $inputs.prop("disabled", false);
+
         window.onbeforeunload = null;
         var resValue = jQuery.parseJSON(response);
         if(resValue['message'] == "Success Found") {
+          $("input , button").prop("disabled", true).val("");
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
@@ -77,28 +76,22 @@ $(function() {
           $inputs.prop("disabled", false);
         }
         else {
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-              opacity: "1!important",
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer; 
-            }
-          });
-          Toast.fire({
-            icon: "error",
-            title: "Authentication Failed",
-          });
+          Toastify({
+            text: "Incorrect Username or Password... ",
+            duration: 3000,
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            positionRight: true,
+            backgroundColor: "#c46868"
+          }).showToast();
           setTimeout(function() {
-            // location.reload();
+
             $(".login-dashboard").css({
               opacity: "1",
               cursor: "default"
           });
+          $("input , button").prop("disabled", false).val("");
           },2000);
         }
       } 

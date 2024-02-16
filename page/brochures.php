@@ -15,7 +15,7 @@
       <div class="row mb-5">
         <div class="col-sm-4 d-flex align-items-stretch">
           <div class="card shadow p-3" style="width: 25rem;">
-          <span class="font-monospace fw-bold fs-5"></i>PDF</span>
+          <span class="font-monospace fw-bold fs-5 text-danger"></i>PDF</span>
           <img src ="<?=$BASE;?>/assets/img/brochures/anchor.jpg" class="img-fluid mt-2">
             <div class="card-body">
               <h5 class="panamed-color">Anchor Needle Brochure</h5>
@@ -26,9 +26,9 @@
         </div>
 
         <div class="col-sm-4 d-flex align-items-stretch">
-          <div class="card shadow p-3" style="width: 25rem;">
+          <div class="card shadow p-3" style="width: auto;">
           <span class="font-monospace fw-bold fs-5"></i>PDF</span>
-            <img src ="<?=$BASE;?>/assets/img/brochures/panamed-catalog.jpg" class="img-fluid mt-2">
+            <img src ="<?=$BASE;?>/assets/img/brochures/panamed-catalog.jpg" class="w-50 mt-2">
             <div class="card-body">
               <h5 class="panamed-color">Panamed Product Catalog</h5>
               <p class="card-text">Download the panamed product catalog</p>
