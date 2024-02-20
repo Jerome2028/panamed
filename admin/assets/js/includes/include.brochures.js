@@ -3,7 +3,7 @@ $(function() {
     localStorage.clear();
     if (status_module == "success") {
      Toastify({
-         text: "Content Update",
+         text: "Success",
          duration: 3000,
          newWindow: true,
          close: true,
@@ -26,13 +26,66 @@ $(function() {
             reader.readAsDataURL(this.files[0]);
         }
     });
+    $('#staticBackdrop').on('hidden.bs.modal', function (e) {
+        $('.closeBtn').on('click', function() {
+        $("#brochuresAdd").trigger("reset");
+
+        });      
+    }); 
 });
+//     $('#addPosition').on('click', function() {
+//         $('#staticBackdrop').addClass('addPositionModal').modal('show');
+//         $('#modalTitle').html('<i class="fas fa-plus"></i> Add New Brochures');
 
-   $('.updateBrochures').on('submit', function(e) {
+//      $('.closeBtn').on('click', function() {
+//          window.location.reload()
+//     });
+//  });
+
+        $('.addBrochures').on('submit', function(e) {
+            e.preventDefault();
+        var title = $('#brochure-name').val();
+        if(title == "") {
+            Toastify({
+                text: "input Field Required!",
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                positionRight: true,
+                backgroundColor: "#c46868",
+                opacity:"0!important"
+            }).showToast();
+            return
+        }
+        var formData = new FormData(this);
+        $.ajax({
+            type: "POST",
+            url: "../controller/controller.brochures.php?mode=addBrochure",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+            console.log(data);
+            var resValue = jQuery.parseJSON(data);
+                if(resValue['message'] == "Insert Success") {
+
+                window.localStorage.setItem("stat", "success");
+                window.location.reload();
+            }
+            else {
+                alert("failed");
+            }
+        }
+        });
+        });
+
+    $('.updateBrochures').on('submit', function(e) {
     e.preventDefault();
-    var title = $('#title').val();
+    var titlee = $('#title').val();
 
-    if(title == "") {
+    if(titlee == "") {
       Toastify({
           text: "input Field Required!",
           duration: 3000,
@@ -45,16 +98,13 @@ $(function() {
         }).showToast();
         return;
     } 
-
-      var $inputs = $(this).find("input, select, button, textarea");
-      var actions = $(this).attr("action");
       var types = $(this).attr("method");
       var formData = new FormData(this);
-      $inputs.prop("disabled", true);
+    //   $inputs.prop("disabled", true);
 
           $.ajax({
               type: types ,
-              url: actions,
+              url: "../controller/controller.brochures.php?mode=updateContent",
               data: formData,
               datatype: "JSON",
               cache: false,
@@ -63,7 +113,7 @@ $(function() {
               success:function(data){
               var resValue = jQuery.parseJSON(data);
                   if(resValue['message'] == "Update Success") {
-
+                    alert("update");
                 window.localStorage.setItem("stat", "success");
                 window.location.reload();
               }
@@ -73,69 +123,6 @@ $(function() {
           }
       });
    });
-
-   $('#addPosition').on('click', function() {
-       $('#staticBackdrop').addClass('addPositionModal').modal('show');
-       $('#modalTitle').html('<i class="fas fa-plus"></i> Add New Brochures');
-
-      //  $('#news-id"').val('');
-    //    $('#brochure-name').val('');
-    //    $('#sort_by').val(0);
-    //    $("select option:checked").val();
-
-       $('.submit-btn').on('click', function(e) {
-            e.preventDefault();
-          var title = $('#brochure-name').val();
-
-          if(title == "") {
-            Toastify({
-                text: "input Field Required!",
-                duration: 3000,
-                newWindow: true,
-                close: true,
-                gravity: "top",
-                positionRight: true,
-                backgroundColor: "#c46868",
-                opacity:"0!important"
-              }).showToast();
-              return
-          } 
-
-            var $inputs = $(this).find("input, select, button, textarea");
-            var action = $(this).attr("action");
-            var type = $(this).attr("method");
-            var formData = new FormData(this);
-            $inputs.prop("disabled", true);
-            
-                $.ajax({
-                    type: type ,
-                    url: action,
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    success:function(data){
-                    console.log(data);
-                    var resValue = jQuery.parseJSON(data);
-                        if(resValue['message'] == "Insert Success") {
-
-                        window.localStorage.setItem("stat", "success");
-                        window.location.reload();
-                    }
-                    else {
-                        alert("failed");
-                    }
-                }
-            });
-          
-       });
-
-       $('.closeBtn').on('click', function() {
-            window.location.reload()
-       });
-   });
-
-
 
 function deleteBrochures(id) {
 Swal.fire({

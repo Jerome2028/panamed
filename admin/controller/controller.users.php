@@ -23,8 +23,6 @@ switch($mode){
         $path_filename_ext = $target_dir.$file;
         move_uploaded_file($temp_name,$path_filename_ext);
     }
-
-        // echo $fname .' - '. $lname .' - '. $file .' - '. $id;
         
         if (empty($file)){
             $user->updateProfileInfo($fname, $lname, $id);
@@ -32,6 +30,7 @@ switch($mode){
         else {
             $user->updateProfileWithImg($fname, $lname, $file, $id); 
         }
+        // echo $fname .' - '. $lname .' - '. $file .' - '. $id;
         // $user->updateProfile($fname, $lname, $file, $id);
         $response = array("message" => "Success");
  

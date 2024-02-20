@@ -20,17 +20,18 @@
   
     <script src ="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js"></script>
     <script src= "<?= $BASE; ?>assets/js/jquery.min.js"></script>
-    <script src ="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- <script src ="https://cdn.jsdelivr.net/npm/toastify-js"></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="<?= $BASE; ?>assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="<?= $BASE; ?>assets/js/main.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
     <script src ="<?= $BASE; ?>assets/vendor/lib/div-aos/js/script.js"></script>
     <!-- <script src="<?= $BASE; ?>assets/vendor/lib/font-awesome/js/all.js"></script> -->
     <script src="<?= $BASE; ?>assets/vendor/lib/sweetalert/alert.js"></script>
     <script src="<?= $BASE; ?>assets/vendor/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- <script src="<?=$BASE; ?>assets/js/form.js"></script> -->
+    <script src ="https://update.greasyfork.org/scripts/471299/1222923/toastifyjs.js"></script>
     <script src="https://kit.fontawesome.com/3096b4ed49.js" crossorigin="anonymous"></script>
 <script>
 $(window).on("load",function(){

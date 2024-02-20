@@ -10,7 +10,7 @@ $(function() {
     
             reader.readAsDataURL(this.files[0]);
         }
-    })
+    });
 
     
 var status_module = window.localStorage.getItem("stat");
@@ -28,6 +28,7 @@ if (status_module == "success") {
      opacity:"0!important"
    }).showToast();
 }
+});
     $('.profileForm').on('submit', function(e){
         e.preventDefault();
         var error = false; var message = '';
@@ -57,7 +58,7 @@ if (status_module == "success") {
         var type = $(this).attr("method");
         var formData = new FormData(this);
 
-        $inputs.prop("disabled", true);
+        // $inputs.prop("disabled", true);
     
 			$.ajax({
 				type: type,
@@ -67,15 +68,18 @@ if (status_module == "success") {
 				contentType: false,
 				processData: false,
 				success:function(data){
+                console.log(data);
                 var resValue = jQuery.parseJSON(data);
-                    if((resValue['message'] == "Success") || (resValue['message'] == "Success without Img")) {
-
+                    if(resValue['message'] == "Success") {
+                        alert("okay!")
                     window.localStorage.setItem("stat", "success");
                     window.location.reload();
 				}
+                     else {
+                alert("failed");
+            }
             }
 			});
 		});
   
 
-});

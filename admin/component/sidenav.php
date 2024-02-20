@@ -83,7 +83,7 @@ $title = "Admin - Dashboard";
     </div>
     <form action ="../controller/controller.users.php?mode=updateProfile" method="POST" id="profileForms" class="profileForm">
     <div class="container">
-        <div class="modal fade" id="userProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="userProfile" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-light w-100">
                     <div class="modal-header">
@@ -97,21 +97,16 @@ $title = "Admin - Dashboard";
 
                     <div class="modal-body row gx-5">
                         <div class="col-sm-4">
-                        <div class="mb-4" id="">
-                        <label for="imgInput" class="col-form-label text-right">
-                                <img src="<?=$BASE;?>assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-25 img-board mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
-                        </label>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                        <div class="row mb-4">
-                            <!-- Upload Profile:<span class="required">*</span>  -->
-                            <div class="col-sm-9">
-                            <label for="imgInput" class="col-form-label text-right pe-auto">
-                                <input class="form-control d-none" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
+                            <div class="mb-4" id="">
+                                <label for="imgInput" class="col-form-label text-right">
+                                <div class="img-div">
+                                    <img src="<?=$BASE;?>assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-25 img-board mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
+                                    <input class="form-control d-none" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
+                                </div>
                                 </label>
                             </div>
                         </div>
+                        <div class="col-sm-8">
 
                         <div class="row mb-4">
                             <label for="firstName" class="col-sm-3 col-form-label text-right">First Name:<span class="required">*</span> </label>
@@ -139,11 +134,11 @@ $title = "Admin - Dashboard";
     </div>
 </form>
 </section>
+<script type="text/javascript" src="<?= $BASE; ?>assets/js/includes/includes.users.js"></script>
 <script>
     function profile(token) {
         $("#profileForms").trigger('submit');
     }
 </script>
-<script type="text/javascript" src="<?= $BASE; ?>assets/js/includes/includes.users.js"></script>
 
                     

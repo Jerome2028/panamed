@@ -22,14 +22,14 @@ $brochuresContent = $brochures->getContent();
         <div class="col p-0 overflow-auto brochures">
         <?php  require_once 'component/search.php';?>
         <div class="container-fluid mt-5">
-        <form action ="../controller/controller.brochures.php?mode=updateContent" method="POST" id="updateBrochure" class="updateBrochures" enctype="multipart/form-data">
+       
                 <?php
                     if(isset($_GET["update"])) {
                     $id = $_GET["update"];
                     $brochureWhere = $brochures->getContentWhere($id);
                 ?>
                  <div class="card border-0 mb-5">
-               
+                 <form method="POST" id="updateBrochure" class="updateBrochures" enctype="multipart/form-data">
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
                             <h3 class="m-0 font-weight-bold font-primary"><i class="fas fa-sm fa-edit"></i>
@@ -86,9 +86,10 @@ $brochuresContent = $brochures->getContent();
                             </div>
                         </div>
                     </div>
-               
+                    </form>
                 </div>
-                </form>
+      
+        </div>
 
             <?php
             } else {
@@ -100,7 +101,7 @@ $brochuresContent = $brochures->getContent();
                         <div class="d-sm-flex align-items-center justify-content-between">
                             <h3 class="fw-bold mt-3"><i class="bi bi-newspaper"></i> Brochures</h3>
 
-                            <button type="button" id="addPosition" class="btn btn-sm btn-primary btn-icon-split">
+                            <button type="button" id="addPosition" class="btn btn-sm btn-primary btn-icon-split" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
                                 <span class="icon"><i class="fas fa-plus-square"></i></span>
                                 <span class="text">Add New</span>
                             </button>
@@ -160,15 +161,15 @@ $brochuresContent = $brochures->getContent();
                 <?php    
                     }
                 ?>
-                <form action ="../controller/controller.brochures.php?mode=addContent" method="POST" id="" class="" enctype="multipart/form-data">
+                <form id="brochuresAdd" class="addBrochures" enctype="multipart/form-data">
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
 
                             <div class="modal-header">
-                                <h5 class="modal-title" id="modalTitle"></h5>
+                                <h5 class="modal-title" id="modalTitle"><i class="fas fa-plus"></i> Add New Brochures</h5>
                             </div>
-
+                          
                             <div class="modal-body">
                                 <div class="d-none">
                                     <input type="hidden" id="brochure-id" name="brochure-id" class="form-control" readonly>
@@ -185,7 +186,7 @@ $brochuresContent = $brochures->getContent();
 
                                 <div class="mb-3">
                                     <label class="form-label">Brochure Name <span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="brochure-name" id="brochure-name" placeholder="Type Here..." required>
+                                    <input type="text" class="form-control" name="brochure-name" id="brochure-name" placeholder="Type Here...">
                                 </div>
 
                                 <div class="mb-3">
@@ -213,24 +214,26 @@ $brochuresContent = $brochures->getContent();
                                     <span class="text">Close</span>
                                 </button>
 
-                                <button type="submit" class="btn btn-sm btn-primary btn-icon-split submit-btn">
+                                <button  type="submit" class="btn btn-sm btn-primary btn-icon-split submit-btn" >
                                     <span class="icon"><i class="fas fa-save"></i></span>
                                     <span class="text">Save</span>
                                 </button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
                 </form>
+  
             </div>
         </div>
     </div>
-</div>
-<script src ="<?=$BASE;?>assets/js/includes/include.brochures.js"></script>
+
         </div>
     </div>
 </section>
 </body>
+<script src ="<?=$BASE;?>assets/js/includes/include.brochures.js"></script>
 <script>
     function updateBrochure(token) {
         $("#updateBrochure").trigger('submit');
