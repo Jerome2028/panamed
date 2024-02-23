@@ -12,22 +12,23 @@ $(function() {
         }
     });
 
-    
-var status_module = window.localStorage.getItem("stat");
-localStorage.clear();
-if (status_module == "success") {
- Toastify({
-    //  text: "Content Update",
-    text:'User Settings Applied!',
-     duration: 3000,
-     newWindow: true,
-     close: true,
-     gravity: "top",
-     positionRight: true,
-     backgroundColor: "#198754",
-     opacity:"0!important"
-   }).showToast();
-}
+// var status_module = window.localStorage.getItem("stat");
+// localStorage.clear();
+
+// if (status_module == "success") {
+//     error = true;
+//     message = 'Succesfully Apply!';
+//  Toastify({
+//     text: message,
+//      duration: 3000,
+//      newWindow: true,
+//      close: true,
+//      gravity: "top",
+//      positionRight: true,
+//      backgroundColor: "#198754",
+//      opacity:"0!important"
+//    }).showToast();
+// }
 });
     $('.profileForm').on('submit', function(e){
         e.preventDefault();
@@ -58,7 +59,7 @@ if (status_module == "success") {
         var type = $(this).attr("method");
         var formData = new FormData(this);
 
-        // $inputs.prop("disabled", true);
+        $inputs.prop("disabled", true);
     
 			$.ajax({
 				type: type,
@@ -68,14 +69,14 @@ if (status_module == "success") {
 				contentType: false,
 				processData: false,
 				success:function(data){
-                console.log(data);
+                // console.log(data);
                 var resValue = jQuery.parseJSON(data);
-                    if(resValue['message'] == "Success") {
-                        alert("okay!")
-                    window.localStorage.setItem("stat", "success");
+                    if(resValue['message'] == "Successfully Apply") {
+                        alert("User Change!");
+                    // window.localStorage.setItem("stat", "success");
                     window.location.reload();
 				}
-                     else {
+                    else {
                 alert("failed");
             }
             }

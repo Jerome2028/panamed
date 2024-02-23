@@ -32,9 +32,8 @@ switch($mode){
         }
         // echo $fname .' - '. $lname .' - '. $file .' - '. $id;
         // $user->updateProfile($fname, $lname, $file, $id);
-        $response = array("message" => "Success");
+        $response = array("message" => "Successfully Apply");
  
     break;
 }
 echo json_encode($response);
-?>

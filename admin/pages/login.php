@@ -13,14 +13,6 @@
     if($session->getSession('auth')) { header("location: ".$BASE_DIR. "dashboard/"); die(); }
     require_once 'component/header.php'; 
 ?>
-<style>
-
-    /* .btn {
-    --bs-btn-padding-x: 1rem;
-    --bs-btn-padding-y: 0.175rem;
-    border-radius: 0px!important;
-    } */
-</style>
 <body class="">
 <section class="login-dashboard">
     <div class="container-fluid p-0">

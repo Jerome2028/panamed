@@ -182,3 +182,14 @@ Swal.fire({
   }
 });
 }
+function newsTable() {
+    $('#news-table').DataTable({
+        autoWidth: false,
+        fixedColumns: true
+    });
+    $('#newsSearch').on('keyup', function () {
+    table.search(this.value).draw();
+    });
+
+  }
+  

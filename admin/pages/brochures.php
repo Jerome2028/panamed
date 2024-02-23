@@ -32,9 +32,9 @@ $brochuresContent = $brochures->getContent();
                  <form method="POST" id="updateBrochure" class="updateBrochures" enctype="multipart/form-data">
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="m-0 font-weight-bold font-primary"><i class="fas fa-sm fa-edit"></i>
-                                <span class="badge rounded-pill bg-secondary font-primary"><?= $brochureWhere['title'] ?></span>
-                            </h3>
+                            <h4 class="m-0 fw-bold"><i class="fas fa-sm fa-edit"></i>
+                                <span><?= $brochureWhere['title'] ?></span>
+                            </h4>
                             <div class="d-sm-flex align-items-center justify-content-between">
                                 <a href="<?=$BASE?>brochures/" class="btn btn-sm btn-secondary btn-icon-split">
                                     <span class="icon text-white"><i class="fas fa-arrow-left"></i> </span>
@@ -131,10 +131,10 @@ $brochuresContent = $brochures->getContent();
                                     <p class="fw-bold fs-6 me-2 mb-2"><?= $title ?></p>
                                         <!-- <span class="badge bg-primary me-3 p-2" style="color: white;">Date Added: <?= $date_added ?></span> -->
                                         <?php if($status== 1) {
-                                            echo "<p class='text-primary badge bg-secondary p-2'>Enable</p>";
+                                            echo "<p class='text-primary badge badge-bg p-2'>Enable</p>";
                                         }
                                         else {
-                                            echo "<p class='text-danger badge bg-secondary p-2'>Disable</p>";
+                                            echo "<p class='text-danger badge badge-bg p-2'>Disable</p>";
                                         } ?>
                 
                                 </div>

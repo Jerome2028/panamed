@@ -71,7 +71,7 @@ $(function() {
             title: "Succesfully Login",
           });
           setTimeout( function() {
-            window.location.href="dashboard";
+            window.location.reload();
           },2000);
           $inputs.prop("disabled", false);
         }
@@ -99,3 +99,5 @@ $(function() {
     }
   });
 });
+
+

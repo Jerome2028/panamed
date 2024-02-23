@@ -2,7 +2,7 @@ $(function() {
     var status_module = window.localStorage.getItem("stat");
     localStorage.clear();
     if (status_module == "success") {
-     Toastify({
+     Toastify({s
          text: "Success",
          duration: 3000,
          newWindow: true,

@@ -33,7 +33,7 @@ $productsContent = $products->getContent();
 
             <div class="col p-0 overflow-auto">
             <?php  require_once 'component/search.php';?>
-                <div class="container-fluid mt-5">
+            <div class="container-fluid mt-5">
                 <?php
                     if(isset($_GET["update"])) {
                     $id = $_GET["update"];
@@ -43,9 +43,9 @@ $productsContent = $products->getContent();
  
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="m-0 font-weight-bold font-primary"><i class="fas fa-sm fa-edit"></i>
-                                <span class="badge rounded-pill bg-secondary font-primary"><?= $productsWhere['ppi_product_name'] ?></span>
-                            </h3>
+                            <h4 class="m-0 fw-bold"><i class="fas fa-sm fa-edit"></i>
+                                <span><?= $productsWhere['ppi_product_name'] ?></span>
+                            </h4>
                             <div class="d-sm-flex align-items-center justify-content-between">
                                 <a href="<?=$BASE?>products/" class="btn btn-sm btn-secondary btn-icon-split">
                                     <span class="icon text-white"><i class="fas fa-arrow-left"></i> </span>
@@ -77,7 +77,7 @@ $productsContent = $products->getContent();
                             <div class="col-sm-9">
                                 <input type="file" id="img" name="img" class="form-control p-1 mb-5" value="<?= $productsWhere["ppi_product_image"] ?>" placeholder ='<?php echo $productsWhere["ppi_product_image"] ?>' onchange='Test.UpdatePreview(this)'>
                             <div id = "preview">
-                                    <img src="../assets/products/<?= $productsWhere["ppi_product_image"] ?>" class="w-50 img-thumbnail">
+                                    <img src="../assets/img/products/<?= $productsWhere["ppi_product_image"] ?>" class="w-50 img-thumbnail">
                                 </div>
                             </div>
                             
@@ -101,6 +101,7 @@ $productsContent = $products->getContent();
                         </div>
                     </div>
                 </div>
+            </div>
 
                 
                 <?php
@@ -119,7 +120,17 @@ $productsContent = $products->getContent();
                         </div>
                     </div>
                     <div class="row bg-light d-flex align-items-stretch">
-
+                    <table class="table border table-bordered mt-3 display" id="products-table">
+                        <thead class="">
+                            <tr class="text-dark">
+                            <th scope="col">#</th>
+                            <th scope="col">Images</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <?php
                         if(!empty($productsContent)) {
                         foreach ($productsContent as $v) {
@@ -130,108 +141,89 @@ $productsContent = $products->getContent();
                         $status = $v["ppi_product_status"];
                         // $date_update = $v["date_update"];
                         ?>
-                        <div class="col-sm-4">
-                            <div class="card p-3 shadow mb-4 border-0">
-                                <div class="card-header py-3">
-                                    <img src ="../assets/products/<?= $image ?>" class="w-100 mb-3"><br>
-                                    <p><?php if($status== 1) {
-                                        echo "<p class='text-primary badge bg-secondary'>Enable</p>";
-                                    }
-                                    else {
-                                        echo "<p class='text-danger badge bg-secondary'>Disable</p>";
-                                    } ?></p>
-                                    <div class="d-sm-flex align-items-center justify-content-between">
-                                        <h6 class="m-0 fw-bold">
-                                            <?= $titlee ?>
-                                            <!-- <?= $titlee ?> 
-                                            <span class="badge bg-primary" style="color: white;">Last update: <?= $date_update ?></span> -->
-                                            <!-- <?= ($status == 1 ? "" : '<span class="badge bg-warning" style="color: black;">Disabled</span>') ?> -->
-                                        </h6>
 
-                                        <div class="d-flex justify-content-end">
-                                        <a href="#" class="btn btn-sm btn-danger btn-icon-split text-white text-decoration-none" onclick="deleteLink(<?=$id;?>)"><i class="fa-solid fa-trash"></i>&nbsp; Delete &nbsp;</a>&nbsp;
-                                        <a href="?update=<?= $id ?>/" class="btn btn-sm btn-success btn-icon-split text-white"><i class="fas fa-pen"></i>&nbsp;Update</a>
-                                        </div>
-                                    </div> 
-                                </div> 
-                                <div class="card-body">
-                                    <div class="container-fluid">
-                                        <!-- <div class="skeleton content_load"><?= $content ?></div> -->
-                                    </div>
-                                </div>
-                            </div>
+                    <tr>
+                    <td class="counterCell text-dark"></td>
+                    <td><img src ="../assets/img/products/<?=$image;?>" class="w-25 border"></td>
+                    <td class=""><?=$titlee;?></td>
+                    <td><?=$status==1 ? "<p class='text-primary badge badge-bg p-2 mb-0'>Enable</p>":"<p class='text-danger badge badge-bg p-2 mb-0'>Disable</p>";?></td>
+                    <td>
+                        <div class="text-nowrap d-flex justify-content-evenly">
+                            <a href="?update=<?= $id ?>/" class="btn btn-sm btn-success btn-icon-split text-white"><i class="fas fa-pen"></i> Update </a>
+                            <a href="#" class="btn btn-sm btn-danger btn-icon-split text-white text-decoration-none" onclick="deleteLink(<?=$id;?>)"><i class="fa-solid fa-trash"></i> Delete </a>
                         </div>
-                        <?php
-                                    }
+                    </td>
+                    </tr>  
+                    <?php
                                 }
                             }
-                        ?>
+                        }
+                    ?>
+                    </div>
+                </div>
 
-                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" aria-labelledby="staticBackdropLabel">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
+                <div class="modal fade" id="staticBackdrop" data-backdrop="static" aria-labelledby="staticBackdropLabel">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
 
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="modalTitle"></h5>
-                                        </div>
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalTitle"></h5>
+                            </div>
 
-                                        <div class="modal-body">
-                                            <div class="d-none">
-                                                <input type="hidden" id="products-id" name="products-id" class="form-control" readonly>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Title: <span class="required">*</span></label>
-                                                <input type="text" class="form-control" name="products-title" id="products-title" placeholder="Type Here..." required>
-                                            </div>
-
-
-                                        <div class="row mb-4">
-                                            <label for="img" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Image:</label>
-                                            <div class="col-sm-4 ">       
-                                                                
-                                                <input type="file" id="img" name="img" class="form-control p-1" value="<? $productsWhere['ppi_product_image'] ?>" onchange="Test.UpdatePreview(this)" >
-                                            </div>
-                                            
-                                            <div class="col-sm-3">
-                                                    <div id = "preview">
-                                                        <img src="assets/img/uploads/communication-arts/<?= $productsWhere["ppi_product_image"]; ?>" class="w-75 img-thumbnail">
-                                                    </div>
-                                            </div>
-                                        </div>
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Content: <span class="required">*</span></label>
-                                                <textarea type="text" class="form-control" name="products-content" id="products-content" rows="9"  placeholder="Type Here..." required></textarea>
-                                            </div>
-
-                                            <!-- <div class="mb-3">
-                                                <label class="form-label">Sort By:</label>
-                                                <input type="number" class="form-control" name="sort_by" id="sort_by" value="0">
-                                            </div> -->
-
-                                            <div class="mb-3">
-                                                <label class="form-label">Status: </label>
-                                                <select class="form-control" id="status" name="status">
-                                                    <option value="1">Enabled</option>
-                                                    <option value="0">Disabled</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="close" class="btn btn-sm btn-secondary btn-icon-split closeBtn" data-bs-dismiss="modal">
-                                                <span class="icon"><i class="fas fa-window-close"></i></span>
-                                                <span class="text">Close</span>
-                                            </button>
-
-                                            <button type="submit" class="btn btn-sm btn-primary btn-icon-split submit-btn">
-                                                <span class="icon"><i class="fas fa-save"></i></span>
-                                                <span class="text">Save</span>
-                                            </button>
-                                        </div>
-                                    </div>
+                            <div class="modal-body">
+                                <div class="d-none">
+                                    <input type="hidden" id="products-id" name="products-id" class="form-control" readonly>
                                 </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Title: <span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="products-title" id="products-title" placeholder="Type Here..." required>
+                                </div>
+
+
+                            <div class="row mb-4">
+                                <label for="img" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Image:</label>
+                                <div class="col-sm-4 ">       
+                                                    
+                                    <input type="file" id="img" name="img" class="form-control p-1" value="<? $productsWhere['ppi_product_image'] ?>" onchange="Test.UpdatePreview(this)" >
+                                </div>
+                                
+                                <div class="col-sm-3">
+                                        <div id = "preview">
+                                            <img src="assets/img/uploads/communication-arts/<?= $productsWhere["ppi_product_image"]; ?>" class="w-75 img-thumbnail">
+                                        </div>
+                                </div>
+                            </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Content: <span class="required">*</span></label>
+                                    <textarea type="text" class="form-control" name="products-content" id="products-content" rows="9"  placeholder="Type Here..." required></textarea>
+                                </div>
+
+                                <!-- <div class="mb-3">
+                                    <label class="form-label">Sort By:</label>
+                                    <input type="number" class="form-control" name="sort_by" id="sort_by" value="0">
+                                </div> -->
+
+                                <div class="mb-3">
+                                    <label class="form-label">Status: </label>
+                                    <select class="form-control" id="status" name="status">
+                                        <option value="1">Enabled</option>
+                                        <option value="0">Disabled</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="close" class="btn btn-sm btn-secondary btn-icon-split closeBtn" data-bs-dismiss="modal">
+                                    <span class="icon"><i class="fas fa-window-close"></i></span>
+                                    <span class="text">Close</span>
+                                </button>
+
+                                <button type="submit" class="btn btn-sm btn-primary btn-icon-split submit-btn">
+                                    <span class="icon"><i class="fas fa-save"></i></span>
+                                    <span class="text">Save</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -243,3 +235,8 @@ $productsContent = $products->getContent();
 </section>
 </body>
 <script src ="<?=$BASE;?>assets/js/includes/include.products.js"></script>
+<script>
+        $(function(){    
+        productsTable();
+    })
+</script> 

@@ -80,59 +80,61 @@ $title = "Admin - Dashboard";
                 </li>
             </ul>
         </div>
-    </div>
-    <form action ="../controller/controller.users.php?mode=updateProfile" method="POST" id="profileForms" class="profileForm">
+
+  
     <div class="container">
         <div class="modal fade" id="userProfile" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content bg-light w-100">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-gear fs-5"></i> User Settings</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+            <form action ="../controller/controller.users.php?mode=updateProfile" method="POST" id="profileForms" class="profileForm">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content bg-light w-100">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-gear fs-5"></i> User Settings</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
 
-                    <div class="d-none">
-                        <input type="hidden" id="profile-id" name="profile-id" value="<?=$user_account['id'];?>" class="form-control" readonly>
-                    </div>
+                        <div class="d-none">
+                            <input type="hidden" id="profile-id" name="profile-id" value="<?=$user_account['id'];?>" class="form-control" readonly>
+                        </div>
 
-                    <div class="modal-body row gx-5">
-                        <div class="col-sm-4">
-                            <div class="mb-4" id="">
-                                <label for="imgInput" class="col-form-label text-right">
-                                <div class="img-div">
-                                    <img src="<?=$BASE;?>assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-25 img-board mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
-                                    <input class="form-control d-none" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
+                        <div class="modal-body row gx-5">
+                            <div class="col-sm-4">
+                                <div class="mb-4" id="">
+                                    <label for="imgInput" class="col-form-label text-right">
+                                    <div class="img-div">
+                                        <img src="<?=$BASE;?>assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-25 img-board mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
+                                        <input class="form-control d-none" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
+                                    </div>
+                                    </label>
                                 </div>
-                                </label>
+                            </div>
+                            <div class="col-sm-8">
+
+                            <div class="row mb-4">
+                                <label for="firstName" class="col-sm-3 col-form-label text-right">First Name:<span class="required">*</span> </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="fname" id="fname" value="<?=$user_account['First_Name'];?>" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <label for="lastName" class="col-sm-3 col-form-label text-right">Last  Name:<span class="required">*</span></label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="lname" id="lname" value="<?=$user_account['Last_Name'];?>" placeholder="">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-8">
-
-                        <div class="row mb-4">
-                            <label for="firstName" class="col-sm-3 col-form-label text-right">First Name:<span class="required">*</span> </label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="fname" id="fname" value="<?=$user_account['First_Name'];?>" placeholder="">
-                            </div>
                         </div>
 
-                        <div class="row mb-4">
-                            <label for="lastName" class="col-sm-3 col-form-label text-right">Last  Name:<span class="required">*</span></label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="lname" id="lname" value="<?=$user_account['Last_Name'];?>" placeholder="">
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="btn-saved" onclick='profile()'>Save changes</button>
                         </div>
-                    </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="btn-saved" onclick='profile()'>Save changes</button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-</form>
+</div>
 </section>
 <script type="text/javascript" src="<?= $BASE; ?>assets/js/includes/includes.users.js"></script>
 <script>

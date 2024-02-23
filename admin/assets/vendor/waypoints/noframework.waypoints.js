@@ -5,7 +5,7 @@ Licensed under the MIT license.
 https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 */
 (function() {
-  'use strict'
+  // 'use strict'
 
   var keyCounter = 0
   var allWaypoints = {}
@@ -169,7 +169,7 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
   window.Waypoint = Waypoint
 }())
 ;(function() {
-  'use strict'
+  // 'use strict'
 
   function requestAnimationFrameShim(callback) {
     window.setTimeout(callback, 1000 / 60)

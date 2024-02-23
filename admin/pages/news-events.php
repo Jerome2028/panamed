@@ -6,6 +6,10 @@ $page =5;
 // $newsEvents = new NewsEvents();
 $newsEventsContent = $newsEvents->getContent();
 ?>
+<style>
+ 
+
+</style>
 <body>
 <section class="dashboard">
 <div class="container-fluid">
@@ -15,7 +19,6 @@ $newsEventsContent = $newsEvents->getContent();
             <?php require_once 'component/sidenav.php';?>        
 
         </div>
-
         <div class="col p-0 overflow-auto">
         <?php  require_once 'component/search.php';?>
             <div class="container-fluid mt-5">
@@ -28,9 +31,9 @@ $newsEventsContent = $newsEvents->getContent();
 
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="m-0 font-weight-bold font-primary"><i class="fas fa-sm fa-edit"></i>
-                                <span class="badge rounded-pill bg-secondary font-primary"><?= $newsEventsWhere['title'] ?></span>
-                            </h3>
+                            <h4 class="m-0 fw-bold"><i class="fas fa-sm fa-edit"></i>
+                                <span><?= $newsEventsWhere['title'] ?></span>
+                            </h4>
                             <div class="d-sm-flex align-items-center justify-content-between">
                                 <a href="<?=$BASE?>news-events/" class="btn btn-sm btn-secondary btn-icon-split">
                                     <span class="icon text-white"><i class="fas fa-arrow-left"></i> </span>
@@ -78,8 +81,8 @@ $newsEventsContent = $newsEvents->getContent();
                             <label class="col-sm-2 col-form-label text-right">Status:</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="status" name="status">
-                                <option <?= ($newsEventsWhere['status'] == 1 ? "selected" : "") ?> value="1">Enabled</option>
-                                        <option  <?= ($newsEventsWhere['status'] == 0 ? "selected" : "") ?> value="0">Disabled</option>
+                                    <option <?= ($newsEventsWhere['status'] == 1 ? "selected" : "") ?> value="1">Enabled</option>
+                                    <option  <?= ($newsEventsWhere['status'] == 0 ? "selected" : "") ?> value="0">Disabled</option>
                                 </select>
                             </div>
                         </div>
@@ -103,6 +106,18 @@ $newsEventsContent = $newsEvents->getContent();
                         </div>
                     </div>
                 <div class="row bg-light d-flex align-items-stretch">
+                <table class="table border table-bordered mt-3 display" id="news-table">
+                <thead class="">
+                    <tr class="text-dark">
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Last update</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
                 <?php
                 if(!empty($newsEventsContent)) {
                 foreach ($newsEventsContent as $v) {
@@ -112,92 +127,77 @@ $newsEventsContent = $newsEvents->getContent();
                 $status = $v["status"];
                 $date_update = $v["date_update"];
                 ?>
-                <div class="col-md-6 d-flex align-items-stretch">
-                    <div class="card rounded-0 p-3 shadow-sm mb-4 border-0 w-100">
-                        <div class="card-header py-3">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <p class="fw-bold px-2 fs-6"><?= $title ?></p>
-                                    <div class="d-flex">
-                                        <span class="badge bg-primary me-3 p-2" style="color: white;">Last update: <?= $date_update ?></span>
-                                        <p><?php if($status== 1) {
-                                            echo "<p class='text-primary badge bg-secondary p-2 mb-0'>Enable</p>";
-                                        }
-                                        else {
-                                            echo "<p class='text-danger badge bg-secondary p-2 mb-0'>Disable</p>";
-                                        } ?></p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-nowrap">
-                                    <a href="#delete=<?= $id ?>" class="btn btn-sm btn-danger btn-icon-split text-white mb-0" onclick="deleteNews(<?=$id;?>)"><i class="fa-solid fa-trash"></i>&nbsp; Delete &nbsp;</a>
-                                    <a href="?update=<?= $id ?>/" class="btn btn-sm btn-success btn-icon-split text-white"><i class="fas fa-pen"></i>&nbsp;Update</a>
-                                </div>
-                            </div>
+                <tr>
+                    <td class="counterCell text-dark"></td>
+                    <td class=""><?=$title;?></td>
+                    <td><?=$status==1 ? "<p class='text-primary badge badge-bg p-2 mb-0'>Enable</p>":"<p class='text-danger badge badge-bg p-2 mb-0'>Disable</p>";?></td>
+                    <td><?=$date_update;?></td>
+                    <td>
+                        <div class="text-nowrap d-flex justify-content-evenly">
+                            <a href="?update=<?= $id ?>/" class="btn btn-sm btn-success btn-icon-split text-white"><i class="fas fa-pen"></i> Update </a>
+                            <a href="#delete=<?= $id ?>" class="btn btn-sm btn-danger btn-icon-split text-white mb-0" onclick="deleteNews(<?=$id;?>)"><i class="fa-solid fa-trash"></i> Delete </a>
                         </div>
-                            
-                        <div class="card-body py-3">
-                            <div class="mt-3"><p><?= $content; ?></p></div>
-                        </div>
-                    </div>
-                </div>
-                
+                    </td>
+                </tr>  
                 <?php
                         }
                     }
                 ?>
+                    </tbody>
+                    </table>
+                    </div>
+                </div>
             </div>
-                <?php    
-                    }
-                ?>
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
+            <?php    
+                }
+            ?>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
 
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalTitle"></h5>
-                                    </div>
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalTitle"></h5>
+                            </div>
 
-                                    <div class="modal-body">
-                                        <div class="d-none">
-                                            <input type="hidden" id="news-id" name="news-id" class="form-control" readonly>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="form-label">Title: <span class="required">*</span></label>
-                                            <input type="text" class="form-control" name="news-title" id="news-title" placeholder="Type Here..." required>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="form-label">Content: <span class="required">*</span></label>
-                                            <textarea class="form-control w-50" name="news-content" id="news-content"></textarea>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="form-label">Sort By:</label>
-                                            <input type="number" class="form-control" name="sort_by" id="sort_by" value="0">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label class="form-label">Status: </label>
-                                            <select class="form-control" id="status" name="status">
-                                                <option value="1">Enabled</option>
-                                                <option value="0">Disabled</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="close" class="btn btn-sm btn-secondary btn-icon-split closeBtn" data-bs-dismiss="modal">
-                                            <span class="icon"><i class="fas fa-window-close"></i></span>
-                                            <span class="text">Close</span>
-                                        </button>
-
-                                        <button type="submit" class="btn btn-sm btn-primary btn-icon-split submit-btn">
-                                            <span class="icon"><i class="fas fa-save"></i></span>
-                                            <span class="text">Save</span>
-                                        </button>
-                                    </div>
+                            <div class="modal-body">
+                                <div class="d-none">
+                                    <input type="hidden" id="news-id" name="news-id" class="form-control" readonly>
                                 </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Title: <span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="news-title" id="news-title" placeholder="Type Here..." required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Content: <span class="required">*</span></label>
+                                    <textarea class="form-control w-50" name="news-content" id="news-content"></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Sort By:</label>
+                                    <input type="number" class="form-control" name="sort_by" id="sort_by" value="0">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Status: </label>
+                                    <select class="form-control" id="status" name="status">
+                                        <option value="1">Enabled</option>
+                                        <option value="0">Disabled</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="close" class="btn btn-sm btn-secondary btn-icon-split closeBtn" data-bs-dismiss="modal">
+                                    <span class="icon"><i class="fas fa-window-close"></i></span>
+                                    <span class="text">Close</span>
+                                </button>
+
+                                <button type="submit" class="btn btn-sm btn-primary btn-icon-split submit-btn">
+                                    <span class="icon"><i class="fas fa-save"></i></span>
+                                    <span class="text">Save</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -215,3 +215,8 @@ $newsEventsContent = $newsEvents->getContent();
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+<script>
+        $(function(){    
+        newsTable();
+    })
+</script> 
