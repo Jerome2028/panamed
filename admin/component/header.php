@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-    <link href="<?=$BASE;?>assets/css/style.css" rel="stylesheet">
+
     <link href="<?=$BASE;?>assets/css/mobile.css" rel="stylesheet">
     <link href="<?=$BASE;?>assets/vendor/lib/font/google-fonts.css" rel="stylesheet">
     <link href="<?=$BASE;?>assets/vendor/lib/div-aos/css/style.css" rel="stylesheet">
@@ -16,6 +16,7 @@
     <link href="<?=$BASE;?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" rel="stylesheet"/>
+    <link href="<?=$BASE;?>assets/css/style.css" rel="stylesheet">
 
     
     <script src="<?=$BASE;?>assets/js/main.js"></script>

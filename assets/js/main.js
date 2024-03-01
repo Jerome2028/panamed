@@ -74,9 +74,9 @@
     onscroll(document, headerScrolled)
   }
 
-  $(window).on("load",function(){
-    $(".custom-loader").fadeOut("slow");
-});
+//   $(window).on("load",function(){
+//     $(".custom-loader").fadeOut("slow");
+// });
 
 
 new Swiper('.testimonials-slider', {
@@ -103,7 +103,7 @@ new Swiper('.testimonials-slider', {
       spaceBetween: 20
     }
   }
-});
+})
 
   /**
    * Back to top button
@@ -210,8 +210,6 @@ new Swiper('.testimonials-slider', {
         clickable: true
       }
     });
-
-
   
     /**
      * Initiate portfolio details lightbox 
@@ -224,14 +222,14 @@ new Swiper('.testimonials-slider', {
   /**
    * Animation on scroll
    */
-  window.addEventListener('load', () => {
+  // window.addEventListener('load', () => {
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
       once: true,
       mirror: false
     });
-  });
+  // });
 
   /**
    * Initiate Pure Counter 
@@ -588,7 +586,7 @@ new Swiper('.testimonials-slider', {
 
 })(window);
 
-})()
+})();
 
 
 

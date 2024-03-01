@@ -2,7 +2,7 @@ $(function() {
     var status_module = window.localStorage.getItem("stat");
     localStorage.clear();
     if (status_module == "success") {
-     Toastify({s
+     Toastify({
          text: "Success",
          duration: 3000,
          newWindow: true,
@@ -133,7 +133,7 @@ Swal.fire({
 }).then((result) => {
   if (result.isConfirmed) {
     $.ajax({
-        url: '../controller/controller.brochures.php?mode=deleteContent',
+        url: '../controller/controller.brochures.php?mode=deleteBrochures',
         method: 'POST',
         data: {
             id:id

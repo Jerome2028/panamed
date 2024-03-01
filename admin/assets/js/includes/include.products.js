@@ -1,26 +1,48 @@
 $(function() {
-   $('#btn-save').on('click', function() {
-      var id = $('#id').val();
-      var title = $('#title').val();
-      var image = $('#ppi-img').val();
-      var content = $('#products-content').val();
-      var status = $('#status').val();
+    $("#productsImg").change(function() {
+        if (this.files && this.files[0]) {
+    
+            var reader = new FileReader();
+    
+            reader.onload = function (e) {
+                $('#productsPreview').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
 
-      if(title == "" || content == ""){
-        Toastify({
-            text: "input Field Required!",
-            duration: 3000,
-            newWindow: true,
-            close: true,
-            gravity: "top",
-            positionRight: true,
-            backgroundColor: "#c46868",
-            opacity:"0!important"
-          }).showToast();
-      } else {
-       submit(id, title, image, content, status);
-      }
-   });
+    $('#products-content').summernote({
+        height: 300,
+        placeholder: 'Type Here...',
+        disableDragAndDrop: true,
+        blockqouteBreakingLevel: 2,
+        fontSizeUnit: 'pt',
+        lineHeight: 20,
+        dialogsInBody: true,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'clear', 'fontname', 'fontsize', 'color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen']],
+        ],
+        
+        popover: {
+            image: [
+                ['custom', ['imageAttributes']],
+                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                ['remove', ['removeMedia']]
+            ],
+        },
+        lang: 'en-US',
+        imageAttributes:{
+            icon:'<i class="fas fa-sm fa-edit"/>',
+            removeEmpty:false,
+            disableUpload: false
+        }
+    });
 
    $('#addPosition').on('click', function() {
        $('#staticBackdrop').addClass('addPositionModal').modal('show');
@@ -76,66 +98,46 @@ $(function() {
        localStorage.clear();
    }
 });
-function  submit(id, title, image, content, status) {
-   $.ajax({
-       url: '../controller/controller.products.php?mode=updateProducts',
-       method: 'POST',
-       data: {
-           id:id, 
-           title:title, 
-           image:image,
-           content:content, 
-           status:status
-       },
-       success:function() {
-           $('#preloader').show();
-           window.localStorage.setItem("stat", "success");
-          //  window.location.href="";
-       }
-   });
-}
 
-function  addProduct(title, content, image, status){
-   $.ajax({
-       url: '../controller/controller.products.php?mode=addProduct',
-       method: 'POST',
-       data: {
-         //   id:id,
-           title:title,
-           content:content,
-           image:image,
-        //    sort_by:sort_by,
-           status:status,
-       },
-       cache: false,
-       contentType: false,
-       processData: false,
-
-       success:function() {
-        //    $('#preloader').show();
-           window.localStorage.setItem("stat", "success");
-        //    window.location.href="";
-       }
-   });
+$('.updateProducts').on('submit', function(e) {
+    e.preventDefault();
+var title = $('#productName').val();
+if(title == "") {
+    Toastify({
+        text: "input Field Required!",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        positionRight: true,
+        backgroundColor: "#c46868",
+        opacity:"0!important"
+    }).showToast();
+    return
 }
-
-function updateCourse(course_id, course, sort_by, status) {
-   $.ajax({
-       url: 'controller/controller.news-events.php?mode=updateCourse',
-       method: 'POST',
-       data: {
-           course_id:course_id,
-           course:course,
-           sort_by:sort_by,
-           status:status
-       },
-       success:function() {
-           $('#preloader').show();
-           window.localStorage.setItem("stat", "success");
-           window.location.href="communication_arts.php";
-       }
-   })
+var formData = new FormData(this);
+$.ajax({
+    type: "POST",
+    url: "../controller/controller.products.php?mode=updateProducts",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success:function(data){
+    console.log(data);
+    var resValue = jQuery.parseJSON(data);
+        if(resValue['message'] == "Update Success") {
+            alert("Update Success");
+        // window.localStorage.setItem("stat", "success");
+        // window.location.reload();
+    }
+    else {
+        alert("failed");
+    }
 }
+});
+});
+
 
 function deleteLink(id) {
 Swal.fire({
@@ -184,7 +186,8 @@ Swal.fire({
 }
 function productsTable() {
     $('#products-table').DataTable({
-  
+        // responsive:true;
+        columns: [null,{ width: '20%' }, { width: '12%' }, null, null, { width: '14%' }]
     });
     $('#productsSearch').on('keyup', function () {
     table.search(this.value).draw();

@@ -4,7 +4,7 @@ require_once 'component/import.php';
 require_once 'component/header.php';
 require_once 'component/navbar.php';
 ?>
-      <body>  
+      <!-- <body>   -->
           <main>
           <?php (require_once 'component/navbar.php'); ?>
           <section class="not-found">
@@ -17,4 +17,4 @@ require_once 'component/navbar.php';
       </section>
           <?php include_once 'component/footer.php';?>
         </main>
-      </body>
+      <!-- </body> -->

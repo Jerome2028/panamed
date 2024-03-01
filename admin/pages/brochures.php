@@ -5,7 +5,7 @@ require_once 'component/header.php';
 $page = 7;
 $brochuresContent = $brochures->getContent();
 ?>
-<body>
+<!-- <body> -->
 <section class="dashboard">
     <div class="container-fluid">
         <div class="row flex-nowrap h-100">
@@ -21,7 +21,7 @@ $brochuresContent = $brochures->getContent();
             
         <div class="col p-0 overflow-auto brochures">
         <?php  require_once 'component/search.php';?>
-        <div class="container-fluid mt-5">
+        <div class="container-fluid mt-5 br">
        
                 <?php
                     if(isset($_GET["update"])) {
@@ -118,10 +118,10 @@ $brochuresContent = $brochures->getContent();
                 $status = $v["status"];
                 $date_added = $v["date_added"];
                 ?>
-                <div class="col-md-4 d-flex align-items-stretch">
-                    <div class="card rounded-0 shadow mb-4 border-light w-100">
+                <div class="col-md-4 d-flex align-items-stretch panamed-img">
+                    <div class="card rounded-0 shadow mb-4 border-light">
                         <div class="card-header py-3">
-                        <img src ="<?=$BASE;?>assets/img/brochures/thumbnail/<?= $img; ?>" class="w-100">
+                            <img src ="<?=$BASE;?>assets/img/brochures/thumbnail/<?= $img; ?>" class="w-100">
                         </div>
                             
                         <div class="card-body py-2 bg-light">
@@ -232,7 +232,7 @@ $brochuresContent = $brochures->getContent();
         </div>
     </div>
 </section>
-</body>
+<!-- </body> -->
 <script src ="<?=$BASE;?>assets/js/includes/include.brochures.js"></script>
 <script>
     function updateBrochure(token) {

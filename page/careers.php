@@ -8,7 +8,7 @@
  require_once 'component/banner.php';
  $careersContent = $careers->getContent();
  ?>
-  <body>  
+  <!-- <body>   -->
       <main>
       <?php (require_once 'component/navbar.php'); ?>
       <section class="career">
@@ -154,4 +154,4 @@
 
       <?php include_once 'component/footer.php';?>
     </main>
-  </body>
+  <!-- </body> -->

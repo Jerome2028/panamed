@@ -9,7 +9,7 @@
  $captcha = utility::generateRandomString();
  ?>
 
-<body>  
+<!-- <body>   -->
   <main>
     <?php (require_once 'component/navbar.php'); ?>
     <section class="contact-us section-bg">
@@ -172,4 +172,4 @@
     <?php include_once 'component/footer.php';?>
 
   </main>
-</body>
+<!-- </body> -->

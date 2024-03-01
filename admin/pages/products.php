@@ -25,7 +25,7 @@ $productsContent = $products->getContent();
 <section class="dashboard">
     <div class="container-fluid">
         <div class="row flex-nowrap h-100">
-            <div class="col-auto col-md-3 col-xl-2 px-0 bg-light  d-inline-block">
+            <div class="col-auto col-md-3 col-xl-2 px-0 bg-light d-inline-block">
         
                 <?php require_once 'component/sidenav.php';?>
         
@@ -40,7 +40,7 @@ $productsContent = $products->getContent();
                     $productsWhere = $products->getContentWhere($id);
                 ?>
                 <div class="card border-0 mb-5">
- 
+                <form method="POST" id="updateProduct" class="updateProducts" enctype="multipart/form-data">
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
                             <h4 class="m-0 fw-bold"><i class="fas fa-sm fa-edit"></i>
@@ -51,7 +51,7 @@ $productsContent = $products->getContent();
                                     <span class="icon text-white"><i class="fas fa-arrow-left"></i> </span>
                                     <span class="text text-white">Back</span>
                                 </a>
-                                <button id="btn-save" class="btn btn-sm btn-primary btn-icon-split m-1">
+                                <button id="btn-save" class="btn btn-sm btn-primary btn-icon-split m-1" onclick="updateProduct()">
                                     <span class="icon"><i class="fas fa-save"></i></span>
                                     <span class="text">Save</span>
                                 </button>
@@ -67,21 +67,20 @@ $productsContent = $products->getContent();
                         <div class="row mb-4">
                             <label for="info_title" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Product Name:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="title" id="title" value="<?= $productsWhere['ppi_product_name'] ?>" placeholder="Type Here...">
+                                <input type="text" class="form-control" name="productName" id="productName" value="<?= $productsWhere['ppi_product_name'] ?>" placeholder="Type Here...">
                             </div>
                         </div>
 
                         
                         <div class="row mb-4">
-                            <label for="img" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Product Image:</label>
-                            <div class="col-sm-9">
-                                <input type="file" id="img" name="img" class="form-control p-1 mb-5" value="<?= $productsWhere["ppi_product_image"] ?>" placeholder ='<?php echo $productsWhere["ppi_product_image"] ?>' onchange='Test.UpdatePreview(this)'>
-                            <div id = "preview">
-                                    <img src="../assets/img/products/<?= $productsWhere["ppi_product_image"] ?>" class="w-50 img-thumbnail">
-                                </div>
+                            <label class="form-label mx-auto d-block" for="productsImg">
+                            <div class="img-div">
+                                <input class="form-control d-none" id="productsImg" name="productsImg" type="file" accept=".jpg, .jpeg, .png" value=""/>
+                                <img src="<?=$BASE;?>assets/img/products/<?= $productsWhere["ppi_product_image"] ?>" class="w-25 img-board mx-auto d-block" id="productsPreview" value="" alt="Upload Picture"/>
                             </div>
-                            
+                            </label>
                         </div>
+
 
                         <div class="row mb-4">
                             <label class="col-sm-2 col-form-label text-right"><span class="required">*</span>Product Description:</label>
@@ -100,10 +99,10 @@ $productsContent = $products->getContent();
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
 
-                
                 <?php
                 } else {
                 ?>
@@ -121,11 +120,12 @@ $productsContent = $products->getContent();
                     </div>
                     <div class="row bg-light d-flex align-items-stretch">
                     <table class="table border table-bordered mt-3 display" id="products-table">
-                        <thead class="">
+                        <thead>
                             <tr class="text-dark">
                             <th scope="col">#</th>
                             <th scope="col">Images</th>
                             <th scope="col">Product Name</th>
+                            <th scope="col">Product Description</th>
                             <th scope="col">Status</th>
                             <th scope="col">Action</th>
                             </tr>
@@ -144,12 +144,13 @@ $productsContent = $products->getContent();
 
                     <tr>
                     <td class="counterCell text-dark"></td>
-                    <td><img src ="../assets/img/products/<?=$image;?>" class="w-25 border"></td>
-                    <td class=""><?=$titlee;?></td>
+                    <td><img src ="../assets/img/products/<?=$image;?>" class="w-50 border-1 d-block mx-auto"></td>
+                    <td class="fw-bold"><?=$titlee;?></td>
+                    <td><?php echo htmlspecialchars_decode ($content);?></td>
                     <td><?=$status==1 ? "<p class='text-primary badge badge-bg p-2 mb-0'>Enable</p>":"<p class='text-danger badge badge-bg p-2 mb-0'>Disable</p>";?></td>
                     <td>
-                        <div class="text-nowrap d-flex justify-content-evenly">
-                            <a href="?update=<?= $id ?>/" class="btn btn-sm btn-success btn-icon-split text-white"><i class="fas fa-pen"></i> Update </a>
+                        <div class="text-nowrap d-flex justify-content-around">
+                            <a href="?update=<?=$id;?>/" class="btn btn-sm btn-success btn-icon-split text-white"><i class="fas fa-pen"></i> Update </a>
                             <a href="#" class="btn btn-sm btn-danger btn-icon-split text-white text-decoration-none" onclick="deleteLink(<?=$id;?>)"><i class="fa-solid fa-trash"></i> Delete </a>
                         </div>
                     </td>
@@ -235,8 +236,15 @@ $productsContent = $products->getContent();
 </section>
 </body>
 <script src ="<?=$BASE;?>assets/js/includes/include.products.js"></script>
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 <script>
         $(function(){    
         productsTable();
-    })
+    });
+    function updateProduc(token) {
+        $("#updateProduct").trigger('submit');
+    }
 </script> 

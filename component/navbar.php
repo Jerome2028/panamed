@@ -12,15 +12,15 @@
           <li class="dropdown">
           <a class="nav-link <?= $page==2 || $page==7 || $page==8 ? "active" : ""?>">About Us <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li class="waves-effect waves-light"><a class="navlink <?= $page==2 ? "active" : ""?>" href="<?=$BASE; ?>about-us">About Us</a></li>
-              <li class="waves-effect waves-light"><a  class="nav-link <?= $page==7 ? "active" : ""?>" href="<?=$BASE;?>awards">Awards</a></li>
-              <li class="waves-effect waves-light"><a  class="nav-link <?= $page==8 ? "active" : ""?>" href="<?=$BASE;?>careers">Careers</a></li>
+              <li class="waves-effect waves-light"><a class="navlink <?= $page==2 ? "active" : ""?>" href="<?=$BASE;?>about-us/">About Us</a></li>
+              <li class="waves-effect waves-light"><a  class="nav-link <?= $page==7 ? "active" : ""?>" href="<?=$BASE;?>awards/">Awards</a></li>
+              <li class="waves-effect waves-light"><a  class="nav-link <?= $page==8 ? "active" : ""?>" href="<?=$BASE;?>careers/">Careers</a></li>
             </ul>
           </li>
           <li class="waves-effect waves-light"><a class="nav-link <?= $page==3 ? "active" : ""?>" href="<?=$BASE;?>news-events/">News and Events</a></li>
-          <li class="waves-effect waves-light"><a class="nav-link <?= $page==4 ? "active" : ""?>" href="<?=$BASE;?>products">Products</a></li>
-          <li class="waves-effect waves-light"><a class="nav-link <?= $page==5 ? "active" : ""?>" href="<?=$BASE;?>brochures">Brochures</a></li>
-          <li class="waves-effect waves-light"><a class="nav-link <?= $page==6 ? "active" : ""?>" href="<?=$BASE;?>contact-us">Contact Us</a></li>
+          <li class="waves-effect waves-light"><a class="nav-link <?= $page==4 ? "active" : ""?>" href="<?=$BASE;?>products/">Products</a></li>
+          <li class="waves-effect waves-light"><a class="nav-link <?= $page==5 ? "active" : ""?>" href="<?=$BASE;?>brochures/">Brochures</a></li>
+          <li class="waves-effect waves-light"><a class="nav-link <?= $page==6 ? "active" : ""?>" href="<?=$BASE;?>contact-us/">Contact Us</a></li>
           
         </ul>
         

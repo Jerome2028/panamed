@@ -1965,6 +1965,12 @@ section {
   transition: opacity 0.5s;
   z-index: 2;
 } */
+.panamed-img img{
+  height: 500px;
+  object-fit: cover;
+  background-position: center;
+}
+
 /*--------------------------------------------------------------
 # Map
 --------------------------------------------------------------*/

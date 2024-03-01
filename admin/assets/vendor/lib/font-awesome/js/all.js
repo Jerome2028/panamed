@@ -4,7 +4,7 @@
  * Copyright 2022 Fonticons, Inc.
  */
 (function () {
-  'use strict';
+  
 
   var _WINDOW = {};
   var _DOCUMENT = {};
@@ -736,7 +736,7 @@
 
 }());
 (function () {
-  'use strict';
+  
 
   var _WINDOW = {};
   var _DOCUMENT = {};
@@ -1166,7 +1166,7 @@
 
 }());
 (function () {
-  'use strict';
+  
 
   var _WINDOW = {};
   var _DOCUMENT = {};
@@ -2823,7 +2823,7 @@
 
 }());
 (function () {
-  'use strict';
+  
 
   function ownKeys(object, enumerableOnly) {
     var keys = Object.keys(object);

@@ -4,7 +4,7 @@ require_once "controller.db.php";
 require_once "controller.session.php";
 require_once "../model/model.products.php";
 
-$productsContent = new ProductsContent();
+$productscontent = new ProductsContent();
 $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt');
 $path = 'uploads/';
 $mode = isset($_GET["mode"]) ? $_GET["mode"] : NULL;
@@ -12,27 +12,36 @@ $mode = isset($_GET["mode"]) ? $_GET["mode"] : NULL;
 switch($mode) { 
 
     case "updateProducts";
-        if($_FILES['img']['name']!="") {
-            $target_dir = "../assets/img/uploads/communication-arts/";
-            $file = $_FILES['img']['name'];
-            $path = pathinfo($file);
-            $ext = $path['extension'];
-            $temp_name = $_FILES['img']['tmp_name'];
-            $path_filename_ext = $target_dir.$file;
+    $id = $_POST["id"];
+    $title = $_POST["productName"];
+    $status = $_POST["status"];
+    $description = $_POST["products-content"];
 
-     
-            $id = $_POST["products-id"];
-            $title = $_POST["products-title"];
-            $content = $_POST["products-content"];
-            // $img = $_POST["image"];
-            $status = $_POST["status"];
-
-            move_uploaded_file($temp_name,$path_filename_ext);
-            $newsEvents = $newsEvents->updateContent($id, $title,  $img, $content, $status);
-
-        $response = array("message" => "Update Success");
-        break;
+    if($_FILES['productsImg']['name']!="") {
+        $target_dir = "../assets/img/brochures/thumbnail/";
+        $img = $_FILES['productsImg']['name'];
+        $path = pathinfo($img);
+        $ext = $path['extension'];
+        $temp_name = $_FILES['productsImg']['tmp_name'];
+        $size = filesize($temp_name);
+        $path_filename_ext = $target_dir.$img;
+        move_uploaded_file($temp_name,$path_filename_ext);
     }
+
+    if (empty($img)){
+        $products = $productscontent->updateContent($id, $title, $description, $status);
+        // echo $id. "-" . $title . "-" $
+        $response = array("message" => "Update Success");
+        // echo json_encode($response);
+    }
+    else {
+    // echo $title . "-" . $status . "-" . $img ."-" .$size . "-" .$file;
+    $productsimg = $productscontent->updateContentfile($id, $title, $img, $description, $status);
+    $response = array("message" => "Update Success");
+    // echo json_encode($response);
+    }
+        break;
+    
 
     case "addProduct";
     // if(!empty($_POST['products-title']) || !empty($_POST['products-content']) || $_FILES['image']){
@@ -55,16 +64,6 @@ switch($mode) {
         $response = array("message" => "Success Insert");
         break;
     // }
-
-    case "updateCourse";
-        $course_id = $_POST["course_id"];
-        $course = $_POST["course"];
-        $sort_by = $_POST["sort_by"];
-        $status = $_POST["status"];
-        $communicationArts = $communicationArts->updateCourse($course_id, $course, $sort_by, $status);
-
-        $response = array("message" => "Update Success");
-        break;
 
     case "deleteProduct";
         $id = $_POST["id"];

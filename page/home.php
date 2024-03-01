@@ -5,7 +5,7 @@ require_once 'component/import.php';
 require_once 'component/header.php';
 require_once 'component/navbar.php';
 ?>
-<body>
+<!-- <body> -->
   
  <!-- ======= Hero Section ======= -->
  
@@ -513,7 +513,7 @@ require_once 'component/navbar.php';
 </section>
 <?php include_once 'component/footer.php';?>
   </main>
-</body>
+<!-- </body> -->
 <script>
           var Swiper = new Swiper(".services-carousel", {
       slidesPerView: 4,

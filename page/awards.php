@@ -7,7 +7,7 @@
  require_once 'component/navbar.php';
  require_once 'component/banner.php';
  ?>
-  <body>  
+  <!-- <body>   -->
       <main>
       <?php (require_once 'component/navbar.php'); ?>
       <section class="awards">
@@ -79,4 +79,4 @@
     </section>
       <?php include_once 'component/footer.php';?>
     </main>
-  </body>
+  <!-- </body> -->

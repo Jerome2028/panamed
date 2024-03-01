@@ -3,7 +3,7 @@
  * License - https://fontawesome.com/license (Commercial License)
  */
 (function () {
-  'use strict';
+  
 
   function _typeof(obj) {
     if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {

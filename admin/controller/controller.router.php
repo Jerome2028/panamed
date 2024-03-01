@@ -11,7 +11,6 @@ class Router {
     }
 
     public function getView(){
-        
         $view = $this->request;
 
         switch($view){

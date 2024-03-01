@@ -14,7 +14,7 @@ class User extends db_conn_mysql {
     }
 
     public function login($user_email, $user_password){
-        $query = $this->conn->prepare("SELECT * FROM user WHERE First_Name = ? AND Last_Name = ? ");
+        $query = $this->conn->prepare("SELECT * FROM user WHERE BINARY First_Name = ? AND BINARY Last_Name = ? ");
         $query->execute([$user_email, $user_password]);
         $response = $query->fetch();
 
@@ -29,7 +29,7 @@ class User extends db_conn_mysql {
     }
 
     public function getManualsLive($input) {
-        $query = $this->conn->prepare("SELECT ppi_product_name, ppi_product_image FROM ppi_products WHERE ppi_product_name LIKE '%$input%' LIMIT 6");
+        $query = $this->conn->prepare("SELECT ppi_product_name, ppi_product_image FROM ppi_products WHERE ppi_product_name LIKE '%$input%'");
         $query->execute(['name' => '%' . $input . '%']);
         $response = $query->fetchAll();
 

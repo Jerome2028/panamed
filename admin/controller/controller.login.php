@@ -21,7 +21,7 @@ switch($mode){
           $response = array("message" => "Invalid");
       }
       else {
-      // var_dump($user_accounts);
+
       $session->setSession("auth", true);
       $session->setSession("First_name", $user_accounts[1]);
       $session->setSession("id", $user_accounts[0]);
@@ -32,7 +32,9 @@ switch($mode){
 
       $response = array("message" => "Success Found");
       }
+      echo json_encode($response);
     break;
+
     case 'search':
       $input = $_POST['input'];
       $results = $liveSearch->getManualsLive($input);
@@ -44,35 +46,33 @@ switch($mode){
                   <div class="card-body row">
          ';
           foreach ($results as $row) {
-          //   echo '<a href="assets/static/Manuals/'. $row["name"] . '" class="list-group-item list-group-item-action border-1">' . $row['name'] . '</a>';
           echo ' 
-          <div class="col-sm-3 d-flex align-items-stretch">
+          <div class="col-sm-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
             <div class="p-3 shadow mb-4 border-0 ">
-
-            <div class="py-3">
-            <a href="https://panamed.com.ph/shop/index.php?route=product/search&search='.$row["ppi_product_name"].'">
-            <img src ="admin/assets/products/'.$row["ppi_product_image"].'" class="w-100 mb-3"><br>
-              <div class="d-sm-flex align-items-center justify-content-between">
-                    <h6 class="m-0 fw-bold">
-                        '. $row["ppi_product_name"] . '>
-                    </h6>
+              <div class="py-3">
+                <img src ="../admin/assets/img/products/'.$row["ppi_product_image"].'" class="w-100 mb-3">
+                <div class="d-sm-flex align-items-center justify-content-between">
+                  <h6 class="m-0 fw-bold">
+                      '. $row["ppi_product_name"] . '
+                  </h6>
+                </div>
               </div>
+              <a class="btn btn-get-started w-100" href="?product=<?=$id;?>">View Product</a>
             </div>
-            </div>
-            </a>
           </div>';
           }
-          echo '
+          echo "
               </div>
             </div>
-          </div>';
-          $response = array ("message" => "Search Success");
+          </div>";
+          
         } else {
           echo'<h3 class="text-danger text-center fw-bold">Not Found!</h3>';
           
         }  
-        break;
+        // $response = array("message" => "Search Success");
+        break; 
     default:
     header("Location:../page/error.php");
   }
-  echo json_encode($response);
+

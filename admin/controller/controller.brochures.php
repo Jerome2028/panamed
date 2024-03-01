@@ -17,7 +17,7 @@ switch($mode) {
         $status = $_POST["status"];
         
         if($_FILES['brochureImg']['name']!="") {
-            $target_dir = "../assets/img/brochures/thumbnail/";
+            $target_dir = "...admin/assets/img/brochures/thumbnail/";
             $img = $_FILES['brochureImg']['name'];
             $path = pathinfo($img);
             $ext = $path['extension'];
@@ -43,29 +43,20 @@ switch($mode) {
 
     case "updateContent";
         $id = $_POST["id"];
-        $title = $_POST["title"];
+        $title = $_POST["productName"];
         $status = $_POST["status"];
 
-        if($_FILES['brochureImg']['name']!="") {
+        if($_FILES['productsImg']['name']!="") {
             $target_dir = "../assets/img/brochures/thumbnail/";
-            $img = $_FILES['brochureImg']['name'];
+            $img = $_FILES['productsImg']['name'];
             $path = pathinfo($img);
             $ext = $path['extension'];
-            $temp_name = $_FILES['brochureImg']['tmp_name'];
+            $temp_name = $_FILES['productsImg']['tmp_name'];
             $size = filesize($temp_name);
             $path_filename_ext = $target_dir.$img;
             move_uploaded_file($temp_name,$path_filename_ext);
         }
 
-        if($_FILES['pdf-upload']['name']!="") {
-            $target_dir = "../assets/img/brochures/";
-            $file = $_FILES['pdf-upload']['name'];
-            $path = pathinfo($file);
-            $ext = $path['extension'];
-            $temp_name = $_FILES['pdf-upload']['tmp_name'];
-            $path_filename_ext = $target_dir.$file;
-            move_uploaded_file($temp_name,$path_filename_ext);
-        }
         if (empty($img) || empty($file)){
             $brochures = $brochures->updateContentFile($id, $title, $status);
             $response = array("message" => "Update Success");
@@ -80,7 +71,7 @@ switch($mode) {
             $response = array("message" => "Update Success");
         break;
 
-    case "deleteContent";
+    case "deleteBrochures";
         $id = $_POST["id"];
         $brochures = $brochures->deleteBrochures($id);
 

@@ -39,7 +39,7 @@
   }
 
 }( window, function factory( window, jQuery ) {
-'use strict';
+
 
 // ----- utils ----- //
 
@@ -288,7 +288,7 @@ return EvEmitter;
   }
 
 })( window, function factory() {
-'use strict';
+
 
 // -------------------------- helpers -------------------------- //
 
@@ -483,7 +483,7 @@ return getSize;
 
 ( function( window, factory ) {
   /*global define: false, module: false */
-  'use strict';
+  
   // universal module definition
   if ( typeof define == 'function' && define.amd ) {
     // AMD
@@ -497,7 +497,7 @@ return getSize;
   }
 
 }( window, function factory() {
-  'use strict';
+  
 
   var matchesMethod = ( function() {
     var ElemProto = window.Element.prototype;
@@ -800,7 +800,7 @@ return utils;
   }
 
 }( window, function factory( EvEmitter, getSize ) {
-'use strict';
+
 
 // ----- helpers ----- //
 
@@ -1331,7 +1331,7 @@ return Item;
  */
 
 ( function( window, factory ) {
-  'use strict';
+  
   // universal module definition
   /* jshint strict: false */ /* globals define, module, require */
   if ( typeof define == 'function' && define.amd ) {
@@ -1367,7 +1367,7 @@ return Item;
   }
 
 }( window, function factory( window, EvEmitter, getSize, utils, Item ) {
-'use strict';
+
 
 // ----- vars ----- //
 
@@ -2291,7 +2291,7 @@ return Outlayer;
   }
 
 }( window, function factory( Outlayer ) {
-'use strict';
+
 
 // -------------------------- Item -------------------------- //
 
@@ -2372,7 +2372,7 @@ return Item;
   }
 
 }( window, function factory( getSize, Outlayer ) {
-  'use strict';
+  
 
   // layout mode class
   function LayoutMode( isotope ) {
@@ -2771,7 +2771,7 @@ return Item;
   }
 
 }( window, function factory( LayoutMode, Masonry ) {
-'use strict';
+
 
 // -------------------------- masonryDefinition -------------------------- //
 
@@ -2841,7 +2841,7 @@ return Item;
   }
 
 }( window, function factory( LayoutMode ) {
-'use strict';
+
 
 var FitRows = LayoutMode.create('fitRows');
 
@@ -2910,7 +2910,7 @@ return FitRows;
   }
 
 }( window, function factory( LayoutMode ) {
-'use strict';
+
 
 var Vertical = LayoutMode.create( 'vertical', {
   horizontalAlignment: 0

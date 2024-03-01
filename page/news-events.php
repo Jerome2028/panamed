@@ -7,52 +7,46 @@
  require_once 'component/navbar.php';
  require_once 'component/banner.php';
 
-
  $newsEventsContent = $newsEvents->getContent();
  ?>
  <style>
-  .news-events .top-100 {
-    top: 100% !important;
-    padding-bottom: 120px;
-    padding-top: 30px;
-}
+
     .news-events input &:focus {
   border-bottom: 3px solid #68A4C4!important;
 }
  </style>
-<body>  
+<!-- <body>   -->
   <main>
-  <?php (require_once 'component/navbar.php'); ?>
 
   <section class="news-events section-bg">
     <div class="container">
 
-              <?php
-                if(isset($_GET["news"])) {
-                $id = $_GET["news"];
-                $newsEventsWhere = $newsEvents->getContentWhere($id);
-              ?>
-                <div class="card border-0 mb-5 p-5">
+      <?php
+        if(isset($_GET["news"])) {
+        $id = $_GET["news"];
+        $newsEventsWhere = $newsEvents->getContentWhere($id);
+      ?>
+        <div class="card border-0 mb-5 p-5">
 
-                    <div class="py-3">
-                        <div class="d-sm-flex align-items-center justify-content-between">
-                            <h5 class="m-0 font-weight-bold panamed-color"><?= $newsEventsWhere['title'] ?></h5>
-                        </div>
-                        <span class="badge bg-lighter mt-2"><?= $newsEventsWhere['date_added'] ?></span>
-                    </div>
-                
-                    <div class="card-body">
-                        <div class="row mb-4">
-                            <div class="col-sm-9">
-                                <p name="news-content" id="news-content" class=""  rows="9" required><?= $newsEventsWhere['content'] ?></p>
-                            </div>
-                        </div>
-                        <a class="btn btn-get-started waves-effect waves-light text-white" href="<?=$BASE;?>news-events/"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Back to News Event</a>
+            <div class="py-3">
+                <div class="d-sm-flex align-items-center justify-content-between">
+                    <h5 class="m-0 font-weight-bold panamed-color"><?= $newsEventsWhere['title'] ?></h5>
+                </div>
+                <span class="badge bg-lighter mt-2"><?= $newsEventsWhere['date_added'] ?></span>
+            </div>
+        
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-sm-9">
+                        <p name="news-content" id="news-content" class=""  rows="9" required><?= $newsEventsWhere['content'] ?></p>
                     </div>
                 </div>
-                <?php
-                } else {
-                ?>
+                <a class="btn btn-get-started waves-effect waves-light text-white" href="<?=$BASE;?>news-events/"><i class="fa-solid fa-arrow-right-to-bracket me-1"></i> Back to News Event</a>
+            </div>
+        </div>
+        <?php
+        } else {
+        ?>
       <div class="row mb-5 d-flex align-items-stretch">
       <?php 
       if(!empty($newsEventsContent)) {
@@ -75,7 +69,7 @@
               </div>
               <p><?=$content;?></p>
               <div class="position-absolute top-100 start-50 translate-middle w-100 text-center">
-              <a href="?news=<?= $id ?>/" class="btn-get-started btn w-25 mt-auto waves-effect waves-light">Read More &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="<?=$BASE;?>news-events/?news=<?= $id ?>/" class="btn-get-started btn w-25 mt-auto waves-effect waves-light">Read More &nbsp; <i class="fa-solid fa-arrow-right"></i></a>
           </div>
           </div>
             </div>
@@ -135,11 +129,4 @@
 
 </main>
 <?php include_once 'component/footer.php';?>
-</body>
-<script>
-  var name = document.getElementById('texting').text();
-if (name.length > 10) {
-    var shortname = name.substring.forEach(0, 40) + " ...";
-    $('texting').replaceWith(shortname);
-}
-</script>
+<!-- </body> -->

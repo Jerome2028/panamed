@@ -48,10 +48,10 @@ $(function() {
         });
     },
       cache: false,
-      success:function(response) {
+      success:function(data) {
 
         window.onbeforeunload = null;
-        var resValue = jQuery.parseJSON(response);
+        var resValue = jQuery.parseJSON(data);
         if(resValue['message'] == "Success Found") {
           $("input , button").prop("disabled", true).val("");
           const Toast = Swal.mixin({
