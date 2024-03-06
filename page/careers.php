@@ -120,38 +120,8 @@
         </div>
       </section>
 
-            <!-- ======= Trusted by Healthcare ======= -->
-        <!-- ======= Trusted by Healthcare ======= -->
-        <section class="trusted" data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
-    <div class="container">
-      <p class ="text-center title">Trusted by healthcare professionals since 1995</p>
-
-      <div class="row justify-content-center">
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/east.png" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/heart_center.png" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/kidney.png" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/lungs.png" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/pgh.png" class="img-fluid" alt="">
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-      <?php include_once 'component/footer.php';?>
+      <!-- ======= Trusted by Healthcare ======= -->
+    <?php require_once 'page/trusted.php'; ?>
+    <?php include_once 'component/footer.php';?>
     </main>
   <!-- </body> -->

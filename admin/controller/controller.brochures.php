@@ -17,7 +17,7 @@ switch($mode) {
         $status = $_POST["status"];
         
         if($_FILES['brochureImg']['name']!="") {
-            $target_dir = "...admin/assets/img/brochures/thumbnail/";
+            $target_dir = "../../assets/img/brochures/thumbnail/";
             $img = $_FILES['brochureImg']['name'];
             $path = pathinfo($img);
             $ext = $path['extension'];
@@ -27,7 +27,7 @@ switch($mode) {
         }
 
         if($_FILES['pdf-upload']['name']!="") {
-            $target_dir = "../assets/img/brochures/";
+            $target_dir = "../../assets/img/brochures/thumbnail/";
             $file = $_FILES['pdf-upload']['name'];
             $path = pathinfo($file);
             $ext = $path['extension'];
@@ -35,40 +35,76 @@ switch($mode) {
             $path_filename_ext = $target_dir.$file;
             move_uploaded_file($temp_name,$path_filename_ext);
         }
-   $brochures = $brochures->addContent($title, $img, $file, $sort_by, $status);
-//    echo $title . "-" . $status . "-" . $img ."-" .$size . "-" .$file;
+        $brochures = $brochures->addContent($title, $img, $file, $sort_by, $status);
 
         $response = array("message" => "Insert Success");
         break;
 
     case "updateContent";
+
+        // if ($_FILES['brochureImg']['name']!= "") {
+        $target_dirOne = "../../assets/img/brochures/thumbnail/";
+        $img = $_FILES['brochureImg']['name'];
+        $pathOne = pathinfo($img);
+        // $extOne = $pathOne['extension'];
+        $temp_nameOne = $_FILES['brochureImg']['tmp_name'];
+        // $size = filesize($temp_name);
+        $path_filename_extOne = $target_dirOne.$img;
+        move_uploaded_file($temp_nameOne,$path_filename_extOne);
+        // }
+
+        // if ($_FILES['pdf-upload']['name']!= "") {
+        $target_dirTwo = "../../assets/img/brochures/";
+        $file = $_FILES['pdf-upload']['name'];
+        $pathTwo = pathinfo($file);
+        // $extTwo = $pathTwo['extension'];
+        $temp_nameOne = $_FILES['pdf-upload']['tmp_name'];
+        // $size = filesize($temp_name);
+        $path_filename_extTwo = $target_dirTwo.$file;
+        move_uploaded_file($temp_nameOne,$path_filename_extTwo);
+        // }
+
+        if(($file != "") && ($img != "")){
         $id = $_POST["id"];
-        $title = $_POST["productName"];
+        $title = $_POST["title"];
         $status = $_POST["status"];
+        $b_img = $_POST["b_image"];
+        $b_file = $_POST["b_file"];
 
-        if($_FILES['productsImg']['name']!="") {
-            $target_dir = "../assets/img/brochures/thumbnail/";
-            $img = $_FILES['productsImg']['name'];
-            $path = pathinfo($img);
-            $ext = $path['extension'];
-            $temp_name = $_FILES['productsImg']['tmp_name'];
-            $size = filesize($temp_name);
-            $path_filename_ext = $target_dir.$img;
-            move_uploaded_file($temp_name,$path_filename_ext);
+        $brochures= $brochures->updateContent($id, $title, $img, $file, $status);
+        $response = array ("message" => "Update Success");
         }
 
-        if (empty($img) || empty($file)){
-            $brochures = $brochures->updateContentFile($id, $title, $status);
-            $response = array("message" => "Update Success");
-            // echo json_encode($response);
+        elseif(($file == "") && ($img != "")){
+        $id = $_POST["id"];
+        $title = $_POST["title"];
+        $status = $_POST["status"];
+        $b_img = $_POST["b_image"];
+        $b_file = $_POST["b_file"];
+        $brochures= $brochures->updateContent($id, $title, $img, $b_file, $status);
+        $response = array ("message" => "Update Success");
         }
+
+        elseif(($file != "") && ($img == "")){
+        $id = $_POST["id"];
+        $title = $_POST["title"];
+        $status = $_POST["status"];
+        $b_img = $_POST["b_image"];
+        $b_file = $_POST["b_file"];
+        $brochures= $brochures->updateContent($id, $title, $b_img, $file, $status);
+        $response = array ("message" => "Update Success");
+        }
+        
         else {
-        // echo $title . "-" . $status . "-" . $img ."-" .$size . "-" .$file;
-        $brochures = $brochures->updateContent($id, $title, $img , $file, $status);
-        $response = array("message" => "Update Success");
-        // echo json_encode($response);
+        $id = $_POST["id"];
+        $title = $_POST["title"];
+        $status = $_POST["status"];
+        $b_img = $_POST["b_image"];
+        $b_file = $_POST["b_file"];
+
+        $brochures= $brochures->updateContent($id, $title, $b_img, $b_file, $status);
+        $response = array ("message" => "Update Success");
         }
-            $response = array("message" => "Update Success");
         break;
 
     case "deleteBrochures";

@@ -13,7 +13,6 @@
     if($session->getSession('auth')) { header("location: ".$BASE_DIR. "dashboard/"); die(); }
     require_once 'component/header.php'; 
 ?>
-<body class="">
 <section class="login-dashboard">
     <div class="container-fluid p-0">
         <div class="body-bg"></div>
@@ -40,13 +39,11 @@
         </div>
     </div>
 </section>
-</body>
 
 </html>
 <script>
-        function submitdata(token) {
-            $(".login").trigger('submit');
-            }
-        </script>
-    </form>
+    function submitdata(token) {
+        $(".login").trigger('submit');
+        }
+    </script>
 <script type="text/javascript" src="<?= $BASE; ?>assets/js/login.js"></script>

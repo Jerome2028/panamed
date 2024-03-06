@@ -76,7 +76,7 @@
             </div>
           </div>
           <script>
-            function onSubmit(token) {
+            function onSubmit() {
                 $(".contact").trigger('submit');
             }
           </script>

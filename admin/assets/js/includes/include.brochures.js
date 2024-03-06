@@ -45,9 +45,23 @@ $(function() {
         $('.addBrochures').on('submit', function(e) {
             e.preventDefault();
         var title = $('#brochure-name').val();
+        var thumbnail = $('#brochureImg')[0].files.length;
         if(title == "") {
             Toastify({
                 text: "input Field Required!",
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "top",
+                positionRight: true,
+                backgroundColor: "#c46868",
+                opacity:"0!important"
+            }).showToast();
+            return
+        }
+        if(thumbnail === 0) {
+            Toastify({
+                text: "Image Required!",
                 duration: 3000,
                 newWindow: true,
                 close: true,
@@ -75,7 +89,7 @@ $(function() {
                 window.location.reload();
             }
             else {
-                alert("failed");
+                alert("Oops! Something went wrong!");
             }
         }
         });
@@ -84,6 +98,8 @@ $(function() {
     $('.updateBrochures').on('submit', function(e) {
     e.preventDefault();
     var titlee = $('#title').val();
+    // var b_img = $('#b_img').val();
+    // var b_file = $('#b_file').val();
 
     if(titlee == "") {
       Toastify({
@@ -98,9 +114,10 @@ $(function() {
         }).showToast();
         return;
     } 
-      var types = $(this).attr("method");
-      var formData = new FormData(this);
-    //   $inputs.prop("disabled", true);
+
+    var types = $(this).attr("method");
+    var formData = new FormData(this);
+    // $inputs.prop("disabled", true);
 
           $.ajax({
               type: types ,
@@ -113,12 +130,21 @@ $(function() {
               success:function(data){
               var resValue = jQuery.parseJSON(data);
                   if(resValue['message'] == "Update Success") {
-                    alert("update");
                 window.localStorage.setItem("stat", "success");
                 window.location.reload();
               }
               else {
-                alert("failed to Update");
+                // alert("Oops! File missing!");
+                Toastify({
+                    text: "Oops!You need to upload files and Image",
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top",
+                    positionRight: true,
+                    backgroundColor: "#c46868",
+                    opacity:"0!important"
+                }).showToast();
             }
           }
       });

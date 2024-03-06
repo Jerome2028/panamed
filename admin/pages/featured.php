@@ -4,7 +4,6 @@ require_once 'component/import.php';
 require_once 'component/header.php';
 $page =6;
 ?>
-<body>
 <section class="dashboard">
         <div class="container-fluid">
             <div class="row flex-nowrap h-100">
@@ -26,4 +25,3 @@ $page =6;
             </div>
         </div>
 </section>
-</body>

@@ -5,7 +5,7 @@ require_once 'component/header.php';
 $page = 4;
 $careersContent = $careers->getContent();
 ?>
-<!-- <body> -->
+
 <section class="dashboard ">
     <div class="container-fluid">
         <div class="row flex-nowrap h-100">
@@ -210,7 +210,6 @@ $careersContent = $careers->getContent();
     </div>
 </div>
 </section>
-<!-- </body> -->
 <script src ="<?=$BASE;?>assets/js/includes/include.career.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

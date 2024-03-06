@@ -5,7 +5,6 @@ require_once 'component/header.php';
 $page = 7;
 $brochuresContent = $brochures->getContent();
 ?>
-<!-- <body> -->
 <section class="dashboard">
     <div class="container-fluid">
         <div class="row flex-nowrap h-100">
@@ -53,14 +52,17 @@ $brochuresContent = $brochures->getContent();
                             <input type="hidden" name="id" id="id" value="<?= $brochureWhere["id"] ?>" class="form-control" readonly>
                         </div>
 
-                        <div class="row mb-4">
-                            <label class="form-label mx-auto d-block" for="brochureImg">
-                            <div class="img-div">
+                        <div class="d-flex justify-content-center mb-4">
+                            <label class="form-label" for="brochureImg">
+                            <div class="img-div mx-auto d-block">
                                 <input class="form-control d-none" id="brochureImg" name="brochureImg" type="file" accept=".jpg, .jpeg, .png" value=""/>
-                                <img src="<?=$BASE;?>assets/img/brochures/thumbnail/<?= $brochureWhere["img"] ?>" class="w-25 img-board mx-auto d-block" id="brochurePreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
+                                <img src="<?=$BASE;?>../assets/img/brochures/thumbnail/<?= $brochureWhere["img"] ?>" class="w-25 img-board mx-auto d-block" id="brochurePreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
                             </div>
                             </label>
                         </div>
+
+                        <input type="hidden" name="b_image" id="b_img" value="<?=$brochureWhere["img"]?>">
+                        <input type="hidden" name="b_file" id="b_file" value="<?=$brochureWhere["file"]?>">
 
                         <div class="row mb-4">
                             <label class="form-label col-sm-2">Upload PDF <span class="required">*</span></label>
@@ -70,7 +72,7 @@ $brochuresContent = $brochures->getContent();
                         </div>
 
                         <div class="row mb-4">
-                            <label for="info_title" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Title:</label>
+                            <label for="info_title" class="col-sm-2 col-form-label text-right">Title:<span class="required">*</span></label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="title" id="title" value="<?= $brochureWhere['title'] ?>" placeholder="Type Here...">
                             </div>
@@ -121,7 +123,7 @@ $brochuresContent = $brochures->getContent();
                 <div class="col-md-4 d-flex align-items-stretch panamed-img">
                     <div class="card rounded-0 shadow mb-4 border-light">
                         <div class="card-header py-3">
-                            <img src ="<?=$BASE;?>assets/img/brochures/thumbnail/<?= $img; ?>" class="w-100">
+                            <img src ="<?=$BASE;?>../assets/img/brochures/thumbnail/<?= $img; ?>" class="w-100">
                         </div>
                             
                         <div class="card-body py-2 bg-light">
@@ -232,7 +234,6 @@ $brochuresContent = $brochures->getContent();
         </div>
     </div>
 </section>
-<!-- </body> -->
 <script src ="<?=$BASE;?>assets/js/includes/include.brochures.js"></script>
 <script>
     function updateBrochure(token) {

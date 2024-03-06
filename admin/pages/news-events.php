@@ -10,7 +10,6 @@ $newsEventsContent = $newsEvents->getContent();
  
 
 </style>
-<body>
 <section class="dashboard">
 <div class="container-fluid">
     <div class="row flex-nowrap h-100">
@@ -207,7 +206,6 @@ $newsEventsContent = $newsEvents->getContent();
     </div>
 </div>
 </section>
-</body>
 <script src ="<?=$BASE;?>assets/js/includes/include.news-events.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

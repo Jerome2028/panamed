@@ -124,7 +124,7 @@ function addEvents(title, content, sort_by, status){
        url: '../controller/controller.news-events.php?mode=addEvents',
        method: 'POST',
        data: {
-         //   id:id,
+         //id:id,
            title:title,
            content:content,
            sort_by:sort_by,
@@ -185,11 +185,13 @@ Swal.fire({
 function newsTable() {
     $('#news-table').DataTable({
         autoWidth: false,
-        fixedColumns: true
+        fixedColumns: true,
+        order: [[1, 'asc']]
     });
     $('#newsSearch').on('keyup', function () {
     table.search(this.value).draw();
     });
+    
 
   }
   

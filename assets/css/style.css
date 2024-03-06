@@ -1202,6 +1202,11 @@ section {
 .products-details .products-description p {
   padding: 0;
 }
+.products img{
+  object-fit: cover;
+  height: 10lh;
+  position: relative;
+}
 
 /*--------------------------------------------------------------
 # Why Us
@@ -1983,6 +1988,11 @@ section {
   font-weight: 700;
   font-size: 1.2rem;
   margin-bottom: 1rem;
+}
+.brochures img{
+  object-fit: cover;
+  height: 20lh;
+  position: relative;
 }
 /*--------------------------------------------------------------
 # Map

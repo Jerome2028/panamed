@@ -21,7 +21,6 @@ $productsContent = $products->getContent();
     display: none;
     } */
 </style>
-<body>
 <section class="dashboard">
     <div class="container-fluid">
         <div class="row flex-nowrap h-100">
@@ -234,7 +233,6 @@ $productsContent = $products->getContent();
     </div>
 </div>
 </section>
-</body>
 <script src ="<?=$BASE;?>assets/js/includes/include.products.js"></script>
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">

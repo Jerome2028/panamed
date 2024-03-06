@@ -13,7 +13,7 @@
   <main>
   <section class="brochures section-bg">
     <div class ="container">
-    <div class="row mb-5 d-flex align-items-stretch">
+    <div class="row d-flex align-items-stretch">
     <?php 
       if(!empty($brochuresContent)) {
       foreach($brochuresContent as $v) {
@@ -25,14 +25,14 @@
 
         if($status == 1) {
           ?>
-        <div class="col-sm-4">
-          <div class="card shadow p-3" style="width: 25rem;">
+        <div class="col-sm-4 mb-5">
+          <div class="card shadow p-3">
           <span class="font-monospace fw-bold fs-5 text-danger"></i>PDF</span>
-          <img src ="<?=$BASE;?>admin/assets/img/brochures/thumbnail/<?=$img;?>" class="img-fluid mt-2">
-            <div class="card-body">
+          <img src ="<?=$BASE;?>assets/img/brochures/thumbnail/<?=$img;?>" class="w-100 mt-2">
+            <div class="card-body align-items-stretch">
               <h5 class="panamed-color"><?=$titlee;?></h5>
               <p class="card-text">Download or our anchor needle brochure.</p>
-              <a href="<?=$BASE;?>admin.../assets/img/brochures/<?=$file;?>" class="btn-get-started waves-effect waves-light">Download</a>
+              <a href="<?=$BASE;?>assets/img/brochures/<?=$file;?>" class="btn-get-started waves-effect waves-light">Download</a>
             </div>
           </div>
         </div>
@@ -73,35 +73,7 @@
       </div>
     </div>    
   </section>
-        <!-- ======= Trusted by Healthcare ======= -->
-        <section class="trusted" data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
-    <div class="container">
-      <p class ="text-center title">Trusted by healthcare professionals since 1995</p>
-
-      <div class="row justify-content-center">
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/east.png" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/heart_center.png" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/kidney.png" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/lungs.png" class="img-fluid" alt="">
-        </div>
-
-        <div class="col-lg-2 col-md-4 col-2 d-flex align-items-center justify-content-center">
-          <img src="assets/img/hospitals/pgh.png" class="img-fluid" alt="">
-        </div>
-
-      </div>
-    </div>
-  </section>
-      <?php include_once 'component/footer.php';?>
-    </main>
+  <!-- ======= Trusted by Healthcare ======= -->
+  <?php require_once 'page/trusted.php'; ?>
+  <?php include_once 'component/footer.php';?>
+  </main>

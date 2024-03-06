@@ -47,7 +47,7 @@
     <div class="row mb-5">
 
         <?php
-            if(!empty($productsContent)) {
+        if(!empty($productsContent)) {
         foreach($productsContent as $v) {
         $id = $v["ppi_product_id"];
         $titlee = $v["ppi_product_name"];
@@ -57,7 +57,7 @@
 
             if($status == 1) {
                 ?>
-                <div class="col-sm-3 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
+                <div class="col-sm-3 " data-aos="fade-up" data-aos-delay="200" data-aos-delay="fade-up">
                     <div class="p-3 shadow mb-4 border-0 manuals-card">
 
                         <div class="py-3">
@@ -70,9 +70,7 @@
                         </div>
                         <a class="btn btn-get-started w-100" href="?product=<?=$id;?>">View Product</a>
                         <div class="card-body">
-                            <div class="container-fluid">
-
-                            </div>
+                            <div class="container-fluid"></div>
                         </div>
                     </div>
                 </div>

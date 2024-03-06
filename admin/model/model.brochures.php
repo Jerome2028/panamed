@@ -27,17 +27,10 @@ class Brochures extends db_conn_mysql {
         $query->execute([$title, $img, $file, $status, $sort_by]);
     }
 
-    public function updateContent($id, $title, $img , $file, $status) {
+    public function updateContent($id,$title, $img, $file, $status){
         $query = $this->conn->prepare("UPDATE brochures SET title = ?, img = ?, file = ?, status = ? WHERE id = ?");
-        $query->execute([$title, $img , $file, $status,$id]);
+        $query->execute([$title, $img, $file, $status, $id]);
     }
-
-    public function updateContentFile($id, $title, $status){
-        $query = $this->conn->prepare("UPDATE brochures SET title = ?, status = ? WHERE id = ?");
-        $query->execute([$title, $status, $id]);
-    }
-    
-
     public function countAllEvents() {
         $query = $this->conn->query("SELECT * FROM brochures");
         $results = $query->rowCount();

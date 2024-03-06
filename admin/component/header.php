@@ -1,4 +1,5 @@
-    <title><?= $title; ?></title>
+<head>
+    <title><?=$title;?></title>
     <link href="<?=$BASE;?>assets/img/favicon.png" rel="icon" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,3 +34,5 @@ $(window).on("load",function(){
     $(".loader-wrapper").fadeOut("slow");
 });
 </script>
+</head>
+<body>

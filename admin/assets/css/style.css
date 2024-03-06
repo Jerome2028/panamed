@@ -1952,7 +1952,7 @@ section {
 .brochures .card-body .btn{
   font-size: 12px;
 }
-.brochures .img-board {
+.img-div .img-board {
   width: 250px!important;
   height: 250px!important;
   border: dashed 2px #c1c1c1;
