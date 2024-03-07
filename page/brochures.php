@@ -25,7 +25,7 @@
 
         if($status == 1) {
           ?>
-        <div class="col-sm-4 mb-5">
+        <div class="col-sm-4 mb-4">
           <div class="card shadow p-3">
           <span class="font-monospace fw-bold fs-5 text-danger"></i>PDF</span>
           <img src ="<?=$BASE;?>assets/img/brochures/thumbnail/<?=$img;?>" class="w-100 mt-2">

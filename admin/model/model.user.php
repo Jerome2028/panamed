@@ -14,7 +14,7 @@ class User extends db_conn_mysql {
     }
 
     public function login($user_email, $user_password){
-        $query = $this->conn->prepare("SELECT * FROM user WHERE BINARY First_Name = ? AND BINARY Last_Name = ? ");
+        $query = $this->conn->prepare("SELECT * FROM user WHERE BINARY username = ? AND BINARY password = ? ");
         $query->execute([$user_email, $user_password]);
         $response = $query->fetch();
 

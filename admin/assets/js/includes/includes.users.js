@@ -12,23 +12,23 @@ $(function() {
         }
     });
 
-// var status_module = window.localStorage.getItem("stat");
-// localStorage.clear();
+var status_module = window.localStorage.getItem("stat");
+localStorage.clear();
 
-// if (status_module == "success") {
-//     error = true;
-//     message = 'Succesfully Apply!';
-//  Toastify({
-//     text: message,
-//      duration: 3000,
-//      newWindow: true,
-//      close: true,
-//      gravity: "top",
-//      positionRight: true,
-//      backgroundColor: "#198754",
-//      opacity:"0!important"
-//    }).showToast();
-// }
+if (status_module == "success") {
+    error = true;
+    message = 'Succesfully Apply!';
+ Toastify({
+    text: message,
+     duration: 3000,
+     newWindow: true,
+     close: true,
+     gravity: "top",
+     positionRight: true,
+     backgroundColor: "#198754",
+     opacity:"0!important"
+   }).showToast();
+}
 });
     $('.profileForm').on('submit', function(e){
         e.preventDefault();
@@ -72,8 +72,7 @@ $(function() {
                 // console.log(data);
                 var resValue = jQuery.parseJSON(data);
                     if(resValue['message'] == "Successfully Apply") {
-                        alert("User Change!");
-                    // window.localStorage.setItem("stat", "success");
+                    window.localStorage.setItem("stat", "success");
                     window.location.reload();
 				}
                     else {

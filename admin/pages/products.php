@@ -5,22 +5,6 @@ require_once 'component/header.php';
 $page =2;
 $productsContent = $products->getContent();
 ?>
-<style>
-     /* .preview{
-   width: 1000px;
-   height: 1000px;
-   border: 1px solid black;
-   margin: 0 auto;
-   background: white;
-  }
-  .image-upload>input {
-  display: none;
-}
-
-    .preview img{
-    display: none;
-    } */
-</style>
 <section class="dashboard">
     <div class="container-fluid">
         <div class="row flex-nowrap h-100">
@@ -71,7 +55,7 @@ $productsContent = $products->getContent();
                         </div>
 
                         
-                        <div class="row mb-4">
+                        <div class="d-flex justify-content-center mb-4">
                             <label class="form-label mx-auto d-block" for="productsImg">
                             <div class="img-div">
                                 <input class="form-control d-none" id="productsImg" name="productsImg" type="file" accept=".jpg, .jpeg, .png" value=""/>
@@ -143,9 +127,9 @@ $productsContent = $products->getContent();
 
                     <tr>
                     <td class="counterCell text-dark"></td>
-                    <td><img src ="../assets/img/products/<?=$image;?>" class="w-50 border-1 d-block mx-auto"></td>
+                    <td><img src ="../assets/img/products/<?=$image;?>" class="w-50 border-1 d-block mx-auto my-auto"></td>
                     <td class="fw-bold"><?=$titlee;?></td>
-                    <td><?php echo htmlspecialchars_decode ($content);?></td>
+                    <td class="truncate"><?php echo htmlspecialchars_decode ($content);?></td>
                     <td><?=$status==1 ? "<p class='text-primary badge badge-bg p-2 mb-0'>Enable</p>":"<p class='text-danger badge badge-bg p-2 mb-0'>Disable</p>";?></td>
                     <td>
                         <div class="text-nowrap d-flex justify-content-around">
@@ -189,9 +173,9 @@ $productsContent = $products->getContent();
                                 </div>
                                 
                                 <div class="col-sm-3">
-                                        <div id = "preview">
-                                            <img src="assets/img/uploads/communication-arts/<?= $productsWhere["ppi_product_image"]; ?>" class="w-75 img-thumbnail">
-                                        </div>
+                                    <div id = "preview">
+                                        <img src="assets/img/uploads/communication-arts/<?= $productsWhere["ppi_product_image"]; ?>" class="w-75 img-thumbnail">
+                                    </div>
                                 </div>
                             </div>
 
@@ -239,10 +223,10 @@ $productsContent = $products->getContent();
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 <script>
-        $(function(){    
-        productsTable();
-    });
-    function updateProduc(token) {
-        $("#updateProduct").trigger('submit');
-    }
+$(function(){    
+    productsTable();
+});
+function updateProduc(token) {
+    $("#updateProduct").trigger('submit');
+}
 </script> 

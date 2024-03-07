@@ -1,9 +1,7 @@
-<div id="header" class="fixed-top d-flex align-items-center header-transparent shadow">
-<div class="container d-flex justify-content-between align-items-center">
+<!-- <div id="header" class="fixed-top d-flex align-items-center header-transparent shadow">
+  <div class="container d-flex justify-content-between align-items-center">
       <div class="logo">
-        <h1 class="text-light"><a href="<?= $BASE; ?>"><span>  <img src ="<?= $BASE; ?>assets/img/logo.png"> </span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <h1 class="text-light"><a href="<?= $BASE; ?>"><span> <img src ="<?= $BASE; ?>assets/img/logo.png"> </span></a></h1>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -30,10 +28,4 @@
 </div>
 <div class="loader-wrapper">
     <span class="loader"><span class="loader-inner"></span></span>
-</div>
-<!-- <script>
-$(document).ready(function () {
-  $(".nav li").removeClass("active");
-  $('#home').addClass('active');
-});
-</script> -->
+</div> -->

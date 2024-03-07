@@ -7,16 +7,17 @@ $title = "Admin - Dashboard";
   $user_account = $userr->getContentWhere($userid);
   ?>
 <section class="side-nav">
-    <div class="d-flex flex-column align-items-center align-items-sm-start pt-2">
-        <img src ="<?=$BASE;?>assets/img/logo.png" class="w-50 d-block m-auto mt-3 mb-3">
+    <div class="d-flex flex-column align-items-center align-items-sm-start">
+        <img src ="<?=$BASE;?>assets/img/logo.png" class="w-50 d-block m-auto mt-5 mb-1">
         <div class="cover d-flex text-center mt-4 mb-4">
             <!-- <img src="<?=$BASE;?>assets/img/bgbg.jpg" class="position-relative p-5 w-25" style="background-size:cover;"> -->
             <div class="overlay"></div>
             <div class="user-nav">
-
                 <img src="<?=$BASE;?>assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-50 rounded-circle" value="/<?=$user_account['img'];?>">
-            
-                <h5 class="p-0 fw-bold d-block m-auto text-white ms-1"><?php echo $userole; ?></h5>
+                <div class="p-0 fw-bold d-block m-auto text-white px-1 mt-3">
+                    <h6 class="mb-0 text-white text-nowrap fw-bold"><?php echo $fname;?>  <?php echo $lname;?></h6>
+                    <p><?php echo $userole;?></p>
+                </div>
             </div>
         </div>
 
@@ -142,5 +143,6 @@ $title = "Admin - Dashboard";
         $("#profileForms").trigger('submit');
     }
 </script>
+
 
                     

@@ -127,9 +127,9 @@ $.ajax({
     console.log(data);
     var resValue = jQuery.parseJSON(data);
         if(resValue['message'] == "Update Success") {
-            alert("Update Success");
+            // alert("Update Success");
         // window.localStorage.setItem("stat", "success");
-        // window.location.reload();
+        window.location.reload();
     }
     else {
         alert("failed");

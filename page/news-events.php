@@ -47,7 +47,7 @@
         <?php
         } else {
         ?>
-      <div class="row mb-5 d-flex align-items-stretch">
+      <div class="row gy-4 mb-5 d-flex align-items-stretch">
       <?php 
       if(!empty($newsEventsContent)) {
       foreach($newsEventsContent as $v) {
@@ -57,10 +57,10 @@
         $status = $v["status"];
         $date = $v["date_update"];
 
-        if($status == 1) {
-          ?>
+      if($status == 1) {
+      ?>
       <div class="col-md-6 d-flex align-items-stretch">
-          <div class="card p-5 m-3 w-100">
+          <div class="card p-5 w-100">
           <div class="card-body d-flex flex-column">
             <h5 class="panamed-color"><?=$titlee;?></h5>
             <div class="mb-3 mt-2">

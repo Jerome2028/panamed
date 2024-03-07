@@ -18,6 +18,7 @@ $careers = new Careers();
 $userr = new User();
 
 $fname = $session->getSession("First_name");
+$lname = $session->getSession("Last_Name");
 $userole = $session->getSession("role");
 $userid = $session->getSession("id");
 
@@ -29,8 +30,4 @@ $isLoggedIn = $session->getSession('auth');
 if(!$isLoggedIn) { header("location: ".$BASE_DIR."");}
 
 ?>
-
-<div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-</div>
 

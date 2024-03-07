@@ -74,9 +74,9 @@
     onscroll(document, headerScrolled)
   }
 
-  $(window).on("load",function(){
-    $(".custom-loader").fadeOut("slow");
-});
+//   $(window).on("load",function(){
+//     $(".custom-loader").fadeOut("slow");
+// });
 
 
 // new Swiper('.testimonials-slider', {
@@ -191,9 +191,9 @@
     /**
    * Initiate portfolio lightbox 
    */
-    var myLightbox = GLightbox({
-      selector: '.awards-preview' 
-  });
+  //   var myLightbox = GLightbox({
+  //     selector: '.awards-preview' 
+  // });
     /**
      * Portfolio details slider
      */
@@ -214,22 +214,22 @@
     /**
      * Initiate portfolio details lightbox 
      */
-    const portfolioDetailsLightbox = GLightbox({
-      selector: '.portfolio-details-lightbox',
-      width: '90%',
-      height: '90vh'
-    });
+    // const portfolioDetailsLightbox = GLightbox({
+    //   selector: '.portfolio-details-lightbox',
+    //   width: '90%',
+    //   height: '90vh'
+    // });
   /**
    * Animation on scroll
    */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true,
-      mirror: false
-    });
-  });
+  // window.addEventListener('load', () => {
+  //   AOS.init({
+  //     duration: 1000,
+  //     easing: "ease-in-out",
+  //     once: true,
+  //     mirror: false
+  //   });
+  // });
 
   var Waves = Waves || {};
   var $$ = document.querySelectorAll.bind(document);

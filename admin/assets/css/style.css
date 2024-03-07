@@ -650,7 +650,7 @@ a.waves-effect .waves-ripple {
   z-index: 1;
 }
 .cover > .user-nav {
-    max-width: 90%;
+    max-width: 100%;
     margin: auto;
     z-index: 2;
     text-align: center;
@@ -684,6 +684,7 @@ a.waves-effect .waves-ripple {
     width: 100%;
     background: url('../img/camera-fill.svg') center no-repeat;
     background-size: 50px;
+    cursor: pointer;
 }
 
 .img-div:hover img{

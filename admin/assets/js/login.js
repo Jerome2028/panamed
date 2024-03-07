@@ -77,7 +77,7 @@ $(function() {
         }
         else {
           Toastify({
-            text: "Incorrect Username or Password... ",
+            text: "Authentication failed.",
             duration: 3000,
             newWindow: true,
             close: true,

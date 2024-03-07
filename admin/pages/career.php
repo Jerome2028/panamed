@@ -6,16 +6,12 @@ $page = 4;
 $careersContent = $careers->getContent();
 ?>
 
-<section class="dashboard ">
+<section class="dashboard">
     <div class="container-fluid">
         <div class="row flex-nowrap h-100">
             <div class="col-auto col-md-3 col-xl-2  px-0 bg-light  d-inline-block">
 
-
-            
             <?php require_once 'component/sidenav.php';?>
-        
-        
 
             </div>
             

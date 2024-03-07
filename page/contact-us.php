@@ -81,7 +81,7 @@
             }
           </script>
         </div>
-              <script src="assets/js/form.js"></script>
+              <script src="<?=$BASE;?>assets/js/form.js"></script>
         </form>
         </div>
           </section>

@@ -1,23 +1,24 @@
 <?php
-
+require_once 'component/import.php';
+require_once 'component/header.php';
 ?>
 <div class="container-fluid bg-light p-4 m-0 shadow-sm">
-<div class="container">
-  <div class="row d-flex justify-content-between align-items-center">
-    <div class="col-md-3"></div>
-<div class="col-md-5">
-  <div class="input-group">
-    <input type="text" class=" ms-5 form-control form-input border-1 rounded-0" placeholder="Search Products...">
-    <div class="input-group-append"><button class="btn btn-primary p-3 rounded-0"><i class="fas fa-search"></i></button></div>
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      
+      <div class="mx-auto w-50 bd-highlight">
+        <form action="../controller/controller.login.php?mode=topsearch" method="POST" id="productForm">
+        <div class="input-group">
+          <input type="text" class="ms-5 form-control form-input border-1 rounded-0" name="input" id="input" placeholder="Search Products...">
+          <button class="btn btn-primary p-3 rounded-0" type="submit" autocomplete="off" id="productFind"><i class="fas fa-search"></i></button>
+        </div>
+        </form>
+      </div>
+      <div class="p-2 bd-highlight">
+        <a class="" data-bs-toggle="modal" data-bs-target="#logoutModal" href="<?=$BASE;?>logout"><span class="mt-1"> Logout</span><i class="bi bi-box-arrow-right fs-5 ms-2"></i></a>
+      </div>
+    </div>
   </div>
-</div>
-<div class="col-md-3 text-end">
-<a class="" data-bs-toggle="modal" data-bs-target="#logoutModal" href="<?= $BASE;?>logout"><span class="mt-1"> Logout</span><i class="bi bi-box-arrow-right fs-5 ms-2"></i></a>
-</div>
-</div>
-
-</div>
-
 </div>
 <!-- Modal -->
 <div class="modal fade" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -40,3 +41,13 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
   
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+<!-- <script>
+  $(document).ready(function(){
+    $("#productFind").click(function(){
+      var findBtn = $("#productForm").serialize();
+      if(findBtn != ""){
+        console.log("may laman");
+      }
+    });
+  })
+</script> -->

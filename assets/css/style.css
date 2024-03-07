@@ -1042,9 +1042,9 @@ section {
   z-index:999;
   background: rgb(0 0 0 / 10%);
 }
-.services .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+/* .services .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
   bottom: 60px!important;
-}
+} */
 .services .btn-get-started,#navbar .btn-get-started,.contact-us .btn-get-started {
  background: #68A4C4!important;
  padding:10px 20px!important;
@@ -1439,9 +1439,9 @@ section {
   z-index:999;
   background: rgb(112 112 112 / 20%);
 }
-.other-features .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+/* .other-features .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
   bottom: 60px!important;
-}
+} */
 .other-features .btn-get-started {
  background: #68A4C4!important;
  padding:10px 20px!important;
