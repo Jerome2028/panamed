@@ -13,7 +13,7 @@ $title = "Admin - Dashboard";
             <!-- <img src="<?=$BASE;?>assets/img/bgbg.jpg" class="position-relative p-5 w-25" style="background-size:cover;"> -->
             <div class="overlay"></div>
             <div class="user-nav">
-                <img src="<?=$BASE;?>assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-50 rounded-circle" value="/<?=$user_account['img'];?>">
+                <img src="../../assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-50 rounded-circle" value="/<?=$user_account['img'];?>">
                 <div class="p-0 fw-bold d-block m-auto text-white px-1 mt-3">
                     <h6 class="mb-0 text-white text-nowrap fw-bold"><?php echo $fname;?>  <?php echo $lname;?></h6>
                     <p><?php echo $userole;?></p>
@@ -102,7 +102,7 @@ $title = "Admin - Dashboard";
                                 <div class="mb-4" id="">
                                     <label for="imgInput" class="col-form-label text-right">
                                     <div class="img-div">
-                                        <img src="<?=$BASE;?>assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-25 img-board mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
+                                        <img src="../../assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-25 img-board mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
                                         <input class="form-control d-none" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
                                     </div>
                                     </label>

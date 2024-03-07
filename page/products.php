@@ -61,7 +61,7 @@
                     <div class="p-3 shadow mb-4 border-0 manuals-card">
 
                         <div class="py-3">
-                        <img src ="../admin/assets/img/products/<?=$image?>" class="w-100 mb-3">
+                        <img src ="../assets/img/products/<?=$image?>" class="w-100 mb-3">
                             <div class="d-sm-flex align-items-center justify-content-between">
                                 <h6 class="m-0 fw-bold">
                                     <?=$titlee;?>
