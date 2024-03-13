@@ -22,7 +22,7 @@
         <div class="card-body">
             <div class="row mb-4">
                 <div class="col-sm-6">
-                    <img src ="../admin/assets/img/products/<?=$productsContentWhere['ppi_product_image'] ?>" class="w-100">
+                    <img src ="../assets/img/products/<?=$productsContentWhere['ppi_product_image'] ?>" class="w-100">
                 </div>
 
                 <div class="col-sm-6">

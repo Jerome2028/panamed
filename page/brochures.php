@@ -13,35 +13,35 @@
   <main>
   <section class="brochures section-bg">
     <div class ="container">
-    <div class="row d-flex align-items-stretch">
-    <?php 
-      if(!empty($brochuresContent)) {
-      foreach($brochuresContent as $v) {
-        $id = $v["id"];
-        $titlee = $v["title"];
-        $img = $v["img"];
-        $file = $v["file"];
-        $status = $v["status"];
+      <div class="row d-flex align-items-stretch">
+      <?php 
+        if(!empty($brochuresContent)) {
+        foreach($brochuresContent as $v) {
+          $id = $v["id"];
+          $titlee = $v["title"];
+          $img = $v["img"];
+          $file = $v["file"];
+          $status = $v["status"];
 
-        if($status == 1) {
-          ?>
-        <div class="col-sm-4 mb-4">
-          <div class="card shadow p-3">
-          <span class="font-monospace fw-bold fs-5 text-danger"></i>PDF</span>
-          <img src ="<?=$BASE;?>assets/img/brochures/thumbnail/<?=$img;?>" class="w-100 mt-2">
-            <div class="card-body align-items-stretch">
-              <h5 class="panamed-color"><?=$titlee;?></h5>
-              <p class="card-text">Download or our anchor needle brochure.</p>
-              <a href="<?=$BASE;?>assets/img/brochures/<?=$file;?>" class="btn-get-started waves-effect waves-light">Download</a>
+          if($status == 1) {
+            ?>
+          <div class="col-sm-4 mb-4">
+            <div class="card shadow p-3">
+            <span class="font-monospace fw-bold fs-5 text-danger"></i>PDF</span>
+            <img src ="<?=$BASE;?>assets/img/brochures/thumbnail/<?=$img;?>" class="w-100 mt-2">
+              <div class="card-body align-items-stretch">
+                <h5 class="panamed-color"><?=$titlee;?></h5>
+                <p class="card-text">Download or our anchor needle brochure.</p>
+                <a href="<?=$BASE;?>assets/img/brochures/<?=$file;?>" class="btn-get-started waves-effect waves-light">Download</a>
+              </div>
             </div>
           </div>
-        </div>
-        <?php 
+          <?php 
+                }
               }
             }
-          }
-        ?>
-     </div>
+          ?>
+        </div>
 
         <!-- <div class="col-sm-4 d-flex align-items-stretch">
           <div class="card shadow p-3" style="width: auto;">

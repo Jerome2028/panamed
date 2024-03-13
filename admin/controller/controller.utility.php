@@ -11,4 +11,18 @@ class Utility {
         
     }
     
+    public static function getRoleString($userole) {
+        switch ($userole) {
+            case "5":
+                return "Administrator";
+            case "3":
+                return "Digital Marketer";
+               
+            case "2":
+                return "Human Resource";
+                default:
+            require_once 'pages/error-page.php';
+        }
+    }
+    
 }

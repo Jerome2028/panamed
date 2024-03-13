@@ -96,9 +96,9 @@ $(function() {
                         title: data,
                       });
                       setTimeout(function() {
-                        window.location.href="thank-you";
-                      },3000);
-                      }
+                      window.location.href="/panamed/thank-you/";
+                    },3000);
+                    }
                       else {
                         const Toast = Swal.mixin({
                             toast: true,

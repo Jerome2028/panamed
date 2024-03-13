@@ -29,7 +29,7 @@ class User extends db_conn_mysql {
     }
 
     public function getManualsLive($input) {
-        $query = $this->conn->prepare("SELECT ppi_product_name, ppi_product_image FROM ppi_products WHERE ppi_product_name LIKE '%$input%'");
+        $query = $this->conn->prepare("SELECT ppi_product_id, ppi_product_name, ppi_product_image FROM ppi_products WHERE ppi_product_name LIKE '%$input%'");
         $query->execute(['name' => '%' . $input . '%']);
         $response = $query->fetchAll();
 

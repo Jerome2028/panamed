@@ -2,6 +2,7 @@
     date_default_timezone_set("Asia/Manila");
     $title = "Panamed - Admin"; 
     require_once "controller/controller.utility.php";
+    //  require_once "component/import.php";
     require_once "controller/controller.session.php";
 
     $session = new Session();
@@ -9,7 +10,13 @@
     $BASE = Utility::getBase();
     $BASE_DIR = Utility::getBase(false);
 
-    if($session->getSession('auth')) { header("location: ".$BASE_DIR. "dashboard/"); die(); }
+    if($session->getSession('auth') && in_array($session->getSession("role"), array(5))){
+         header("location: ".$BASE_DIR. "dashboard/"); die(); 
+        }
+    else if($session->getSession('auth') && in_array($session->getSession("role"), array(2,3))) {
+        header("location: ".$BASE_DIR. "career/"); die();
+    }
+
     require_once 'component/header.php'; 
 ?>
 <section class="login-dashboard">
@@ -26,7 +33,7 @@
                                 <input type="text" id="user_email" name='user_email' class="form-control rounded-0" placeholder="Enter user name here" autocomplete="off">
                                 <label for="cname" class="form-label mt-3">Password</label>
                                 <input type="password" id="user_password" name='user_password' class="form-control rounded-0" placeholder="Enter password here" autocomplete="off">
-                                <button class="mt-3 btn btn-dark w-50 m-auto d-block p-1 waves-effect waves-light" type="button" onclick = 'submitdata()' data-action='submit'><span class><i class="bi bi-box-arrow-in-right"></i>&nbsp; Log in</span></button>
+                                <button class="mt-3 btn btn-dark w-50 m-auto d-block p-1 waves-effect waves-light" type="button" onclick='submitdata()' data-action='submit'><span class><i class="bi bi-box-arrow-in-right"></i>&nbsp; Log in</span></button>
                             </form>    
                         </div>
                         <div class="col-sm-6 m-0 p-0">
@@ -41,8 +48,15 @@
 
 </html>
 <script>
-    function submitdata(token) {
-        $(".login").trigger('submit');
+function submitdata(e) {
+    $(".login").trigger('submit');
+    }
+    $(function() {
+        $(this).find('input').keypress(function(e) {
+        if(e.which == 10 || e.which == 13) {
+        $(".login").trigger('submit')
         }
-    </script>
+    });
+});
+</script>
 <script type="text/javascript" src="<?= $BASE; ?>assets/js/login.js"></script>

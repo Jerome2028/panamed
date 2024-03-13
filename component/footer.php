@@ -7,15 +7,9 @@
           <p class="text-white">Subscribe Our Newsletter & Join US.</p>
         </div>
         <div class="col-lg-6">
-          <form action="controller/controller.form.php?mode=email" method ="POST" class="email">
+          <form action = <?=$page==1 ? "controller/controller.form.php?mode=email" : "../controller/controller.form.php?mode=email"?> method ="POST" class="footerEmail" id="form-email">
             <input type="email" name="footemail" placeholder="youremail@email.com">
-            <input type="submit" value="Subscribe" data-action='Subscribe' onclick='subscribe()'>
-            <!-- <script>
-              function subscribe(token) {
-                  $(".email").trigger('submit');
-              }
-            </script> -->
-            <script src="<?=$BASE;?>assets/js/footer-mail.js"></script>
+            <button type="button" data-action='submit' onclick='subscribe()'>Subscribe</button>
           </form>
         </div>
       </div>
@@ -25,24 +19,23 @@
   <div class="footer-top">
     <div class="container">
       <div class="row">
-
-      <div class="col-lg-3 col-md-6 footer-links">
-          <h4>About Us</h4>
-          <ul>
-            <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>">Home</a></li>
-            <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>about-us">About us</a></li>
-            <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>awards">Awards</a></li>
-            <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>careers">Careers</a></li>
-            <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>brochures">Brochures</a></li>
-          </ul>
-        </div>
+        <div class="col-lg-3 col-md-6 footer-links">
+            <h4>About Us</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>about-us/">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>awards/">Awards</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>careers/">Careers</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="<?=$BASE;?>brochures/">Brochures</a></li>
+            </ul>
+          </div>
 
         <div class="col-lg-3 col-md-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>products">Products</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>news-events">News and Events</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>contact-us">Contact Us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>products/">Products</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>news-events/">News and Events</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="<?=$BASE;?>contact-us/">Contact Us</a></li>
             <li><i class="bx bx-chevron-right"></i> <a href="#">Shop</a></li>
           </ul>
         </div>
@@ -78,6 +71,12 @@
       </div>
     </div>
   </div>
+  <script>
+    function subscribe() {
+        $("#form-email").trigger('submit');
+    }
+  </script>
+  <script src="<?=$BASE;?>assets/js/footer-mail.js"></script>
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

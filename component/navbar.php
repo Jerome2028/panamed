@@ -12,7 +12,7 @@
           <li class="dropdown">
           <a class="nav-link <?= $page==2 || $page==7 || $page==8 ? "active" : ""?>">About Us <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li class="waves-effect waves-light"><a class="navlink <?= $page==2 ? "active" : ""?>" href="<?=$BASE;?>about-us/">About Us</a></li>
+              <li class="waves-effect waves-light"><a class="navlink <?= $page==2 ? "active" : ""?>" href="<?=$BASE;?>about-us">About Us</a></li>
               <li class="waves-effect waves-light"><a  class="nav-link <?= $page==7 ? "active" : ""?>" href="<?=$BASE;?>awards/">Awards</a></li>
               <li class="waves-effect waves-light"><a  class="nav-link <?= $page==8 ? "active" : ""?>" href="<?=$BASE;?>careers/">Careers</a></li>
             </ul>
@@ -60,11 +60,8 @@
   
         </div>
       </div>
-</nav>
-</div>
-</div>
-<div class="container">
-
+    </nav>
+  </div>
 </div>
 <div class="loader-wrapper">
     <span class="loader"><span class="loader-inner"></span></span>

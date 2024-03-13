@@ -18,8 +18,7 @@ $careers = new Careers();
 $userr = new User();
 
 $fname = $session->getSession("First_name");
-$lname = $session->getSession("Last_Name");
-$userole = $session->getSession("role");
+$Userlname = $session->getSession("Last_name");
 $userid = $session->getSession("id");
 
 
@@ -28,6 +27,14 @@ $BASE_DIR = Utility::getBase(false);
 
 $isLoggedIn = $session->getSession('auth');
 if(!$isLoggedIn) { header("location: ".$BASE_DIR."");}
+
+$userole = $session->getSession("role");
+$loggedInRoleString = Utility::getRoleString($userole);
+// $loggedInName = str_replace("_", " ", $session->getSession('admin_name'));
+
+$isMarketing = ($userole == 3) ? true : false;
+$isAdmin = ($userole == 5) ? true : false;
+$isHr = ($userole == 2) ? true : false;
 
 ?>
 

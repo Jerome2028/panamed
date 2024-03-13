@@ -14,7 +14,7 @@
     <?php (require_once 'component/navbar.php'); ?>
     <section class="contact-us section-bg">
       <div class ="container">
-        <form action="controller/controller.form.php?mode=contact" method ="POST" class="contact" id="contact-us">
+        <form action="../controller/controller.form.php?mode=contact" method ="POST" class="contact" id="contact-us">
         <div class="card px-5 py-5">
         <h4 class="panamed-color">Reach to us!</h4>
         <div class="row gx-5 pt-3">
@@ -75,14 +75,21 @@
               <a class="btn-get-started waves-effect waves-light" type="button" data-action='submit' onclick='onSubmit()'>Submit</a>
             </div>
           </div>
-          <script>
-            function onSubmit() {
-                $(".contact").trigger('submit');
-            }
-          </script>
-        </div>
-              <script src="<?=$BASE;?>assets/js/form.js"></script>
         </form>
+        <script>
+            function onSubmit() {
+                $("#contact-us").trigger('submit');
+            }
+        $(function() {
+        $(this).find('input').keypress(function(e) {
+        if(e.which == 10 || e.which == 13) {
+        $("#contact-us").trigger('submit')
+            }
+          });
+        });
+        </script>
+        </div>
+        <script src="<?=$BASE;?>assets/js/form.js"></script>
         </div>
           </section>
           <section>
@@ -169,7 +176,8 @@
               <hr class="dashed">
             </div>
           </section>    
+          </main>
     <?php include_once 'component/footer.php';?>
 
-  </main>
+
 <!-- </body> -->

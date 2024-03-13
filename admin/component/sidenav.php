@@ -9,19 +9,21 @@ $title = "Admin - Dashboard";
 <section class="side-nav">
     <div class="d-flex flex-column align-items-center align-items-sm-start">
         <img src ="<?=$BASE;?>assets/img/logo.png" class="w-50 d-block m-auto mt-5 mb-1">
-        <div class="cover d-flex text-center mt-4 mb-4">
-            <!-- <img src="<?=$BASE;?>assets/img/bgbg.jpg" class="position-relative p-5 w-25" style="background-size:cover;"> -->
+        <div class="cover d-flex text-center mt-4">
             <div class="overlay"></div>
             <div class="user-nav">
-                <img src="../../assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-50 rounded-circle" value="/<?=$user_account['img'];?>">
-                <div class="p-0 fw-bold d-block m-auto text-white px-1 mt-3">
-                    <h6 class="mb-0 text-white text-nowrap fw-bold"><?php echo $fname;?>  <?php echo $lname;?></h6>
-                    <p><?php echo $userole;?></p>
+                <img src="../../assets/img/products/userProfile/<?=$user_account['img'];?>" class="rounded-circle" value="/<?=$user_account['img'];?>">
+                <div class="fw-bold mt-2 text-white">
+                    <p class="mb-0 text-white fs-5"><?= $fname ." ". $Userlname;?></p>
+                    <p><?=$loggedInRoleString;?></p>
                 </div>
             </div>
         </div>
 
         <ul class="nav nav-pills flex-column mb-sm-auto align-items-center align-items-sm-start mt-5 w-100" id="menu">
+            <?php
+            if($isAdmin == true){
+            ?>
             <li class="nav-item ">
                 <a href="<?=$BASE;?>" class="nav-link align-middle px-0 <?= $page==1 ? "active" : ""?>">
                 <i class="bi bi-house fs-5"></i> <span class="ms-2 d-none d-sm-inline">Dashboard</span>
@@ -33,6 +35,7 @@ $title = "Admin - Dashboard";
                 <i class="bi bi bi-tags fs-5"></i> <span class="ms-2 d-none d-sm-inline">Products</span>
                 </a>
             </li>
+
 
             <li class="nav-item waves-effect waves-light">
                 <a href="" class="nav-link align-middle px-0 <?= $page==3 ? "active" : ""?>">
@@ -62,25 +65,59 @@ $title = "Admin - Dashboard";
                 <i class="bi bi-newspaper fs-5"></i><span class="ms-2 d-none d-sm-inline">Brochures</span>
                 </a>
             </li>
+            <?php
+            }
+            ?>
+            <?php if($isMarketing == true){ ?>
+                <li class="nav-item waves-effect waves-light">
+                    <a href="<?=$BASE;?>career/" class="nav-link align-middle px-0 <?= $page==4 ? "active" : ""?>">
+                <i class="bi bi-chat-left-text fs-5"></i><span class="ms-2 d-none d-sm-inline">Careers</span>
+                </a>
+            </li>
+
+            <li class="nav-item waves-effect waves-light">
+                <a href="<?=$BASE;?>news-events/" class="nav-link align-middle px-0 <?= $page==5 ? "active" : ""?>">
+                    <i class="bi bi-megaphone fs-5"></i><span class="ms-2 d-none d-sm-inline">News and Events</span>
+                </a>
+            </li>
+
+            <li class="nav-item waves-effect waves-light">
+                <a href="<?=$BASE;?>featured/" class="nav-link align-middle px-0 <?= $page==6 ? "active" : ""?>">
+                    <i class="bi bi-bookmark-star fs-5"></i><span class="ms-2 d-none d-sm-inline">Featured</span>
+                </a>
+            </li>
+            <li class="nav-item waves-effect waves-light">
+                <a href="<?=$BASE;?>brochures/" class="nav-link align-middle px-0 <?= $page==7 ? "active" : ""?>">
+                <i class="bi bi-newspaper fs-5"></i><span class="ms-2 d-none d-sm-inline">Brochures</span>
+                </a>
+            </li>
+            <?php }?>
 
         </ul>
+       
         <div class="dropdown mt-5 ps-4">
-            <a href="#" class="d-flex align-items-center  text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-gear fs-5"></i>
                 <span class="d-none d-sm-inline mx-1">Settings</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-light text-small shadow border border-0" aria-labelledby="dropdownUser1">
+            <?php if($isAdmin){ ?>
                 <li class="waves-effect waves-light">
                     <a class="dropdown-item font-primary" type="button"  data-bs-toggle="modal" data-bs-target="#userProfile" href="#"><i class="bi bi-person fs-5"></i> Profile</a>
                 </li>
+                <?php } ?>
+      
                 <li class="waves-effect waves-light">
                     <a class="dropdown-item font-primary" href="<?= $BASE;?>logout" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-box-arrow-right fs-5"></i> Sign out</a>
                 </li>
+                <?php if($isAdmin){ ?>
                 <li class="waves-effect waves-light">
                     <a class="dropdown-item font-primary" href="<?= $BASE;?>" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-person-add fs-5"></i> Add User</a>
                 </li>
+                <?php }?>
             </ul>
         </div>
+
 
   
     <div class="container">

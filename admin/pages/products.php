@@ -127,7 +127,7 @@ $productsContent = $products->getContent();
 
                     <tr>
                     <td class="counterCell text-dark"></td>
-                    <td><img src ="../assets/img/products/<?=$image;?>" class="w-50 border-1 d-block mx-auto my-auto"></td>
+                    <td><img src ="../../assets/img/products/<?=$image;?>" class="w-50 border-1 d-block mx-auto my-auto"></td>
                     <td class="fw-bold"><?=$titlee;?></td>
                     <td class="truncate"><?php echo htmlspecialchars_decode ($content);?></td>
                     <td><?=$status==1 ? "<p class='text-primary badge badge-bg p-2 mb-0'>Enable</p>":"<p class='text-danger badge badge-bg p-2 mb-0'>Disable</p>";?></td>

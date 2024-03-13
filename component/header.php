@@ -20,7 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
     <link href="<?=$BASE;?>assets/css/style.css" rel="stylesheet">
 
-    <!-- <script src="<?=$BASE;?>assets/js/main.js"></script> -->
+    <script src="<?=$BASE;?>assets/js/main.js"></script>
     <script src="<?=$BASE;?>assets/js/jquery.min.js"></script>
     <script src="<?=$BASE;?>assets/vendor/lib/sweetalert/alert.js"></script>
     <script src="<?=$BASE;?>assets/vendor/lib/div-aos/js/script.js"></script>
@@ -31,10 +31,10 @@
     <script src="https://kit.fontawesome.com/3096b4ed49.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script type="text/javascript" id="zsiqchat">var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode: "siqe85f3eec329c71e0aaddc7e7d5075d2864b8fda8075a10cae3b118f965562009", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zohopublic.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);</script>
-<script>
+    <script>
 $(window).on("load",function(){
     $(".loader-wrapper").fadeOut("slow");
 });
 </script>
 </head>
-    <body>
+<body>

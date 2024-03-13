@@ -1,6 +1,5 @@
 $(function() {
-    $(".email").on("submit", function(e) {
-
+    $(".footerEmail").on("submit", function(e) {
         e.preventDefault();
 
         var error = false; var message = '';
@@ -16,21 +15,20 @@ $(function() {
         // }
     
         if (error) {
-            Toastify({
-                text: message,
-                duration: 3000,
-                newWindow: true,
-                close: true,
-                gravity: "top",
-                positionRight: true,
-                backgroundColor: "#c46868"
-              }).showToast();
-            return
+        Toastify({
+        text: message,
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        positionRight: true,
+        backgroundColor: "#c46868"
+        }).showToast();
+        return
         }
             
-            
-        $(".email, body").css({
-            opacity: "0.3",
+        $("body").css({
+            opacity: "0.5",
             cursor: "wait"
         });
 
@@ -55,45 +53,44 @@ $(function() {
                 cursor: "wait"
             });
         },
-            success: function(data) {
-                
-                window.onbeforeunload = null;
+        cache: false,
+        success: function(data) {    
+        window.onbeforeunload = null;
 
-                $("body").css({
-                    opacity: "1",
-                    cursor: "auto"
-                });
+            $("body").css({
+                opacity: "1",
+                cursor: "auto"
+            });
 
-                $inputs.val("");
-                $inputs.prop("disabled", false);
-                $(":submit").val("submit");
-                
-                if (data.toLowerCase().trim() == "email sent") {
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: "top-end",
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                          toast.onmouseenter = Swal.stopTimer;
-                          toast.onmouseleave = Swal.resumeTimer;
-                        //   window.location.href="thank-you";
-                        }
-                      });
-                      Toast.fire({
-                        icon: "success",
-                        title: data,
-                      });
-                      setTimeout(function() {
-                        location.reload();
-                      },2000);
-                      }
-            },
-            cache: false,
-            contentType: false,
-            processData: false
-        });
-    
-});
+            $inputs.val("");
+            $inputs.prop("disabled", false);
+            $(":submit").val("submit");
+            
+            if (data.toLowerCase().trim() == "email sent") {
+            const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+            // window.location.href="thank-you";
+            }
+            });
+            Toast.fire({
+            icon: "success",
+            title: data,
+            });
+            setTimeout(function() {
+                window.location.href="/panamed/thank-you/";
+            },3000);
+            }
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+        });   
+    });
 });

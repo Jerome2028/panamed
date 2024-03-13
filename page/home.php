@@ -5,14 +5,11 @@ require_once 'component/import.php';
 require_once 'component/header.php';
 require_once 'component/navbar.php';
 ?>
-<!-- <body> -->
   
  <!-- ======= Hero Section ======= -->
  
   <section id="hero" class="d-flex justify-cntent-center align-items-center">
-
     <div id="heroCarousel" class="container carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <div class="carousel-container">
@@ -42,7 +39,7 @@ require_once 'component/navbar.php';
     </div>
   </section>
 
-  <main id ="main">
+<main id ="main">
 
     <!-- ======= Services Section ======= -->
   <section class="services">
@@ -482,37 +479,6 @@ require_once 'component/navbar.php';
 
       </div>
 </section>
+</main>
 <?php include_once 'component/footer.php';?>
-  </main>
-<!-- </body> -->
-<script>
-          var Swiper = new Swiper(".services-carousel", {
-      slidesPerView: 4,
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
-      breakpoints: {  
-    '320': {
-      slidesPerView: 1,
-      spaceBetween: 20,},
-    '420': {
-    slidesPerView: 2,
-    spaceBetween: 15,},
-    '640': {
-      slidesPerView: 3,
-      spaceBetween: 30, },
-    '960': {
-    slidesPerView: 4,
-    spaceBetween: 20, },
-  },
-  
-      navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-      },
-    });
-
-</script>
 
