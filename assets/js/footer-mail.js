@@ -39,7 +39,7 @@ $(function() {
 
         $inputs.prop("disabled", true);
         window.onbeforeunload = function() {
-            return "Are you sure you want to navigate away from this page?";
+        return "Are you sure you want to navigate away from this page?";
         };
           
         $.ajax({

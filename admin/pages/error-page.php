@@ -6,7 +6,6 @@ require_once 'component/header.php';
 ?>
 <!-- <body class="bg-light">   -->
     <main>
-
     <section class="not-found">
       <div class ="container text-center p-5">
       <div class= "card-sm shadow border border-0 px-3 py-5">

@@ -8,16 +8,11 @@ $careersContent = $careers->getContent();
 
 <section class="dashboard">
     <div class="container-fluid">
-        <div class="row flex-nowrap h-100">
-            <div class="col-auto col-md-3 col-xl-2  px-0 bg-light  d-inline-block">
-
-            <?php require_once 'component/sidenav.php';?>
-
-            </div>
-            
-        <div class="col p-0 overflow-auto">
+        <div class="row h-100">
+        <?php require_once 'component/sidenav.php';?>
+        <div class="col p-0">
             <?php  require_once 'component/search.php';?>
-            <div class="container-fluid mt-5">
+            <div class="container-fluid">
                 <?php
                     if(isset($_GET["update"])) {
                     $id = $_GET["update"];

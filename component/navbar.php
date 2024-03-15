@@ -1,9 +1,7 @@
 <div id="header" class="fixed-top d-flex align-items-center header-transparent shadow">
   <div class="container d-flex justify-content-between align-items-center">
       <div class="logo">
-    
         <h1 class="text-light"><a href="<?= $BASE; ?>"><span>  <img src ="<?= $BASE; ?>assets/img/logo.png"> </span></a></h1>
-  
       </div>
 
       <nav id="navbar" class="navbar">
@@ -57,10 +55,8 @@
           <li class="nav-item waves-effect waves-light"><a class="nav-link <?= $page==5 ? "active" : ""?>" href="<?=$BASE;?>brochures">Brochures</a></li>
           <li class="nav-item waves-effect waves-light "><a class="nav-link <?= $page==6 ? "active" : ""?>" href="<?=$BASE;?>contact-us">Contact Us</a></li>
         </ul>
-  
-        </div>
       </div>
-    </nav>
+    </div>
   </div>
 </div>
 <div class="loader-wrapper">

@@ -6,17 +6,9 @@ $page =6;
 ?>
 <section class="dashboard">
         <div class="container-fluid">
-            <div class="row flex-nowrap h-100">
-                <div class="col-auto col-md-3 col-xl-2  px-0 bg-light  d-inline-block">
-
-
-               
+            <div class="row h-100">                
                 <?php require_once 'component/sidenav.php';?>
-            
-            
-
-                </div>
-                <div class="col py-3 overflow-auto">
+                <div class="col-md-9 p-0">
 
                 <p class="fw-bold">this is feautered test</p>
                     

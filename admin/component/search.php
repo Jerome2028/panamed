@@ -2,27 +2,33 @@
 require_once 'component/import.php';
 require_once 'component/header.php';
 ?>
-<div class="container-fluid bg-light p-4 m-0 shadow-sm">
-  <div class="container">
-    <div class="d-flex justify-content-between">
-      
-      <div class="mx-auto w-50 bd-highlight">
-        <form action="../controller/controller.login.php?mode=topsearch" method="POST" id="productForm">
-        <div class="input-group">
-          <input type="text" class="ms-5 form-control form-input border-1 rounded-0" name="input" id="input" placeholder="Search Products...">
-          <button class="btn btn-primary p-3 rounded-0" type="submit" autocomplete="off" id="productFind"><i class="fas fa-search"></i></button>
-        </div>
-        </form>
+<!-- Modal -->
+
+<nav class="navbar-light bg-light p-4 shadow-sm fixed-top">
+<div class="container-fluid w-100" id="topsearch">
+  <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4">
+      <img src ="<?=$BASE;?>assets/img/logo.png" class="w-30 d-block">
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4">
+      <form action="../controller/controller.login.php?mode=topsearch" method="POST" id="productForm">
+      <div class="input-group">
+        <input type="text" class="form-control form-input border-1 rounded-0" name="input" id="input" placeholder="Search Products...">
+        <button class="btn btn-primary p-3 rounded-0" type="submit" autocomplete="off" id="productFind"><i class="fas fa-search"></i></button>
       </div>
-      <div class="p-2 bd-highlight">
-        <a class="" data-bs-toggle="modal" data-bs-target="#logoutModal" href="<?=$BASE;?>logout"><span class="mt-1"> Logout</span><i class="bi bi-box-arrow-right fs-5 ms-2"></i></a>
+      </form>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4">
+      <div class="text-end me-5">
+      <i class="bi bi-list mobile-nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#navbarr"></i>
+      <a class="#" data-bs-toggle="modal" data-bs-target="#logoutModal" href="<?=$BASE;?>logout">Logout<i class="bi bi-box-arrow-right fs-5 ms-2"></i></a>
       </div>
     </div>
   </div>
 </div>
-<!-- Modal -->
+</nav>
 <div class="modal fade" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel"><i class="bi bi-box-arrow-right fs-5"></i> Leave Dashboard?</h5>
@@ -38,16 +44,8 @@ require_once 'component/header.php';
     </div>
   </div>
 </div>
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
   
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-<!-- <script>
-  $(document).ready(function(){
-    $("#productFind").click(function(){
-      var findBtn = $("#productForm").serialize();
-      if(findBtn != ""){
-        console.log("may laman");
-      }
-    });
-  })
-</script> -->
+<div class="nav-spacer"></div>
