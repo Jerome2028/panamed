@@ -1009,7 +1009,7 @@ section {
   box-shadow: 1px 0px 5px rgb(0 0 0 / 30%);
 }
 .services .swiper-button-next, .services .swiper-button-prev {
-  top: 33%;
+  top: 40%;
 }
 .services .overlay-text{
   display: block;

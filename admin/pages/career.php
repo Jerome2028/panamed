@@ -49,7 +49,7 @@ $careersContent = $careers->getContent();
                                 <input type="text" class="form-control" name="careers-title" id="careers-title" value="<?= $careersWhere['title'] ?>" placeholder="Type Here...">
                             </div>
                         </div>
-
+<!-- 
                         <div class="row mb-4">
                             <label for="info_title" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Image upload:</label>
                             <div class="col-sm-9">
@@ -57,9 +57,8 @@ $careersContent = $careers->getContent();
                                 <button type="submit" class ="btn btn-get-started p-2" name="upload">Upload</button>
                                 <div id="uploadStatus"></div>
                                 <div class="gallery" id="imagesPreview"></div>
-
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row mb-4">
                             <label class="col-sm-2 col-form-label text-right"><span class="required">*</span> Content:</label>
@@ -86,7 +85,7 @@ $careersContent = $careers->getContent();
 
             <div class ="container-fluid card bg-light shadow-sm border-0 p-4">
                 <div class="card border-0">
-                    <div class="card-header py-3  align-items-stretch">
+                    <div class="card-header py-3 align-items-stretch">
                         <div class="d-sm-flex align-items-center justify-content-between">
                             <h3 class="fw-bold mt-3"><i class="bi bi-chat-left-text"></i> Careers</h3>
 
@@ -111,7 +110,7 @@ $careersContent = $careers->getContent();
                         <div class="card-header py-3">
                             <div class="row">
                                 <div class="col-sm-7">
-                                    <p class="fw-bold px-2 fs-6"><?= $title ?></p>
+                                    <p class="fw-bold py-2 fs-6"><?= $title ?></p>
                                     <div class="d-flex">
                                         <span class="badge bg-primary me-3 p-2" style="color: white;">Last update: <?= $date_update ?></span>
                                         <p><?php if($status== 1) {

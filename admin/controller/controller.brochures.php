@@ -27,7 +27,7 @@ switch($mode) {
         }
 
         if($_FILES['pdf-upload']['name']!="") {
-            $target_dir = "../../assets/img/brochures/thumbnail/";
+            $target_dir = "../../assets/img/brochures/";
             $file = $_FILES['pdf-upload']['name'];
             $path = pathinfo($file);
             $ext = $path['extension'];

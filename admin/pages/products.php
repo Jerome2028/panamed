@@ -19,7 +19,7 @@ $productsContent = $products->getContent();
                     $productsWhere = $products->getContentWhere($id);
                 ?>
                 <div class="card border-0 mb-5">
-                <form method="POST" id="updateProduct" class="updateProducts" enctype="multipart/form-data">
+                <form action="../controller/controller.products.php?mode=updatesProduct" method="POST" id="updateProduct" class="updateProducts" enctype="multipart/form-data">
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
                             <h4 class="m-0 fw-bold"><i class="fas fa-sm fa-edit"></i>
@@ -30,7 +30,7 @@ $productsContent = $products->getContent();
                                     <span class="icon text-white"><i class="fas fa-arrow-left"></i> </span>
                                     <span class="text text-white">Back</span>
                                 </a>
-                                <button id="btn-save" class="btn btn-sm btn-primary btn-icon-split m-1" onclick="updateProduct()">
+                                <button id="btn-save" class="btn btn-sm btn-primary btn-icon-split m-1" onclick="productupdate()">
                                     <span class="icon"><i class="fas fa-save"></i></span>
                                     <span class="text">Save</span>
                                 </button>
@@ -46,7 +46,7 @@ $productsContent = $products->getContent();
                         <div class="row mb-4">
                             <label for="info_title" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Product Name:</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="productName" id="productName" value="<?= $productsWhere['ppi_product_name'] ?>" placeholder="Type Here...">
+                                <input type="text" class="form-control" name="productName" id="productNames" value="<?= $productsWhere['ppi_product_name'] ?>" placeholder="Type Here...">
                             </div>
                         </div>
 
@@ -58,6 +58,9 @@ $productsContent = $products->getContent();
                                 <img src="<?=$BASE;?>../assets/img/products/<?= $productsWhere["ppi_product_image"] ?>" class="w-25 img-board mx-auto d-block" id="productsPreview" value="" alt="Upload Picture"/>
                             </div>
                             </label>
+                            <div class="d-none">
+                                <input id="productsImg" name="productsImgValue" type="hidden" value="<?=$productsWhere['ppi_product_image'] ?>"/>
+                            </div>
                         </div>
 
 
@@ -81,17 +84,16 @@ $productsContent = $products->getContent();
                     </form>
                 </div>
             </div>
-
-                <?php
-                } else {
-                ?>
+            <?php
+            } else {
+            ?>
             <div class ="container-fluid card bg-light shadow-sm border-0 p-4">
                 <div class="card border-0  mb-5">
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
                         <h3 class="fw-bold mt-3"> <i class="bi bi bi-tags"></i> Products</span></h3>
 
-                            <button type="button" id="addPosition" class="btn btn-sm btn-primary btn-icon-split">
+                            <button type="button" id="addPosition" class="btn btn-sm btn-primary btn-icon-split" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <span class="icon"><i class="fas fa-plus-square"></i> </span>
                                 <span class="text">Add New</span>
                             </button>
@@ -118,7 +120,6 @@ $productsContent = $products->getContent();
                         $image = $v["ppi_product_image"];
                         $content = $v["ppi_product_description"];
                         $status = $v["ppi_product_status"];
-                        // $date_update = $v["date_update"];
                         ?>
 
                     <tr>
@@ -135,94 +136,86 @@ $productsContent = $products->getContent();
                     </td>
                     </tr>  
                     <?php
-                                }
                             }
                         }
                     ?>
+                        </tbody>
+                    </table>
                     </div>
                 </div>
-
-                <div class="modal fade" id="staticBackdrop" data-backdrop="static" aria-labelledby="staticBackdropLabel">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalTitle"></h5>
+            </div>
+            <?php } ?>
+            <form action ="../controller/controller.products.php?mode=addProduct" id ="productsAdd" class="addProducts" enctype="multpart/form-data">
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitle"><i class="fas fa-plus"></i> Add New Brochures</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-none">
+                                <input type="hidden" id="products-id" name="products-id" class="form-control" readonly>
                             </div>
 
-                            <div class="modal-body">
-                                <div class="d-none">
-                                    <input type="hidden" id="products-id" name="products-id" class="form-control" readonly>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Title: <span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="products-title" id="products-title" placeholder="Type Here..." required>
-                                </div>
-
-
-                            <div class="row mb-4">
-                                <label for="img" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Image:</label>
-                                <div class="col-sm-4 ">       
-                                                    
-                                    <input type="file" id="img" name="img" class="form-control p-1" value="<? $productsWhere['ppi_product_image'] ?>" onchange="Test.UpdatePreview(this)" >
-                                </div>
-                                
-                                <div class="col-sm-3">
-                                    <div id = "preview">
-                                        <img src="assets/img/uploads/communication-arts/<?= $productsWhere["ppi_product_image"]; ?>" class="w-75 img-thumbnail">
-                                    </div>
-                                </div>
+                        <div class="d-flex justify-content-center mb-3">
+                        <label for="productsImg" class="col-form-label">Image: <span class="required">*</span></label>
+                        <label class="form-label mx-auto d-block" for="productsImg">
+                            <div class="img-div">
+                                <input class="form-control d-none" id="productsImg" name="productsImg" type="file" accept=".jpg, .jpeg, .png" value=""/>
+                                <img src="<?=$BASE;?>assets/img/no-image.svg" class="w-25 img-board mx-auto d-block" id="productsPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
                             </div>
+                        </label>
+                        </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Content: <span class="required">*</span></label>
-                                    <textarea type="text" class="form-control" name="products-content" id="products-content" rows="9"  placeholder="Type Here..." required></textarea>
-                                </div>
+                        <div class="mb-3">
+                            <label class="form-label">Title: <span class="required">*</span></label>
+                            <input type="text" class="form-control rounded-0 border-1" name="products-title" id="products-title" placeholder="Type Here...">
+                        </div>
 
-                                <!-- <div class="mb-3">
-                                    <label class="form-label">Sort By:</label>
-                                    <input type="number" class="form-control" name="sort_by" id="sort_by" value="0">
-                                </div> -->
+                        <div class="mb-3">
+                            <label class="form-label">Content: <span class="required">*</span></label>
+                            <textarea type="text" class="form-control" name="products-content" id="products-content" rows="9"  placeholder="Type Here..."></textarea>
+                        </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Status: </label>
-                                    <select class="form-control" id="status" name="status">
-                                        <option value="1">Enabled</option>
-                                        <option value="0">Disabled</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status: </label>
+                            <select class="form-control" id="status" name="status">
+                                <option value="1">Enabled</option>
+                                <option value="0">Disabled</option>
+                            </select>
+                        </div>
+                        </div>
 
-                            <div class="modal-footer">
-                                <button type="close" class="btn btn-sm btn-secondary btn-icon-split closeBtn" data-bs-dismiss="modal">
-                                    <span class="icon"><i class="fas fa-window-close"></i></span>
-                                    <span class="text">Close</span>
-                                </button>
+                        <div class="modal-footer">
+                            <button type="close" class="btn btn-sm btn-secondary btn-icon-split closeBtn" data-bs-dismiss="modal">
+                                <span class="icon"><i class="fas fa-window-close"></i></span>
+                                <span class="text">Close</span>
+                            </button>
 
-                                <button type="submit" class="btn btn-sm btn-primary btn-icon-split submit-btn">
-                                    <span class="icon"><i class="fas fa-save"></i></span>
-                                    <span class="text">Save</span>
-                                </button>
-                            </div>
+                            <button type="submit" class="btn btn-sm btn-primary btn-icon-split submit-btn">
+                                <span class="icon"><i class="fas fa-save"></i></span>
+                                <span class="text">Save</span>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 </div>
 </section>
-<script src ="<?=$BASE;?>assets/js/includes/include.products.js"></script>
+
+
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-
 <script>
 $(function(){    
     productsTable();
 });
-function updateProduc(token) {
-    $("#updateProduct").trigger('submit');
+function productupdate() {
+    $("#updateProduct").trigger('click');
 }
 </script> 
+<script src ="<?=$BASE;?>assets/js/includes/include.products.js"></script>

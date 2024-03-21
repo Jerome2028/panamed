@@ -5,15 +5,15 @@ $page =1;
 
   require_once 'component/import.php';
   require_once 'component/header.php';
+  require_once 'component/search.php';
   require_once 'controller/controller.session.php'; 
   $userole = $session->getSession("role");
 ?>
-<section class="dashboard">
-<div class="container-fluid">
+<section class="dashboard nav-spacer">
+<div class="container-fluid overflow-hidden">
     <div class="row">
         <?php require_once 'component/sidenav.php';?>
-        <div class="col-xxl-10 col-xl-10 col-lg-10 col-md-8">
-        <?php  require_once 'component/search.php';?>
+        <div class="col-xxl-10 col-xl-10 col-lg-9 col-md-8">
         <div class="container-fluid">
             <div class="icons py-5 px-5">
             <h4 class="fw-bold">Welcome Back!<span class="ms-1"><?php echo $loggedInRoleString?></span></h4>

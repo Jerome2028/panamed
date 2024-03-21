@@ -1,16 +1,12 @@
-<?php
-require_once 'component/import.php';
-require_once 'component/header.php';
-?>
-<!-- Modal -->
 
-<nav class="navbar-light bg-light p-4 shadow-sm fixed-top">
-<div class="container-fluid w-100" id="topsearch">
-  <div class="row">
-    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4">
-      <img src ="<?=$BASE;?>assets/img/logo.png" class="w-30 d-block">
+<!-- Modal -->
+<div class="container-fluid" id="topsearched">
+<nav class="bg-light shadow-sm fixed-top">
+  <div class="row p-4 ">
+    <div class="p-2 col-xl-4 col-lg-4 col-md-4">
+    <img src ="<?=$BASE;?>assets/img/logo.png" class="w-25 mx-auto d-block">
     </div>
-    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4">
+    <div class="p-2 col-xl-4 col-lg-4 col-md-4">
       <form action="../controller/controller.login.php?mode=topsearch" method="POST" id="productForm">
       <div class="input-group">
         <input type="text" class="form-control form-input border-1 rounded-0" name="input" id="input" placeholder="Search Products...">
@@ -18,15 +14,16 @@ require_once 'component/header.php';
       </div>
       </form>
     </div>
-    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4">
-      <div class="text-end me-5">
+    <div class="p-2 col-xl-4 col-lg-4 col-md-4">
+      <div class="text-center">
       <i class="bi bi-list mobile-nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#navbarr"></i>
       <a class="#" data-bs-toggle="modal" data-bs-target="#logoutModal" href="<?=$BASE;?>logout">Logout<i class="bi bi-box-arrow-right fs-5 ms-2"></i></a>
       </div>
     </div>
   </div>
-</div>
+
 </nav>
+</div>
 <div class="modal fade" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
@@ -48,4 +45,4 @@ require_once 'component/header.php';
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
   
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-<div class="nav-spacer"></div>
+<!-- <div class="nav-spacer"></div> -->

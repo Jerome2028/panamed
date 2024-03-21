@@ -1,14 +1,27 @@
 $(function() {
+    var status_module = window.localStorage.getItem("stat");
+    localStorage.clear();
+    if (status_module == "success") {
+     Toastify({
+         text: "Success",
+         duration: 3000,
+         newWindow: true,
+         close: true,
+         gravity: "top",
+         positionRight: true,
+         backgroundColor: "#198754",
+         opacity:"0!important"
+       }).showToast();
+    }
     $("#productsImg").change(function() {
         if (this.files && this.files[0]) {
     
-            var reader = new FileReader();
-    
-            reader.onload = function (e) {
-                $('#productsPreview').attr('src', e.target.result);
-            }
-    
-            reader.readAsDataURL(this.files[0]);
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#productsPreview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(this.files[0]);
         }
     });
 
@@ -44,67 +57,19 @@ $(function() {
         }
     });
 
-   $('#addPosition').on('click', function() {
-       $('#staticBackdrop').addClass('addPositionModal').modal('show');
-       $('#modalTitle').html('<i class="fas fa-plus"></i> Add New Product');
-
-      //  $('#news-id"').val('');
-       $('#products-title').val('');
-       $('#products-content').val('');
-       $("select option:checked").val();
-
-       $('.submit-btn').on('click', function() {
-
-         var id = $('#news-id').val();
-          var title = $('#products-title').val();
-          var content = $('#products-content').val();
-        //   var image = $('#productsImg').val();
-        //   var sort_by = $('#sort_by').val();
-          var status = $('#status').val();
-
-          if(title == "" || content == "") {
-            Toastify({
-                text: "input Field Required!",
-                duration: 3000,
-                newWindow: true,
-                close: true,
-                gravity: "top",
-                positionRight: true,
-                backgroundColor: "#c46868",
-                opacity:"0!important"
-              }).showToast();
-          } else {
-               addProduct(title, content, image, status);
-          }
-       })
-
-       $('.closeBtn').on('click', function() {
+    $('.closeBtn').on('click', function() {
             window.location.reload();
-       });
-   });
-
-   var status_module = window.localStorage.getItem("stat");
-   if (status_module == "success") {
-    Toastify({
-        text: "Content Update",
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        positionRight: true,
-        backgroundColor: "#198754",
-        opacity:"0!important"
-      }).showToast();
-       localStorage.clear();
-   }
+    });
 });
 
-$('.updateProducts').on('submit', function(e) {
+$('.addProducts').on('submit', function(e) {
     e.preventDefault();
-var title = $('#productName').val();
-if(title == "") {
-    Toastify({
-        text: "input Field Required!",
+    var thumbnail = $('#productsImg')[0].files.length;
+    var title = $('#products-title').val();
+
+    if (title == ""){
+        Toastify({
+        text: "Title required!",
         duration: 3000,
         newWindow: true,
         close: true,
@@ -112,27 +77,90 @@ if(title == "") {
         positionRight: true,
         backgroundColor: "#c46868",
         opacity:"0!important"
-    }).showToast();
-    return
-}
-var formData = new FormData(this);
-$.ajax({
+        }).showToast();
+        return
+    }
+
+    if ($('#products-content').summernote('isEmpty')){
+        Toastify({
+        text: "content required!",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        positionRight: true,
+        backgroundColor: "#c46868",
+        opacity:"0!important"
+        }).showToast();
+        return
+    }
+    if (thumbnail === 0 ) {
+        Toastify({
+        text: "Image Required!",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        positionRight: true,
+        backgroundColor: "#c46868",
+        opacity:"0!important"
+        }).showToast();
+        return
+    }
+    var formData = new FormData(this);
+    var action = $(this).attr("action");
+    $.ajax({
     type: "POST",
-    url: "../controller/controller.products.php?mode=updateProducts",
+    url: action,
     data: formData,
     cache: false,
     contentType: false,
     processData: false,
     success:function(data){
-    console.log(data);
     var resValue = jQuery.parseJSON(data);
+    if(resValue['message']== "Success Insert"){
+    window.localStorage.setItem("stat", "success");
+    window.location.reload();
+    }
+    }
+    });
+});
+
+$('.updateProducts').on('submit', function(e) {
+e.preventDefault();
+var title = $('#productNames').val();
+if ((title == "")|| ($('#products-content').summernote('isEmpty'))) {
+Toastify({
+    text: "input Field Required!",
+    duration: 3000,
+    newWindow: true,
+    close: true,
+    gravity: "top",
+    positionRight: true,
+    backgroundColor: "#c46868",
+    opacity:"0!important"
+}).showToast();
+return;
+}
+    var formData = new FormData(this);
+    var actions = $(this).attr("action");
+    var types = $(this).attr("method");
+    $.ajax({
+    type: types,
+    url: actions,
+    data: formData,
+    datatype: "JSON",
+    cache: false,
+    contentType: false,
+    processData: false,
+    success:function(data){
+        var resValue = jQuery.parseJSON(data);
         if(resValue['message'] == "Update Success") {
-            // alert("Update Success");
-        // window.localStorage.setItem("stat", "success");
+        window.localStorage.setItem("stat", "success");
         window.location.reload();
     }
     else {
-        alert("failed");
+    alert("failed");
     }
 }
 });

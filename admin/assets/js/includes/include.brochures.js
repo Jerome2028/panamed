@@ -17,13 +17,12 @@ $(function() {
     $("#brochureImg").change(function() {
         if (this.files && this.files[0]) {
     
-            var reader = new FileReader();
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#brochurePreview').attr('src', e.target.result);
+        }
     
-            reader.onload = function (e) {
-                $('#brochurePreview').attr('src', e.target.result);
-            }
-    
-            reader.readAsDataURL(this.files[0]);
+        reader.readAsDataURL(this.files[0]);
         }
     });
     $('#staticBackdrop').on('hidden.bs.modal', function (e) {
@@ -33,22 +32,101 @@ $(function() {
         });      
     }); 
 });
-//     $('#addPosition').on('click', function() {
-//         $('#staticBackdrop').addClass('addPositionModal').modal('show');
-//         $('#modalTitle').html('<i class="fas fa-plus"></i> Add New Brochures');
 
-//      $('.closeBtn').on('click', function() {
-//          window.location.reload()
-//     });
-//  });
+$('.addBrochures').on('submit', function(e) {
+e.preventDefault();
+var title = $('#brochure-name').val();
+var thumbnail = $('#brochureImg')[0].files.length;
+var pdf = $('#pdf-upload')[0].files.length;
+if(title == "") {
+    Toastify({
+    text: "input Field Required!",
+    duration: 3000,
+    newWindow: true,
+    close: true,
+    gravity: "top",
+    positionRight: true,
+    backgroundColor: "#c46868",
+    opacity:"0!important"
+    }).showToast();
+    return
+}
+if((thumbnail === 0) || (pdf === 0)) {
+    Toastify({
+    text: "Image and Files Required!",
+    duration: 3000,
+    newWindow: true,
+    close: true,
+    gravity: "top",
+    positionRight: true,
+    backgroundColor: "#c46868",
+    opacity:"0!important"
+    }).showToast();
+    return
+}
+var formData = new FormData(this);
+$.ajax({
+    type: "POST",
+    url: "../controller/controller.brochures.php?mode=addBrochure",
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success:function(data){
+    console.log(data);
+    var resValue = jQuery.parseJSON(data);
+        if(resValue['message'] == "Insert Success") {
 
-        $('.addBrochures').on('submit', function(e) {
-            e.preventDefault();
-        var title = $('#brochure-name').val();
-        var thumbnail = $('#brochureImg')[0].files.length;
-        if(title == "") {
+        window.localStorage.setItem("stat", "success");
+        window.location.reload();
+    }
+    else {
+        alert("Oops! Something went wrong!");
+    }
+}
+});
+});
+
+$('.updateBrochures').on('submit', function(e) {
+e.preventDefault();
+var titlee = $('#title').val();
+
+if(titlee == "") {
+Toastify({
+text: "input Field Required!",
+duration: 3000,
+newWindow: true,
+close: true,
+gravity: "top",
+positionRight: true,
+backgroundColor: "#c46868",
+opacity:"0!important"
+}).showToast();
+return;
+} 
+
+var types = $(this).attr("method");
+var formData = new FormData(this);
+// $inputs.prop("disabled", true);
+
+    $.ajax({
+        type: types,
+        url: "../controller/controller.brochures.php?mode=updateContent",
+        data: formData,
+        datatype: "JSON",
+        cache: false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+        var resValue = jQuery.parseJSON(data);
+            if(resValue['message'] == "Update Success") {
+            window.localStorage.setItem("stat", "success");
+            window.location.reload();
+        }
+        else {
+            // alert("Oops! File missing!");
             Toastify({
-                text: "input Field Required!",
+                text: "Oops!You need to upload files and Image",
                 duration: 3000,
                 newWindow: true,
                 close: true,
@@ -57,98 +135,10 @@ $(function() {
                 backgroundColor: "#c46868",
                 opacity:"0!important"
             }).showToast();
-            return
         }
-        if(thumbnail === 0) {
-            Toastify({
-                text: "Image Required!",
-                duration: 3000,
-                newWindow: true,
-                close: true,
-                gravity: "top",
-                positionRight: true,
-                backgroundColor: "#c46868",
-                opacity:"0!important"
-            }).showToast();
-            return
-        }
-        var formData = new FormData(this);
-        $.ajax({
-            type: "POST",
-            url: "../controller/controller.brochures.php?mode=addBrochure",
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success:function(data){
-            console.log(data);
-            var resValue = jQuery.parseJSON(data);
-                if(resValue['message'] == "Insert Success") {
-
-                window.localStorage.setItem("stat", "success");
-                window.location.reload();
-            }
-            else {
-                alert("Oops! Something went wrong!");
-            }
-        }
-        });
-        });
-
-    $('.updateBrochures').on('submit', function(e) {
-    e.preventDefault();
-    var titlee = $('#title').val();
-    // var b_img = $('#b_img').val();
-    // var b_file = $('#b_file').val();
-
-    if(titlee == "") {
-      Toastify({
-          text: "input Field Required!",
-          duration: 3000,
-          newWindow: true,
-          close: true,
-          gravity: "top",
-          positionRight: true,
-          backgroundColor: "#c46868",
-          opacity:"0!important"
-        }).showToast();
-        return;
-    } 
-
-    var types = $(this).attr("method");
-    var formData = new FormData(this);
-    // $inputs.prop("disabled", true);
-
-          $.ajax({
-              type: types ,
-              url: "../controller/controller.brochures.php?mode=updateContent",
-              data: formData,
-              datatype: "JSON",
-              cache: false,
-              contentType: false,
-              processData: false,
-              success:function(data){
-              var resValue = jQuery.parseJSON(data);
-                  if(resValue['message'] == "Update Success") {
-                window.localStorage.setItem("stat", "success");
-                window.location.reload();
-              }
-              else {
-                // alert("Oops! File missing!");
-                Toastify({
-                    text: "Oops!You need to upload files and Image",
-                    duration: 3000,
-                    newWindow: true,
-                    close: true,
-                    gravity: "top",
-                    positionRight: true,
-                    backgroundColor: "#c46868",
-                    opacity:"0!important"
-                }).showToast();
-            }
-          }
-      });
-   });
+    }
+});
+});
 
 function deleteBrochures(id) {
 Swal.fire({

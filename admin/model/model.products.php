@@ -22,21 +22,15 @@ class ProductsContent extends db_conn_mysql {
         return $response;
     }
 
-    public function addProduct($title, $content, $path, $status){
+    public function addProduct($title, $content, $img, $status){
         $query = $this->conn->prepare("INSERT INTO ppi_products (ppi_product_name, ppi_product_image, ppi_product_description, ppi_product_status) VALUES (?, ?, ? ,?)");
-        $query->execute([$title, $content, $path, $status]);
+        $query->execute([$title, $img, $content, $status]);
     }
 
-    public function updateContentfile($id, $title, $img, $description, $status) {
+    public function updateContent($id, $title, $img, $description, $status) {
         $query = $this->conn->prepare("UPDATE ppi_products SET ppi_product_name = ?, ppi_product_image = ?, ppi_product_description = ?, ppi_product_status = ? WHERE ppi_product_id = ?");
         $query->execute([$title, $img, $description, $status, $id]);
-    }
-
-    public function updateContent($id, $title, $description, $status){
-        $query = $this->conn->prepare("UPDATE ppi_products SET ppi_product_name = ?, ppi_product_description = ?, ppi_product_status = ? WHERE ppi_product_id = ?");
-        $query->execute([$title, $description, $status, $id]);
-    }
-       
+    } 
 
     public function countAllProducts() {
         $query = $this->conn->query("SELECT * FROM ppi_products");

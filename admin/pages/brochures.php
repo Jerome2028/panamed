@@ -2,22 +2,22 @@
 $title =  "Admin - Brochures";
 require_once 'component/import.php';
 require_once 'component/header.php';
+require_once 'component/search.php';
 $page = 7;
 $brochuresContent = $brochures->getContent();
 ?>
 <section class="dashboard">
     <div class="container-fluid">
-        <div class="row h-100">
+        <div class="row">
         <?php require_once 'component/sidenav.php';?>
-        <div class="col p-0 brochures">
-        <?php  require_once 'component/search.php';?>
+        <div class="col-xxl-10 col-xl-10 col-lg-9 col-md-8 brochures">
         <div class="container-fluid">
                 <?php
                     if(isset($_GET["update"])) {
                     $id = $_GET["update"];
                     $brochureWhere = $brochures->getContentWhere($id);
                 ?>
-                 <div class="card border-0 mb-5">
+                 <div class="card border-0 mb-5 mt-5">
                  <form method="POST" id="updateBrochure" class="updateBrochures" enctype="multipart/form-data">
                     <div class="card-header py-3">
                         <div class="d-sm-flex align-items-center justify-content-between">
@@ -87,9 +87,9 @@ $brochuresContent = $brochures->getContent();
             } else {
             ?>
 
-            <div class ="container-fluid card bg-light shadow-sm border-0 p-4">
+            <div class ="container-fluid shadow-sm border-0 pt-4">
                 <div class="card border-0">
-                    <div class="card-header py-3">
+                    <div class="card-header">
                         <div class="d-sm-flex align-items-center justify-content-between">
                             <h3 class="fw-bold mt-3"><i class="bi bi-newspaper"></i> Brochures</h3>
 
@@ -99,7 +99,7 @@ $brochuresContent = $brochures->getContent();
                             </button>
                         </div>
                     </div>
-                <div class="row d-flex align-items-stretch m-3">
+                <div class="row d-flex align-items-stretch">
                 <?php
                 if(!empty($brochuresContent)) {
                 foreach ($brochuresContent as $v) {
@@ -110,36 +110,37 @@ $brochuresContent = $brochures->getContent();
                 $status = $v["status"];
                 $date_added = $v["date_added"];
                 ?>
-                <div class="col-md-4 d-flex align-items-stretch panamed-img">
-                    <div class="card rounded-0 shadow mb-4 border-light">
-                        <div class="card-header py-3">
-                            <img src ="<?=$BASE;?>../assets/img/brochures/thumbnail/<?= $img; ?>" class="w-100">
+                <div class="col-xl-4 col-lg-6 col-md-6 panamed-img mb-3 mt-3">
+                    <div class="card rounded-0 shadow border-light p-3">
+                        <div class="card-header p-0">
+                            <img src ="<?=$BASE;?>../assets/img/brochures/thumbnail/<?= $img; ?>" class="w-100 shadow">
                         </div>
                             
-                        <div class="card-body py-2 bg-light">
+                        <div class="card-body p-0">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    
-                                    <p class="fw-bold fs-6 me-2 mb-2"><?= $title ?></p>
-                                        <!-- <span class="badge bg-primary me-3 p-2" style="color: white;">Date Added: <?= $date_added ?></span> -->
-                                        <?php if($status== 1) {
-                                            echo "<p class='text-primary badge badge-bg p-2'>Enable</p>";
-                                        }
-                                        else {
-                                            echo "<p class='text-danger badge badge-bg p-2'>Disable</p>";
-                                        } ?>
-                
+                                <div class="col-lg-9 col-sm-8 mt-3">
+                                    <p class="fw-bold fs-6"><?= $title ?></p>
                                 </div>
-                                <div class="col-sm-6">
-                                    <a href="#delete=<?= $id ?>" class="btn btn-sm btn-danger btn-icon-split text-white" onclick="deleteBrochures(<?=$id;?>)"><i class="fa-solid fa-trash"></i>&nbsp; Delete &nbsp;</a>&nbsp;&nbsp;
-                                    <a href="?update=<?= $id ?>/" class="btn btn-sm btn-success btn-icon-split text-white"><i class="fas fa-pen"></i>&nbsp;Update</a>
-                                    <!-- <p class="text-danger fw-bold mb-0s">PDF</p> -->
+                                <div class="col-lg-3 col-sm-4 text-end mt-3">                                 
+                                    <?php if($status== 1) {
+                                    echo "<p class='text-primary badge badge-bg p-2'>Enable</p>";
+                                    }
+                                    else {
+                                    echo "<p class='text-danger badge badge-bg p-2'>Disable</p>";
+                                    } ?>
                                 </div>
-                                <div class="input-group border-0">
-                                    <span class="input-group-text" id="brochure-link"><span class="text-danger fw-bold me-1">PDF </span><i class="bi bi-link fs-5 fw-bold"></i></span>
-                                    <input type="text" class="form-control" placeholder="<?=$file;?>" aria-label="File Name" aria-describedby="brochure-link" value=""disabled>
+                                <div class="col-lg-12 col-sm-12 text-end mt-3">
+                                    <div class="input-group border-0">
+                                        <span class="input-group-text" id="brochure-link"><span class="text-danger fw-bold me-1">PDF </span><i class="bi bi-link fs-5 fw-bold"></i></span>
+                                        <input type="text" class="form-control" placeholder="<?=$file;?>" aria-label="File Name" aria-describedby="brochure-link" value=""disabled>
+                                    </div>
                                 </div>
-                           
+                                <div class="col-lg-12 col-sm-12 mt-3 px-4">
+                                    <div class="row gx-4 d-flex justify-content-end">
+                                        <a href="#delete=<?= $id ?>" class="col-xl-3 col-lg-4 col-md-6 btn btn-danger btn-icon-split text-white p-2" onclick="deleteBrochures(<?=$id;?>)"><i class="fa-solid fa-trash"></i>&nbspDelete&nbsp;</a>&nbsp;&nbsp;
+                                        <a href="?update=<?= $id ?>/" class="col-xl-3 col-lg-4 col-md-6 btn btn-success btn-icon-split text-white p-2"><i class="fas fa-pen"></i>&nbsp;Update</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -150,9 +151,7 @@ $brochuresContent = $brochures->getContent();
                     }
                 ?>
                 </div>
-                <?php    
-                    }
-                ?>
+                <?php } ?>
                 <form id="brochuresAdd" class="addBrochures" enctype="multipart/form-data">
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-lg">
@@ -167,11 +166,11 @@ $brochuresContent = $brochures->getContent();
                                     <input type="hidden" id="brochure-id" name="brochure-id" class="form-control" readonly>
                                 </div>
 
-                                <div class="mb-3">
+                                <div class="d-flex justify-content-center mb-3">
                                     <label class="form-label mx-auto d-block" for="brochureImg">
                                         <div class="img-div">
                                             <input class="form-control d-none" id="brochureImg" name="brochureImg" type="file" accept=".jpg, .jpeg, .png" value=""/>
-                                            <img src="<?=$BASE;?>assets/img/brochures/" class="w-25 img-board mx-auto d-block" id="brochurePreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
+                                            <img src="<?=$BASE;?>assets/img/no-image.svg" class="w-25 img-board mx-auto d-block" id="brochurePreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
                                         </div>
                                     </label>
                                 </div>
@@ -215,8 +214,6 @@ $brochuresContent = $brochures->getContent();
                         </div>
                     </div>
                 </div>
-                </form>
-  
             </div>
         </div>
     </div>

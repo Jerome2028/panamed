@@ -1,15 +1,11 @@
 <?php
 date_default_timezone_set("Asia/Manila");
 $title = "Admin - Dashboard"; 
-
-  require_once 'component/import.php';
-  require_once 'component/header.php';
   $user_account = $userr->getContentWhere($userid);
   ?>
-<div class="col-xxl-2 col-xl-2 col-lg-2 col-md-4 px-0 bg-light">
-<section class="side-nav">
+<div class="col-xxl-2 col-xl-2 col-lg-3 col-md-4 px-0 bg-light">
+<nav class="side-nav">
 <div class="d-flex flex-column">
-    <!-- <img src ="<?=$BASE;?>assets/img/logo.png" class="w-50 d-block m-auto mt-5 mb-1"> -->
     <div class="cover d-flex text-center">
         <div class="overlay"></div>
         <div class="user-nav">
@@ -82,9 +78,9 @@ $title = "Admin - Dashboard";
                 <a class="dropdown-item font-primary" href="<?= $BASE;?>logout" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-box-arrow-right fs-5"></i> Sign out</a>
             </li>
             <?php if($isAdmin){ ?>
-            <li class="waves-effect waves-light">
+            <!-- <li class="waves-effect waves-light">
                 <a class="dropdown-item font-primary" href="<?= $BASE;?>" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="bi bi-person-add fs-5"></i> Add User</a>
-            </li>
+            </li> -->
         <?php }?>
         </ul>
     </div>
@@ -104,15 +100,13 @@ $title = "Admin - Dashboard";
                     </div>
 
                     <div class="modal-body row gx-5">
-                        <div class="col-sm-4">
-                            <div class="mb-4" id="">
-                                <label for="imgInput" class="col-form-label text-right">
-                                <div class="img-div">
-                                    <img src="../../assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-25 img-board mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
-                                    <input class="form-control d-none" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
-                                </div>
-                                </label>
+                        <div class="col-sm-4 mb-4">
+                            <label for="imgInput" class="col-form-label text-right">
+                            <div class="img-div">
+                                <img src="../../assets/img/products/userProfile/<?=$user_account['img'];?>" class="w-25 img-board mx-auto d-block" id="imgPreview" value="<?=$user_account['img'];?>" alt="Upload Picture"/>
+                                <input class="form-control d-none" id="imgInput" type="file" accept="image/*" name="imgInput" value=""/>
                             </div>
+                            </label>
                         </div>
                         <div class="col-sm-8">
                         <div class="row mb-4">
@@ -141,14 +135,14 @@ $title = "Admin - Dashboard";
         </div>
     </div>
 </div>
-</section>
+</nav>
 </div>
-<script type="text/javascript" src="<?= $BASE; ?>assets/js/includes/includes.users.js"></script>
 <script>
     function profile(token) {
         $("#profileForms").trigger('submit');
     }
 </script>
+<script type="text/javascript" src="<?= $BASE; ?>assets/js/includes/includes.users.js"></script>
 
 
                     
