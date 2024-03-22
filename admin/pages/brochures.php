@@ -11,12 +11,12 @@ $brochuresContent = $brochures->getContent();
         <div class="row">
         <?php require_once 'component/sidenav.php';?>
         <div class="col-xxl-10 col-xl-10 col-lg-9 col-md-8 brochures">
-        <div class="container-fluid">
                 <?php
                     if(isset($_GET["update"])) {
                     $id = $_GET["update"];
                     $brochureWhere = $brochures->getContentWhere($id);
                 ?>
+                <div class="container-fluid">
                  <div class="card border-0 mb-5 mt-5">
                  <form method="POST" id="updateBrochure" class="updateBrochures" enctype="multipart/form-data">
                     <div class="card-header py-3">
@@ -80,8 +80,7 @@ $brochuresContent = $brochures->getContent();
                     </div>
                     </form>
                 </div>
-      
-        </div>
+            </div>
 
             <?php
             } else {

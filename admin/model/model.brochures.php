@@ -21,7 +21,6 @@ class Brochures extends db_conn_mysql {
 
         return $response;
     }
-
     public function addContent($title, $img, $file, $sort_by, $status){
         $query = $this->conn->prepare("INSERT INTO brochures (title, img, file, status, sort) VALUES (?, ?, ?, ?, ?)");
         $query->execute([$title, $img, $file, $status, $sort_by]);

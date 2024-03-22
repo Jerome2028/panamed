@@ -2,16 +2,15 @@
 $title =  "Admin - Products";
 require_once 'component/import.php';
 require_once 'component/header.php';
-$page =2;
+require_once 'component/search.php';
+$page=2;
 $productsContent = $products->getContent();
 ?>
 <section class="dashboard">
     <div class="container-fluid">
-        <div class="row h-100">
+        <div class="row">
             <?php require_once 'component/sidenav.php';?>
-
-            <div class="col p-0 overflow-auto">
-            <?php  require_once 'component/search.php';?>
+            <div class="col-xxl-10 col-xl-10 col-lg-9 col-md-8">
             <div class="container-fluid">
                 <?php
                     if(isset($_GET["update"])) {
@@ -44,7 +43,7 @@ $productsContent = $products->getContent();
                         </div>
 
                         <div class="row mb-4">
-                            <label for="info_title" class="col-sm-2 col-form-label text-right"><span class="required">*</span> Product Name:</label>
+                            <label for="info_title" class="col-sm-2 col-form-label text-right">Product Name:<span class="required">*</span></label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name="productName" id="productNames" value="<?= $productsWhere['ppi_product_name'] ?>" placeholder="Type Here...">
                             </div>
@@ -65,7 +64,7 @@ $productsContent = $products->getContent();
 
 
                         <div class="row mb-4">
-                            <label class="col-sm-2 col-form-label text-right"><span class="required">*</span>Product Description:</label>
+                            <label class="col-sm-2 col-form-label text-right">Product Description:<span class="required">*</span></label>
                             <div class="col-sm-9">
                                 <textarea name="products-content" id="products-content" class="form-control"  rows="9" required><?= $productsWhere['ppi_product_description'] ?></textarea>
                             </div>
@@ -103,7 +102,7 @@ $productsContent = $products->getContent();
                     <table class="table border table-bordered mt-3 display" id="products-table">
                         <thead>
                             <tr class="text-dark">
-                            <th scope="col">#</th>
+                            <th scope="col">Id</th>
                             <th scope="col">Images</th>
                             <th scope="col">Product Name</th>
                             <th scope="col">Product Description</th>
@@ -123,8 +122,9 @@ $productsContent = $products->getContent();
                         ?>
 
                     <tr>
-                    <td class="counterCell text-dark"></td>
-                    <td><img src ="../../assets/img/products/<?=$image;?>" class="w-50 border-1 d-block mx-auto my-auto"></td>
+                    <!-- <td class="counterCell text-dark"></td> -->
+                    <td class="text-dark fw-bold"><?= $id;?></td>
+                    <td><img src ="../../assets/img/products/<?=$image;?>" class=" w-100 border-1 d-block mx-auto"></td>
                     <td class="fw-bold"><?=$titlee;?></td>
                     <td class="truncate"><?php echo htmlspecialchars_decode ($content);?></td>
                     <td><?=$status==1 ? "<p class='text-primary badge badge-bg p-2 mb-0'>Enable</p>":"<p class='text-danger badge badge-bg p-2 mb-0'>Disable</p>";?></td>

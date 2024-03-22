@@ -23,42 +23,48 @@ $title = "Admin - Dashboard";
     ?>
     <li class="nav-item waves-effect waves-light">
         <a href="<?=$BASE;?>" class="nav-link align-middle px-0 <?= $page==1 ? "active" : ""?>">
-        <i class="bi bi-house fs-5"></i> <span class="ms-2 d-sm-inline">Dashboard</span>
+        <i class="bi bi-pie-chart fs-5"></i><span class="ms-2 d-sm-inline">Dashboard</span>
         </a>
     </li>
 
     <li class="nav-item waves-effect waves-light">
         <a href="<?=$BASE;?>products/" class="nav-link align-middle px-0 <?= $page==2 ? "active" : ""?>">
-        <i class="bi bi bi-tags fs-5"></i> <span class="ms-2 d-sm-inline">Products</span>
-        </a>
-    </li>
-
-    <li class="nav-item waves-effect waves-light">
-        <a href="" class="nav-link align-middle px-0 <?= $page==3 ? "active" : ""?>">
-            <i class="bi bi-list fs-5"></i> <span class="ms-2 d-sm-inline">Categories</span>
+        <i class="bi bi bi-tags fs-5"></i><span class="ms-2 d-sm-inline">Products</span>
         </a>
     </li>
 
     <li class="nav-item waves-effect waves-light">
         <a href="<?=$BASE;?>career/" class="nav-link align-middle px-0 <?= $page==4 ? "active" : ""?>">
-        <i class="bi bi-chat-left-text fs-5"></i><span class="ms-2 d-sm-inline">Careers</span>
+        <i class="bi bi-briefcase fs-5"></i><span class="ms-2 d-sm-inline">Careers</span>
         </a>
     </li>
 
     <li class="nav-item waves-effect waves-light">
+        <a href="<?=$BASE;?>testimonials/" class="nav-link align-middle px-0 <?= $page==8 ? "active" : ""?>">
+        <i class="bi bi-chat-quote fs-5"></i><span class="ms-2 d-sm-inline">Testimonials</span>
+        </a>
+    </li>
+
+    <!-- <li class="nav-item waves-effect waves-light">
+        <a href="" class="nav-link align-middle px-0 <?= $page==3 ? "active" : ""?>">
+            <i class="bi bi-list fs-5"></i> <span class="ms-2 d-sm-inline">Categories</span>
+        </a>
+    </li> -->
+
+    <li class="nav-item waves-effect waves-light">
         <a href="<?=$BASE;?>news-events/" class="nav-link align-middle px-0 <?= $page==5 ? "active" : ""?>">
-            <i class="bi bi-megaphone fs-5"></i><span class="ms-2 d-sm-inline">News and Events</span>
+        <i class="bi bi-megaphone fs-5"></i><span class="ms-2 d-sm-inline">News and Events</span>
         </a>
     </li>
 
     <li class="nav-item waves-effect waves-light">
         <a href="<?=$BASE;?>featured/" class="nav-link align-middle px-0 <?= $page==6 ? "active" : ""?>">
-            <i class="bi bi-bookmark-star fs-5"></i><span class="ms-2 d-sm-inline">Featured</span>
+        <i class="bi bi-bookmark-star fs-5"></i><span class="ms-2 d-sm-inline">Featured</span>
         </a>
     </li>
     <li class="nav-item waves-effect waves-light">
         <a href="<?=$BASE;?>brochures/" class="nav-link align-middle px-0 <?= $page==7 ? "active" : ""?>">
-        <i class="bi bi-newspaper fs-5"></i><span class="ms-2 d-sm-inline">Brochures</span>
+        <i class="bi bi-file-earmark-richtext fs-5"></i><span class="ms-2 d-sm-inline">Brochures</span>
         </a>
     </li>
     <?php } ?>

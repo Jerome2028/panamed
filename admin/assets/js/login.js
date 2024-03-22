@@ -54,28 +54,35 @@ $(function() {
         var resValue = jQuery.parseJSON(data);
         if(resValue['message'] == "Success Found") {
           $("input , button").prop("disabled", true).val("");
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-              opacity: "1",
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer; 
-            }
-          });
-          Toast.fire({
-            icon: "success",
-            title: "Succesfully Login",
-          });
+
           setTimeout( function() {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+                opacity: "1",
+              didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer; 
+              }
+            });
+            Toast.fire({
+              icon: "success",
+              title: "Succesfully Login",
+            });
             window.location.reload();
           },2000);
           $inputs.prop("disabled", false);
         }
         else {
+
+          setTimeout(function() {
+            $(".login-dashboard").css({
+              opacity: "1",
+              cursor: "default"
+          });
           Toastify({
             text: "Authentication failed.",
             duration: 3000,
@@ -85,12 +92,6 @@ $(function() {
             positionRight: true,
             backgroundColor: "#c46868"
           }).showToast();
-          setTimeout(function() {
-
-            $(".login-dashboard").css({
-              opacity: "1",
-              cursor: "default"
-          });
           $("input , button").prop("disabled", false).val("");
           },2000);
         }

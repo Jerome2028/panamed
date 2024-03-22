@@ -3,12 +3,11 @@ $title =  "Admin - News-events";
 require_once 'component/import.php';
 require_once 'component/header.php';
 $page =5;
-// $newsEvents = new NewsEvents();
 $newsEventsContent = $newsEvents->getContent();
 ?>
 <section class="dashboard">
 <div class="container-fluid">
-    <div class="row h-100">
+    <div class="row">
         <?php require_once 'component/sidenav.php';?>        
         <div class="col p-0">
         <?php  require_once 'component/search.php';?>

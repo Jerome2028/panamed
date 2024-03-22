@@ -17,7 +17,7 @@
     <div class="p-2 col-xl-4 col-lg-4 col-md-4">
       <div class="text-center">
       <i class="bi bi-list mobile-nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#navbarr"></i>
-      <a class="#" data-bs-toggle="modal" data-bs-target="#logoutModal" href="<?=$BASE;?>logout">Logout<i class="bi bi-box-arrow-right fs-5 ms-2"></i></a>
+      <a class="fw-bold" data-bs-toggle="modal" data-bs-target="#logoutModal" href="<?=$BASE;?>logout">Logout<i class="bi bi-box-arrow-right fs-5 ms-2"></i></a>
       </div>
     </div>
   </div>

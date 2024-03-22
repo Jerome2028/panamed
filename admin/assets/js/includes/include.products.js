@@ -215,6 +215,7 @@ Swal.fire({
 function productsTable() {
     $('#products-table').DataTable({
         // responsive:true;
+        // autoWidth: false;
         columns: [null,{ width: '20%' }, { width: '12%' }, null, null, { width: '14%' }]
     });
     $('#productsSearch').on('keyup', function () {

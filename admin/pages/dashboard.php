@@ -2,7 +2,6 @@
 date_default_timezone_set("Asia/Manila");
 $title = "Admin - Dashboard";
 $page =1;
-
   require_once 'component/import.php';
   require_once 'component/header.php';
   require_once 'component/search.php';
@@ -13,10 +12,10 @@ $page =1;
 <div class="container-fluid overflow-hidden">
     <div class="row">
         <?php require_once 'component/sidenav.php';?>
-        <div class="col-xxl-10 col-xl-10 col-lg-9 col-md-8">
+        <div class="col-xxl-10 col-xl-10 col-lg-9 col-md-8 fade-page">
         <div class="container-fluid">
             <div class="icons py-5 px-5">
-            <h4 class="fw-bold">Welcome Back!<span class="ms-1"><?php echo $loggedInRoleString?></span></h4>
+            <h4 class="fw-bold">Welcome Back!<span class="panamed-color"><?php echo " ".$loggedInRoleString?></span></h4>
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4 mt-3">
                         <div class="position-relative">
@@ -35,6 +34,13 @@ $page =1;
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4 mt-3">
                         <div class="position-relative">
                             <a class="card bg-warning text-white p-5 text-center border-0" href="<?=$BASE;?>career/"><span class="fw-bold fs-1 value" count="<?= $careers->countAllCareers(); ?>">0</span><br><p class="text-white fw-bold">Careers</p></a>
+                            <i class="bi bi-handbag-fill"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-4 mt-3">
+                        <div class="position-relative">
+                            <a class="card bg-danger text-white p-5 text-center border-0" href="<?=$BASE;?>career/"><span class="fw-bold fs-1 value" count="<?= $careers->countAllCareers(); ?>">0</span><br><p class="text-white fw-bold">Careers</p></a>
                             <i class="bi bi-handbag-fill"></i>
                         </div>
                     </div>

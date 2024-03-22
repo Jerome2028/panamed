@@ -3,6 +3,7 @@
 require "controller/controller.session.php";
 require "controller/controller.utility.php";
 require "controller/controller.db.php";
+require "model/model.testimonials.php";
 require "model/model.news-events.php";
 require "model/model.brochures.php";
 require "model/model.products.php";
@@ -10,6 +11,7 @@ require "model/model.careers.php";
 require "model/model.user.php";
 
 
+$testimonials = new Testimonials();
 $products = new ProductsContent();
 $newsEvents = new NewsEvents();
 $brochures = new Brochures();

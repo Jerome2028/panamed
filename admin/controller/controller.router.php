@@ -47,6 +47,10 @@ class Router {
             case 'products':
                 require_once 'pages/products.php';
                 break;
+                
+            case 'testimonials':
+                require_once 'pages/testimonials.php';
+                break;
 
             default:
             require_once 'pages/error-page.php';
