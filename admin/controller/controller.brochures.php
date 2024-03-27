@@ -41,28 +41,19 @@ switch($mode) {
         break;
 
     case "updateContent";
-
-        // if ($_FILES['brochureImg']['name']!= "") {
         $target_dirOne = "../../assets/img/brochures/thumbnail/";
         $img = $_FILES['brochureImg']['name'];
         $pathOne = pathinfo($img);
-        // $extOne = $pathOne['extension'];
         $temp_nameOne = $_FILES['brochureImg']['tmp_name'];
-        // $size = filesize($temp_name);
         $path_filename_extOne = $target_dirOne.$img;
         move_uploaded_file($temp_nameOne,$path_filename_extOne);
-        // }
 
-        // if ($_FILES['pdf-upload']['name']!= "") {
         $target_dirTwo = "../../assets/img/brochures/";
         $file = $_FILES['pdf-upload']['name'];
         $pathTwo = pathinfo($file);
-        // $extTwo = $pathTwo['extension'];
         $temp_nameOne = $_FILES['pdf-upload']['tmp_name'];
-        // $size = filesize($temp_name);
         $path_filename_extTwo = $target_dirTwo.$file;
         move_uploaded_file($temp_nameOne,$path_filename_extTwo);
-        // }
 
         if(($file != "") && ($img != "")){
         $id = $_POST["id"];

@@ -15,7 +15,7 @@ switch($mode){
 
     
      if($_FILES['imgInput']['name']) {
-        $target_dir = "../assets/img/products/userProfile/";
+        $target_dir = "../../assets/img/products/userProfile/";
         $file = $_FILES['imgInput']['name'];
         $path = pathinfo($file);
         $ext = $path['extension'];

@@ -26,9 +26,9 @@ class Testimonials extends db_conn_mysql {
         $query->execute([$name, $img, $file, $status, $sort_by]);
     }
 
-    public function updateContent($id,$name, $img, $file, $status){
-        $query = $this->conn->prepare("UPDATE testimonials SET name = ?, img = ?, file = ?, status = ? WHERE id = ?");
-        $query->execute([$name, $img, $file, $status, $id]);
+    public function updateContent($id, $name, $comment, $img, $star, $status) {
+        $query = $this->conn->prepare("UPDATE testimonials SET name = ?, content = ?, img = ?, star = ?, status = ? WHERE id = ?");
+        $query->execute([$name, $comment, $img, $star, $status, $id]);
     }
     public function countAllEvents() {
         $query = $this->conn->query("SELECT * FROM testimonials");
